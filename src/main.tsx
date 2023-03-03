@@ -1,10 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import App from './App'
-import '@/style/index.css'
-import Login from './login/Login'
-
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import App from "./components/App";
+import "@/style/index.css";
+import Login from "./components/login/Login";
 
 const router = createBrowserRouter([
   {
@@ -15,10 +14,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
-])
+]);
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
