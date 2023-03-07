@@ -1,0 +1,50 @@
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #89d99d;
+  .logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    img {
+      height: 84px;
+      width: 84px;
+    }
+    .logo-title-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .logo-title {
+        font-size: 2.25rem;
+        font-weight: bold;
+      }
+      .logo-subtitle {
+        font-size: 0.8rem;
+      }
+    }
+  }
+  .header-actions {
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    a {
+      font-size: 1.25rem;
+      padding: 0.25rem 2rem;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .header-actions-login {
+      border-radius: 50px;
+      background-color: #1e5959;
+      cursor: pointer;
+    }
+  }
+}
