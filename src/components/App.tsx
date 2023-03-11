@@ -1,11 +1,15 @@
 import { useState } from "react";
 import "@/style/App.css";
-import Header from "@/components/Header";
+import Header from "@/components/header/Header";
+import HeaderLoggedIn from "@/components/header/HeaderLoggedIn";
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(true);
+
   return (
     <>
-      <Header />
+      {loggedIn ? <HeaderLoggedIn /> : <Header />}
+
       <h1>Home</h1>
     </>
   );

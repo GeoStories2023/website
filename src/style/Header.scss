@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding-inline: 1rem;
   background-color: #89d99d;
   .logo-container {
     display: flex;
@@ -35,13 +36,13 @@
     align-items: center;
     a {
       font-size: 1.25rem;
-      padding: 0.25rem 2rem;
       color: white;
       font-weight: bold;
       text-decoration: none;
       letter-spacing: 1px;
     }
     .header-actions-login {
+      padding: 0.25rem 2rem;
       border-radius: 50px;
       background-color: #1e5959;
       cursor: pointer;

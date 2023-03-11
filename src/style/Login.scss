@@ -3,46 +3,45 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow: hidden;
   height: 100vh;
-  background-color: white;
+  background-color: #c2e5cb;
 
   .blob {
     z-index: 1;
     position: absolute;
-    top: -100px;
-    left: 100px;
     transform: rotate(45deg);
     width: 20%;
     height: 50%;
     background: linear-gradient(#224a43, #89d99d);
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    animation-name: blobChanger;
-    animation-duration: 60s;
-    animation-iteration-count: infinite;
-  }
-
-  @keyframes blobChanger {
-    0% {
-      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-      rotate: 0deg;
-      transform: scale(1);
+    &.blob-1 {
+      width: 30%;
+      height: 60%;
+      top: -100px;
+      left: 50px;
     }
-    25% {
-      border-radius: 70% 30% 20% 80% / 50% 25% 75% 50%;
-      rotate: 20deg;
+    &.blob-2 {
+      top: -100px;
+      right: -50px;
     }
-    50% {
-      border-radius: 20% 80% 55% 45% / 70% 25% 75% 30%;
-      transform: scale(1.25);
+    &.blob-3 {
+      left: -70px;
+      bottom: -120px;
     }
-    75% {
-      border-radius: 80% 20% 30% 70% / 75% 90% 10% 25%;
-      rotate: 10deg;
+    &.blob-4 {
+      width: 10%;
+      height: 40%;
+      left: 40%;
+      bottom: 50px;
+      rotate: 90deg;
     }
-    100% {
-      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-      rotate: 0deg;
-      transform: scale(1);
+    &.blob-5 {
+      width: 25%;
+      height: 55%;
+      right: 100px;
+      bottom: -120px;
     }
   }
 
@@ -51,7 +50,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: #224a43;
-    box-shadow: 0 0 100vw 100vw #00000088;
     width: 50%;
     height: 65%;
 
