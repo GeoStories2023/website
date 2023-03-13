@@ -9,7 +9,7 @@ function Login() {
     "20% 80% 55% 45% / 70% 25% 75% 30%",
     "80% 20% 30% 70% / 75% 90% 10% 25%",
   ];
-  const blobRotates = ["0deg", "10deg", "20deg", "180deg"];
+  const blobRotates = ["0deg", "10deg", "20deg", "40deg"];
   const blobScales = ["scale(1)", "scale(1.25)"];
   useEffect(() => {
     const blobs = Array.from(document.getElementsByClassName("blob"));
@@ -45,7 +45,7 @@ function Login() {
         }
       `;
       document.head.appendChild(style);
-      blob.style.animation = `blob${index} 60s ease-in-out infinite`;
+      blob.style.animation = `blob${index} 120s ease-in-out infinite`;
     });
   }, []);
   return (
@@ -54,7 +54,6 @@ function Login() {
       <div className="blob blob-2"></div>
       <div className="blob blob-3"></div>
       <div className="blob blob-4"></div>
-      <div className="blob blob-5"></div>
       <section className="login-form-container">
         <div className="login-form-left">
           <div className="login-form-left-logo-container">
