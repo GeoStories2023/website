@@ -7,7 +7,7 @@ import greenSeperator from "@/assets/wave_green_full.svg";
 import explore from "@/assets/homepage-erkunden.jpg";
 import diary from "@/assets/homepage-tagebuch.jpg";
 import review from "@/assets/homepage-rueckblick.jpg";
-import "@/style/Homepage.scss";
+import "@/style/Home.scss";
 import { Link } from "react-router-dom";
 
 function Homepage() {
