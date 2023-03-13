@@ -2,7 +2,7 @@ import { useState } from "react";
 import "@/style/App.css";
 import Header from "@/components/header/Header";
 import HeaderLoggedIn from "@/components/header/HeaderLoggedIn";
-import Homepage from "@/components/homepage/Homepage";
+import Home from "@/components/home/Home";
 import Footer from "@/components/footer/Footer";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     <>
       {loggedIn ? <HeaderLoggedIn /> : <Header />}
 
-      <Homepage></Homepage>
+      <Home></Home>
       <Footer></Footer>
     </>
   );
