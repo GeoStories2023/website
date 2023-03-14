@@ -10,7 +10,7 @@ import review from "@/assets/homepage-rueckblick.jpg";
 import "@/style/Home.scss";
 import { Link } from "react-router-dom";
 
-function Homepage() {
+function Home() {
   return (
     <div className="home-container">
       <div className="big-picture-container">
@@ -90,4 +90,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default Home;
