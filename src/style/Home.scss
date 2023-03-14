@@ -48,32 +48,33 @@
   }
 
   .quote-container {
-    background-color: #1e5959;
     display: flex;
     flex-direction: column;
-    padding: 10vh 0vw 0vh 0vw;
-
-    .quote-text {
+    .quote-inner-container {
+      background-color: #1e5959;
+      display: flex;
+      flex-direction: column;
       justify-content: center;
-      align-content: center;
-
-      .quote-quote {
-        font-size: 1.5rem;
+      align-items: center;
+      .quote-text {
+        .quote-quote {
+          font-size: 1.5rem;
+        }
+        .quote-author {
+          font-size: 1.25rem;
+          font-style: italic;
+        }
       }
-
-      .quote-author {
-        font-size: 1.25rem;
-        font-style: italic;
+      .quote-book {
+        width: 35%;
+        align-self: flex-end;
+        padding-right: 10vw;
       }
     }
-
-    .quote-book {
-      width: 35%;
-      align-self: flex-end;
-      padding-right: 10vw;
+    .quote-wave {
+      fill: #1e5959;
     }
   }
-
   .features-container {
     display: flex;
     flex-direction: row;
@@ -85,33 +86,32 @@
     .single-feature-container {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       align-items: center;
       max-width: 30vw;
       min-height: 10vh;
       background-color: #89d99d;
-      border-radius: 15px;
+      border-radius: 50px;
       margin-inline: 2vh;
 
       .img-feature {
-        border-top-right-radius: 15px;
-        border-top-left-radius: 15px;
-        width: 60%;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        width: 90%;
       }
 
       .text-feature {
         display: flex;
         flex-direction: column;
-        height: 30vh;
-        padding-top: 3vh;
+        justify-content: space-between;
         color: black;
-        flex-wrap: wrap;
-        padding-inline: 2vw;
+        padding-inline: 2rem;
+        transform: translateY(-50%);
 
         .header-feature {
-          font-size: 2.5rem;
+          font-size: 3vw;
           font-weight: 500;
-          min-height: 16vh;
-          padding-bottom: 1vh;
+          min-height: 10rem;
         }
       }
     }
