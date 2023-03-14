@@ -5,8 +5,8 @@ import HeaderLoggedIn from "@/components/header/HeaderLoggedIn";
 import Footer from "@/components/footer/Footer";
 import { Outlet } from "react-router-dom";
 
-function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+function BasicLayout() {
+  const [loggedIn, setLoggedIn] = useState(true);
 
   return (
     <>
@@ -17,4 +17,4 @@ function App() {
   );
 }
 
-export default App;
+export default BasicLayout;
