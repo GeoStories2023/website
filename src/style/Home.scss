@@ -87,22 +87,22 @@
       flex-direction: column;
       align-items: center;
       max-width: 30vw;
-      min-height: 70vh;
+      min-height: 10vh;
       background-color: #89d99d;
-      border-radius: 10%;
+      border-radius: 15px;
       margin-inline: 2vh;
 
       .img-feature {
-        border-top-right-radius: 10%;
-        border-top-left-radius: 10%;
-        width: 100%;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+        width: 60%;
       }
 
       .text-feature {
         display: flex;
         flex-direction: column;
-        height: 50vh;
-        padding-top: 5vh;
+        height: 30vh;
+        padding-top: 3vh;
         color: black;
         flex-wrap: wrap;
         padding-inline: 2vw;
@@ -110,8 +110,8 @@
         .header-feature {
           font-size: 2.5rem;
           font-weight: 500;
-          min-height: 15vh;
-          padding-bottom: 2vh;
+          min-height: 16vh;
+          padding-bottom: 1vh;
         }
       }
     }
