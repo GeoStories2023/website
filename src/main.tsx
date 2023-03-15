@@ -6,7 +6,8 @@ import "@/style/index.scss";
 import Login from "@/components/login/Login";
 import Continent from "@/components/continent/Continent";
 import Country from "@/components/country/Country";
-import Home from "./components/home/Home";
+import Home from "@/components/home/Home";
+import Register from "@/components/register/Register";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
+  {
+    path: "/register",
+    element: <Register />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

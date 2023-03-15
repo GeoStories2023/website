@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import TourItem from "../tour/TourItem";
+import TourItem from "@/components/tour/TourItem";
 
 function Country() {
   const { country } = useParams();
