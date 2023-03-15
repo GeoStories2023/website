@@ -17,7 +17,7 @@ function TourItem() {
         <div className="touritem-about-description">{tour.description}</div>
       </div>
       <div className="touritem-info">
-        <div className="touritem-info-duration">Duration: {tour.duration}</div>
+        <div className="touritem-info-duration">Duration: {tour.duration} Minuten</div>
         <div className="touritem-info-city">City: {tour.city}</div>
       </div>
     </div>

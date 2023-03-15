@@ -9,7 +9,9 @@ function Country() {
     <div className="country-container" style={{ color: "black" }}>
       <div className="country-header">{country}</div>
       <div className="country-popular-tours">
-        <TourItem />
+        <div className="tour-list">
+          <TourItem />
+        </div>
       </div>
     </div>
   );
