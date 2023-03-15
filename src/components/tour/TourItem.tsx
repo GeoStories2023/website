@@ -8,6 +8,7 @@ function TourItem() {
       "Ganz viel Text kann dann hier hinkkommen. Lorem impsum dolor sit amet, consetetur sadipscing elitr.",
     duration: 45,
     city: "Bremen",
+    premium: true,
   };
   return (
     <div className="touritem-container">
@@ -20,6 +21,7 @@ function TourItem() {
         <div className="touritem-info-duration">Duration: {tour.duration} Minuten</div>
         <div className="touritem-info-city">City: {tour.city}</div>
       </div>
+      {tour.premium ? <div className="touritem-info-premium"></div> : ""}
     </div>
   );
 }
