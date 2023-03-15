@@ -1,15 +1,7 @@
 import React from "react";
 import "@/style/TourItem.scss";
 
-function TourItem() {
-  const tour = {
-    name: "Bremer Altstadt-Tour",
-    description:
-      "Ganz viel Text kann dann hier hinkkommen. Lorem impsum dolor sit amet, consetetur sadipscing elitr.",
-    duration: 45,
-    city: "Bremen",
-    premium: true,
-  };
+function TourItem({ tour }, { tour: any }) {
   return (
     <div className="touritem-container">
       <div className="touritem-image"></div>
