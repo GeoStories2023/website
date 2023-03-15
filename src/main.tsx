@@ -9,7 +9,7 @@ import Country from "@/components/country/Country";
 import Home from "@/components/home/Home";
 import Register from "@/components/register/Register";
 import Friends from "@/components/friends/Friends";
-import Profile from "@/components/profile/Profile";
+import User from "@/components/user/User";
 import Badges from "@/components/badges/Badges";
 import Favorites from "@/components/favorites/Favorites";
 import Premium from "./components/premium/Premium";
@@ -38,14 +38,12 @@ const router = createBrowserRouter([
         ],
       },
       {
+        path: "users/:user",
+        element: <User />,
+      },
+      {
         path: "friends",
         element: <Friends />,
-        children: [
-          {
-            path: ":friend",
-            element: <Profile />,
-          }
-        ]
       },
       {
         path: "badges",
