@@ -1,7 +1,7 @@
 import React from "react";
 import "@/style/TourItem.scss";
 
-function TourItem({ tour }, { tour: any }) {
+function TourItem({ tour }: { tour: any }) {
   return (
     <div className="touritem-container">
       <div className="touritem-image"></div>
