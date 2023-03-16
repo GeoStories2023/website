@@ -1,0 +1,21 @@
+.socialmedia {
+  position: fixed;
+  right: 0;
+  top: 15rem;
+  padding: 1rem 0.8rem;
+  background-color: #89d99d;
+  border-radius: 1rem 0 0 1rem;
+
+  .icon {
+    padding: 0.2rem 0;
+  }
+
+  img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  svg {
+    fill: #ffffff;
+  }
+}
