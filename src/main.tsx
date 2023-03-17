@@ -8,6 +8,12 @@ import Continent from "@/components/continent/Continent";
 import Country from "@/components/country/Country";
 import Home from "@/components/home/Home";
 import Register from "@/components/register/Register";
+import Friends from "@/components/friends/Friends";
+import User from "@/components/user/User";
+import Badges from "@/components/badges/Badges";
+import Favorites from "@/components/favorites/Favorites";
+import Premium from "./components/premium/Premium";
+import About from "./components/about/About";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +25,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/tours",
+        path: "tours",
         children: [
           {
             path: ":continent",
@@ -31,6 +37,33 @@ const router = createBrowserRouter([
           },
         ],
       },
+      {
+        path: "users/:user",
+        element: <User />,
+      },
+      {
+        path: "friends",
+        element: <Friends />,
+      },
+      {
+        path: "badges",
+        element: <Badges />,
+      },
+      {
+        path: "favorites",
+        element: <Favorites />,
+      },
+      {
+        path: "premium",
+        element: <Premium />,
+      },
+      {
+        path: "statistics",
+      },
+      {
+        path: "about",
+        element: <About />,
+      }
     ],
   },
   {
