@@ -1,25 +1,25 @@
 import React from "react";
 import "@/style/Socialmedia.scss";
-import insta from "@/assets/icons/instagram.svg";
-import twitter from "@/assets/icons/twitter.svg";
-import facebook from "@/assets/icons/facebook.svg";
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaTwitter} from "react-icons/fa";
 
 function Socialmedia() {
   return (
     <div className="socialmedia">
         <div className="icon">
             <a href="https://www.instagram.com/">
-                <img src={insta} className="insta" alt="Instagram" />
+                <FaInstagram size={32} />
             </a>
         </div>
         <div className="icon">
-            <a href='https://www.instagram.com/'>
-                <img src={twitter} className="insta" alt="Instagram" />
+            <a href='https://twitter.com/?lang=de'>
+                <FaTwitter size={32} />
             </a>
         </div>
         <div className="icon">
-            <a href='https://www.instagram.com/'>
-                <img src={facebook} className="insta" alt="Instagram" />
+            <a href='https://www.facebook.com/'>
+                <FaFacebook size={32} />
             </a>
         </div>
     </div>

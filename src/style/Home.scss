@@ -50,8 +50,26 @@
   .quote-container {
     display: flex;
     flex-direction: column;
+    position: relative;
+    padding-top: 8rem;
+    background-color: #1e5959;
+    margin-top: 4rem;
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -2.6rem;
+      left: 0;
+      right: 0;
+      height: 5rem;
+      background-image: url("/src/assets/wave_green_full.svg");
+      background-position: center;
+      background-repeat: repeat-x;
+      background-size: contain;
+    }
+
     .quote-inner-container {
-      background-color: #1e5959;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -78,40 +96,37 @@
   .features-container {
     display: flex;
     flex-direction: row;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    margin-left: 2vw;
-    margin-right: 2vw;
+    justify-content: space-between;
+    width: 90rem;
+    margin: 34vh auto 5vh auto;
 
     .single-feature-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 30vw;
-      min-height: 10vh;
-      background-color: #89d99d;
+      width: 28rem;
+      height: 40rem;
+      background-color: #c2e5cb;
       border-radius: 50px;
       margin-inline: 2vh;
+      position: relative;
 
       .img-feature {
-        transform: translateY(-50%);
-        border-radius: 50%;
-        width: 90%;
+        position: absolute;
+        width: 25rem;
+        top: -10rem;
+        left: 1.5rem;
+        right: auto;
+        border-radius: 20rem;
       }
 
       .text-feature {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         color: black;
         padding-inline: 2rem;
-        transform: translateY(-50%);
+        margin-top: 18rem;
 
         .header-feature {
-          font-size: 3vw;
+          font-size: 1.8vw;
           font-weight: 500;
-          min-height: 10rem;
+          min-height: 8rem;
+          display: block;
         }
       }
     }

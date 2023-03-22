@@ -4,7 +4,7 @@ import "@/style/Footer.scss";
 function Footer() {
   return (
     <div className="footer-container">
-      <span>&#169;2023 GeoStories</span>
+        <p>&#169;2023 <span className="text">GeoStories</span></p>
     </div>
   );
 }
