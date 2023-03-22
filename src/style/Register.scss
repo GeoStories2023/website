@@ -59,8 +59,10 @@
           justify-content: center;
           align-items: center;
           h2 {
-            margin-block: 1ch;
+            margin-block: 0;
             color: #89d99d;
+            font-family: Lobster, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+            font-size: 3rem;
           }
         }
       }

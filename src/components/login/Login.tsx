@@ -59,7 +59,7 @@ function Login() {
           <div className="login-form-left-logo-container">
             <p>Welcome to</p>
             <div className="login-form-left-logo">
-              <img src={logo} alt="Logo" width="60px" height="60px" />
+              <img src={logo} alt="Logo" width="80px" height="80px" />
               <h2>GeoStories</h2>
             </div>
           </div>
