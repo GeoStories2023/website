@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "@/style/Login.scss";
 import logo from "@/assets/geo-stories_logo_3.svg";
+import LoginForm from "./LoginForm";
 
 function Login() {
   const blobVariations = [
@@ -54,29 +55,7 @@ function Login() {
       <div className="blob blob-2"></div>
       <div className="blob blob-3"></div>
       <div className="blob blob-4"></div>
-      <section className="login-form-container">
-        <div className="login-form-left">
-          <div className="login-form-left-logo-container">
-            <p>Welcome to</p>
-            <div className="login-form-left-logo">
-              <img src={logo} alt="Logo" width="80px" height="80px" />
-              <h2>GeoStories</h2>
-            </div>
-          </div>
-          <form action="" className="login-form">
-            <input type="text" placeholder="E-Mail" />
-            <input type="password" placeholder="Password" />
-            <button>LOGIN</button>
-            <p>
-              Don't have an account? Register <a href="/register">here</a>
-            </p>
-          </form>
-        </div>
-        <div className="login-form-right">
-          <img src={logo} alt="Logo" width="125px" height="125px" />
-          <h1>GeoStories</h1>
-        </div>
-      </section>
+      <LoginForm />
     </div>
   );
 }

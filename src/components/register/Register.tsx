@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
-import logo from "@/assets/geo-stories_logo_3.svg";
+import React, { useEffect } from "react";
 import "@/style/Register.scss";
+import RegisterForm from "./RegisterForm";
 
 function Register() {
   const blobVariations = [
@@ -48,54 +48,16 @@ function Register() {
       blob.style.animation = `blob${index} 120s ease-in-out infinite`;
     });
   }, []);
+
   return (
     <div className="register-container">
       <div className="blob blob-1"></div>
       <div className="blob blob-2"></div>
       <div className="blob blob-3"></div>
       <div className="blob blob-4"></div>
-      <section className="register-form-container">
-        <div className="register-form-logo-container">
-          <p>Welcome to</p>
-          <div className="register-form-logo">
-            <img src={logo} alt="Logo" width="80px" height="80px" />
-            <h2>GeoStories</h2>
-          </div>
-        </div>
-        <div className="register-form-inner-container">
-          <form action="" className="register-form">
-            <input type="text" placeholder='Name' />
-            <input type="text" placeholder='Lastname' />
-            <input type="text" placeholder='City' />
-            <input type="text" placeholder='Postalcode' />
-            <input type="text" placeholder="E-Mail" />
-            <input type="password" placeholder="Password" />
-            <input type="password" placeholder="Confirm Password" />
-            <div className="register-form-checkbox-container">
-              <div className="register-form-checkbox">
-                <input type="checkbox" id='register-form-agb' />
-                <label htmlFor="register-form-agb">
-                  Accept our AGBs
-                </label>
-              </div>
-              <div className="register-form-checkbox">
-                <input type="checkbox" id='register-form-privacy-policy' />
-                <label htmlFor="register-form-privacy-policy">
-                  Accept our privacy policy
-                </label>
-              </div>
-            </div>
-            <div className="register-form-button">
-              <button>REGISTER</button>
-              <p>
-                Already have an account? Login <a href="/login">here</a>
-              </p>
-            </div>
-          </form>
-        </div>
-      </section>
+      <RegisterForm />
     </div>
   );
 }
 
-export default Register
+export default Register;

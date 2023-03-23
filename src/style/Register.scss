@@ -1,4 +1,3 @@
-
 .register-container {
   display: flex;
   flex-direction: column;
@@ -48,25 +47,26 @@
     width: 50%;
     height: 65%;
 
-      .register-form-logo-container {
-        margin-block: 1rem;
-        p {
-          margin: 0;
-        }
-        .register-form-logo {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          h2 {
-            margin-block: 0;
-            color: #89d99d;
-            font-family: Lobster, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-            font-size: 3rem;
-          }
+    .register-form-logo-container {
+      margin-block: 1rem;
+      p {
+        margin: 0;
+      }
+      .register-form-logo {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        h2 {
+          margin-block: 0;
+          color: #89d99d;
+          font-family: Lobster, Inter, system-ui, Avenir, Helvetica, Arial,
+            sans-serif;
+          font-size: 3rem;
         }
       }
-    .register-form-inner-container{
+    }
+    .register-form-inner-container {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -80,10 +80,10 @@
           border-radius: 5px;
           border: none;
         }
-        .register-form-checkbox-container{
+        .register-form-checkbox-container {
           display: flex;
           flex-direction: column;
-          .register-form-checkbox{
+          .register-form-checkbox {
             width: 100%;
             display: flex;
             flex-direction: row;
@@ -91,7 +91,7 @@
             align-content: center;
           }
         }
-        .register-form-button{
+        .register-form-button {
           button {
             width: 100%;
             padding: 0.8rem 0.5rem;
