@@ -1,3 +1,5 @@
+// Both logged and not logged in header
+.header-logged-in-container,
 .header-container {
   display: flex;
   flex-direction: row;
@@ -20,7 +22,8 @@
       .logo-title {
         font-size: 2.25rem;
         font-weight: bold;
-        font-family: Lobster, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+        font-family: Lobster, Inter, system-ui, Avenir, Helvetica, Arial,
+          sans-serif;
         display: block;
         margin-top: -1rem;
       }
@@ -33,12 +36,16 @@
       }
     }
   }
+}
+// Only not logged in header
+.header-container {
   .header-actions {
-    width: 550px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: 2rem;
+    margin-right: 2rem;
     a {
       font-size: 1.25rem;
       color: white;
@@ -52,21 +59,28 @@
       background-color: #1e5959;
       cursor: pointer;
     }
-
+  }
+}
+// Only logged in header
+.header-logged-in-container {
+  .header-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-right: 1rem;
     img {
       height: 52px;
       width: 52px;
     }
-
     .level-container {
       display: flex;
       flex-direction: column;
-
       .level-title {
         font-size: 1.2rem;
         font-weight: 500;
       }
-
       meter {
         width: 14vw;
       }

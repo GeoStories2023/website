@@ -28,7 +28,7 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
       });
   }
   return (
-    <header className="header-container">
+    <header className="header-logged-in-container">
       <div className="logo-container">
         <img src={logo} className="logo" alt="Logo" />
         <div className="logo-title-container">
