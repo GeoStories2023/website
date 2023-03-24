@@ -3,7 +3,7 @@ import "@/style/Login.scss";
 import logo from "@/assets/geo-stories_logo_3.svg";
 import LoginForm from "./LoginForm";
 
-function Login() {
+function Login({ setUser }: { setUser: any }) {
   const blobVariations = [
     "30% 70% 70% 30% / 30% 30% 70% 70%",
     "70% 30% 20% 80% / 50% 25% 75% 50%",
@@ -55,7 +55,7 @@ function Login() {
       <div className="blob blob-2"></div>
       <div className="blob blob-3"></div>
       <div className="blob blob-4"></div>
-      <LoginForm />
+      <LoginForm setUser={setUser} />
     </div>
   );
 }

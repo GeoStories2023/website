@@ -2,15 +2,24 @@ import React, { useRef } from "react";
 import logo from "@/assets/geo-stories_logo_3.svg";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app } from "@/firebase";
+import { useNavigate } from "react-router-dom";
+import { User } from "@/types/General";
 
-function LoginForm() {
+function LoginForm({
+  setUser,
+}: {
+  setUser: any; //React.Dispatch<React.SetStateAction<User>>;
+}) {
+  const navigate = useNavigate();
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+
   function handleSubmit() {
     const email = emailRef.current?.value ?? "";
     const password = passwordRef.current?.value ?? "";
     login(email, password);
   }
+
   function login(email: string, password: string) {
     const auth = getAuth(app);
     signInWithEmailAndPassword(auth, email, password)
@@ -18,6 +27,9 @@ function LoginForm() {
         // Signed in
         const user = userCredential.user;
         console.log(user);
+        // Fetch User
+        setUser({ ...user, username: "Test" });
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -35,8 +47,8 @@ function LoginForm() {
           </div>
         </div>
         <div className="login-form">
-          <input type="text" placeholder="E-Mail" />
-          <input type="password" placeholder="Password" />
+          <input ref={emailRef} type="text" placeholder="E-Mail" />
+          <input ref={passwordRef} type="password" placeholder="Password" />
           <button onClick={handleSubmit}>LOGIN</button>
           <p>
             Don't have an account? Register <a href="/register">here</a>

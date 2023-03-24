@@ -6,10 +6,27 @@ import {
   IoReorderThreeOutline as BurgerMenu,
   IoPersonCircle as ProfilePicture,
   IoLogOutOutline as Logout,
-
 } from "react-icons/io5";
+import { User } from "@/types/General";
+import { getAuth, signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
-function HeaderLoggedIn() {
+function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
+  const navigate = useNavigate();
+  const auth = getAuth();
+  function handleSignOut() {
+    console.log("Sign out");
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful
+        setUser(null);
+        navigate("/");
+      })
+      .catch((error) => {
+        // Error
+        console.log(error);
+      });
+  }
   return (
     <header className="header-container">
       <div className="logo-container">
@@ -25,9 +42,10 @@ function HeaderLoggedIn() {
           <span className="level-title">Level: 33 - Geschichtenerzähler</span>
           <meter min="0" max="1000" value="600"></meter>
         </div>
+        {user.username}
         <BurgerMenu size={52} />
         <ProfilePicture size={52} />
-        <Logout size={52} />
+        <Logout onClick={handleSignOut} size={52} />
       </div>
     </header>
   );
