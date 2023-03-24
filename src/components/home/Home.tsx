@@ -3,7 +3,6 @@ import bigPicture from "@/assets/HomePagePic1_full.png";
 import phone from "@/assets/iphone.png";
 import qrcode from "@/assets/qr_code_playstore.png";
 import book from "@/assets/book-quote.png";
-import greenSeperator from "@/assets/wave_green_full.svg";
 import explore from "@/assets/homepage-erkunden.jpg";
 import diary from "@/assets/homepage-tagebuch.jpg";
 import review from "@/assets/homepage-rueckblick.jpg";

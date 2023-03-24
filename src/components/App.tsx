@@ -7,7 +7,7 @@ import Footer from "@/components/footer/Footer";
 import { Outlet } from "react-router-dom";
 
 function BasicLayout() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   return (
     <>
