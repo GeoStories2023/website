@@ -34,7 +34,7 @@
     }
   }
   .header-actions {
-    width: 350px;
+    width: 550px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -51,6 +51,25 @@
       border-radius: 50px;
       background-color: #1e5959;
       cursor: pointer;
+    }
+
+    img {
+      height: 52px;
+      width: 52px;
+    }
+
+    .level-container {
+      display: flex;
+      flex-direction: column;
+
+      .level-title {
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      meter {
+        width: 14vw;
+      }
     }
   }
 }
