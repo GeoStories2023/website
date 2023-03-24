@@ -36,6 +36,11 @@
       }
     }
   }
+  .header-actions {
+    svg {
+      cursor: pointer;
+    }
+  }
 }
 // Only not logged in header
 .header-container {
