@@ -53,7 +53,8 @@ function RegisterForm() {
     return true;
   }
 
-  function handleSubmit() {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     // Validate inputs
     const email = emailRef.current?.value ?? "";
     const password = passwordRef.current?.value ?? "";
@@ -85,7 +86,7 @@ function RegisterForm() {
         </div>
       </div>
       <div className="register-form-inner-container">
-        <div className="register-form">
+        <form onSubmit={handleSubmit} className="register-form">
           <input type="text" placeholder="Name" />
           <input type="text" placeholder="Lastname" />
           <input type="text" placeholder="City" />
@@ -111,12 +112,12 @@ function RegisterForm() {
             </div>
           </div>
           <div className="register-form-button">
-            <button onClick={handleSubmit}>REGISTER</button>
+            <button>REGISTER</button>
             <p>
               Already have an account? Login <a href="/login">here</a>
             </p>
           </div>
-        </div>
+        </form>
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import logo from "@/assets/geo-stories_logo_3.svg";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app } from "@/firebase";
@@ -14,7 +14,8 @@ function LoginForm({
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
-  function handleSubmit() {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     const email = emailRef.current?.value ?? "";
     const password = passwordRef.current?.value ?? "";
     login(email, password);
@@ -36,6 +37,10 @@ function LoginForm({
       });
   }
 
+  useEffect(() => {
+    emailRef.current?.focus();
+  }, []);
+
   return (
     <section className="login-form-container">
       <div className="login-form-left">
@@ -46,14 +51,19 @@ function LoginForm({
             <h2>GeoStories</h2>
           </div>
         </div>
-        <div className="login-form">
-          <input ref={emailRef} type="text" placeholder="E-Mail" />
-          <input ref={passwordRef} type="password" placeholder="Password" />
-          <button onClick={handleSubmit}>LOGIN</button>
+        <form onSubmit={handleSubmit} className="login-form">
+          <input ref={emailRef} type="text" placeholder="E-Mail" required />
+          <input
+            ref={passwordRef}
+            type="password"
+            placeholder="Password"
+            required
+          />
+          <button>LOGIN</button>
           <p>
             Don't have an account? Register <a href="/register">here</a>
           </p>
-        </div>
+        </form>
       </div>
       <div className="login-form-right">
         <img src={logo} alt="Logo" width="125px" height="125px" />
