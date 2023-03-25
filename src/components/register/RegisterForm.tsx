@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import logo from "@/assets/geo-stories_logo_3.svg";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { app } from "@/firebase";
@@ -10,23 +10,16 @@ interface PasswordInfo {
 
 function RegisterForm() {
   const passwordRef = useRef<HTMLInputElement>(null);
+  const confirmPasswordRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
 
-  const [passwordInfo, setPasswordInfo] = React.useState<PasswordInfo[]>([
+  const [passwordInfo, setPasswordInfo] = useState<PasswordInfo[]>([
     { status: false, message: "8 characters long" },
-    {
-      status: false,
-      message: "At least one lowercase letter",
-    },
-    {
-      status: false,
-      message: "At least one uppercase letter",
-    },
+    { status: false, message: "At least one lowercase letter" },
+    { status: false, message: "At least one uppercase letter" },
     { status: false, message: "At least one number" },
-    {
-      status: false,
-      message: "At least one special character",
-    },
+    { status: false, message: "At least one special character" },
+    { status: false, message: "Passwords match" },
   ]);
   let passwordOk = useRef<boolean>(false);
 
@@ -43,7 +36,7 @@ function RegisterForm() {
    */
   function validatePassword() {
     const password = passwordRef.current?.value ?? "";
-    const passwordInfo = [
+    const passwordInfo: PasswordInfo[] = [
       { status: password.length > 8, message: "8 characters long" },
       {
         status: /(?=.*[a-z])/.test(password),
@@ -57,6 +50,11 @@ function RegisterForm() {
       {
         status: /^(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])/.test(password),
         message: "At least one special character",
+      },
+      {
+        status:
+          passwordRef.current?.value === confirmPasswordRef.current?.value,
+        message: "Passwords match",
       },
     ];
 
@@ -104,38 +102,46 @@ function RegisterForm() {
           <input type="text" placeholder="Lastname" />
           <input type="text" placeholder="City" />
           <input type="text" placeholder="Postalcode" />
-          <input ref={emailRef} type="email" placeholder="E-Mail" required />
-          <div className="register-password-container">
-            <input
-              ref={passwordRef}
-              type="password"
-              placeholder="Password"
-              onChange={validatePassword}
-              required
-            />
-            <div className="register-password-info">
-              {passwordInfo.map((info: PasswordInfo) => {
-                return (
+          <input
+            className="colspan-2"
+            ref={emailRef}
+            type="email"
+            placeholder="E-Mail"
+            required
+          />
+          <input
+            className="colspan-2"
+            ref={passwordRef}
+            type="password"
+            placeholder="Password"
+            onChange={validatePassword}
+            required
+          />
+          <input
+            className="colspan-2"
+            ref={confirmPasswordRef}
+            type="password"
+            placeholder="Confirm Password"
+            onChange={validatePassword}
+          />
+          <div className="register-password-info">
+            {passwordInfo?.map((info: PasswordInfo) => {
+              return (
+                <div className="register-password-info-item" key={info.message}>
                   <div
-                    className="register-password-info-item"
-                    key={info.message}
+                    className={
+                      info.status
+                        ? "register-password-info-item-icon"
+                        : "register-password-info-item-icon insufficient"
+                    }
                   >
-                    <div
-                      className={
-                        info.status
-                          ? "register-password-info-item-icon"
-                          : "register-password-info-item-icon insufficient"
-                      }
-                    >
-                      {info.status ? "✔" : "✖"}
-                    </div>
-                    <p>{info.message}</p>
+                    {info.status ? "✔" : "✖"}
                   </div>
-                );
-              })}
-            </div>
+                  <p>{info.message}</p>
+                </div>
+              );
+            })}
           </div>
-          <input type="password" placeholder="Confirm Password" />
           <div className="register-form-checkbox-container">
             <div className="register-form-checkbox">
               <input type="checkbox" id="register-form-agb" />
@@ -148,7 +154,7 @@ function RegisterForm() {
               </label>
             </div>
           </div>
-          <div className="register-form-button">
+          <div className="register-form-button colspan-2">
             <button>REGISTER</button>
             <p>
               Already have an account? Login <a href="/login">here</a>
