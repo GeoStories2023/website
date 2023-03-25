@@ -80,6 +80,24 @@
           border-radius: 5px;
           border: none;
         }
+        .register-password-info {
+          .register-password-info-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0.5rem;
+            .register-password-info-item-icon {
+              color: #89d99d;
+              &.insufficient {
+                color: #ef0000;
+              }
+            }
+          }
+          p {
+            margin-block: 0;
+          }
+        }
         .register-form-checkbox-container {
           display: flex;
           flex-direction: column;

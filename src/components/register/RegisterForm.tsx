@@ -1,11 +1,34 @@
-import React, { LegacyRef, useRef } from "react";
+import React, { useRef } from "react";
 import logo from "@/assets/geo-stories_logo_3.svg";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { app } from "@/firebase";
 
+interface PasswordInfo {
+  status: boolean;
+  message: string;
+}
+
 function RegisterForm() {
   const passwordRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
+
+  const [passwordInfo, setPasswordInfo] = React.useState<PasswordInfo[]>([
+    { status: false, message: "8 characters long" },
+    {
+      status: false,
+      message: "At least one lowercase letter",
+    },
+    {
+      status: false,
+      message: "At least one uppercase letter",
+    },
+    { status: false, message: "At least one number" },
+    {
+      status: false,
+      message: "At least one special character",
+    },
+  ]);
+  let passwordOk = useRef<boolean>(false);
 
   function validateEmail(email: string): boolean {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -17,40 +40,30 @@ function RegisterForm() {
    * - The password must contain at least one uppercase letter.
    * - The password must contain at least one number.
    * - The password must contain at least one special character (excluding whitespace).
-   * @param password
-   * @returns true if password is valid
    */
-  function validatePassword(password: string): boolean {
-    let errorMessage = "";
-    if (password.length < 8) {
-      errorMessage = "Your password must be at least 8 characters long.";
-      return false;
-    }
+  function validatePassword() {
+    const password = passwordRef.current?.value ?? "";
+    const passwordInfo = [
+      { status: password.length > 8, message: "8 characters long" },
+      {
+        status: /(?=.*[a-z])/.test(password),
+        message: "At least one lowercase letter",
+      },
+      {
+        status: /(?=.*[A-Z])/.test(password),
+        message: "At least one uppercase letter",
+      },
+      { status: /(?=.*\d)/.test(password), message: "At least one number" },
+      {
+        status: /^(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])/.test(password),
+        message: "At least one special character",
+      },
+    ];
 
-    if (!/(?=.*[a-z])/.test(password)) {
-      errorMessage =
-        "Your password must contain at least one lowercase letter.";
-      return false;
-    }
+    setPasswordInfo(passwordInfo);
 
-    if (!/(?=.*[A-Z])/.test(password)) {
-      errorMessage =
-        "Your password must contain at least one uppercase letter.";
-      return false;
-    }
-
-    if (!/(?=.*\d)/.test(password)) {
-      errorMessage = "Your password must contain at least one number.";
-      return false;
-    }
-
-    if (!/(?=.*[^\s])/.test(password)) {
-      errorMessage =
-        "Your password must contain at least one special character (excluding whitespace).";
-      return false;
-    }
-
-    return true;
+    const isPasswordValid = passwordInfo.every((info) => info.status);
+    passwordOk.current = isPasswordValid;
   }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -58,7 +71,7 @@ function RegisterForm() {
     // Validate inputs
     const email = emailRef.current?.value ?? "";
     const password = passwordRef.current?.value ?? "";
-    if (validateEmail(email) && validatePassword(password)) {
+    if (validateEmail(email) && passwordOk.current) {
       register(email, password);
     }
   }
@@ -92,12 +105,36 @@ function RegisterForm() {
           <input type="text" placeholder="City" />
           <input type="text" placeholder="Postalcode" />
           <input ref={emailRef} type="email" placeholder="E-Mail" required />
-          <input
-            ref={passwordRef}
-            type="password"
-            placeholder="Password"
-            required
-          />
+          <div className="register-password-container">
+            <input
+              ref={passwordRef}
+              type="password"
+              placeholder="Password"
+              onChange={validatePassword}
+              required
+            />
+            <div className="register-password-info">
+              {passwordInfo.map((info: PasswordInfo) => {
+                return (
+                  <div
+                    className="register-password-info-item"
+                    key={info.message}
+                  >
+                    <div
+                      className={
+                        info.status
+                          ? "register-password-info-item-icon"
+                          : "register-password-info-item-icon insufficient"
+                      }
+                    >
+                      {info.status ? "✔" : "✖"}
+                    </div>
+                    <p>{info.message}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
           <input type="password" placeholder="Confirm Password" />
           <div className="register-form-checkbox-container">
             <div className="register-form-checkbox">
