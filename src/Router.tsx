@@ -12,6 +12,7 @@ import Badges from "@/components/badges/Badges";
 import Favorites from "@/components/favorites/Favorites";
 import Premium from "./components/premium/Premium";
 import About from "./components/about/About";
+import Features from "./components/features/Features";
 import { User as UserType } from "./types/General";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
@@ -73,6 +74,10 @@ function Router() {
           path: "about",
           element: <About />,
         },
+        {
+          path: "features",
+          element: <Features />,
+        }
       ],
     },
     {
