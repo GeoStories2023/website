@@ -1,5 +1,203 @@
+
 .home-dashboard-container {
-  .home-dashboard-header {
-    color: black;
+  color: black;
+
+  .menu-left {
+    position: fixed;
+    left: 0;
+    top: 15rem;
+    padding: 1rem 0.8rem;
+    background-color: #89d99d;
+    border-radius: 1rem 0 0 1rem;
+    z-index: 9999;
+
+    .icon {
+      size: 32px;
+      padding: 0.2rem 0;
+    }
+
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+  
+    svg {
+      fill: #ffffff;
+    }
   }
+
+  .home-dashboard-header {
+    width: 50vw;
+    background-color: #1e5959;
+    color: white;
+    span {
+      font-size: 1.2rem;
+    }
+  }
+
+  .news, .tours {
+    margin: 0;
+    background-color: #EEE;
+    user-select: none;
+    font-family: sans-serif;
+    padding-top: 5vh;
+
+    .news-container, .tours-container {
+      #slider {
+        position: relative;
+        width: 50%;
+        height: 32vw;
+        margin: 150px auto;
+        font-family: sans-serif;
+        perspective: 1400px;
+        transform-style: preserve-3d;
+
+        input[type=radio] {
+          position: relative;
+          top: 108%;
+          //left: 20%;
+          width: 18px;
+          height: 18px;
+          margin: 0 15px 0 0;
+          opacity: 0.4;
+          transform: translateX(-83px);
+          cursor: pointer;
+        }
+
+        input[type=radio]:nth-child(5) {
+          margin-right: 0px;
+        }
+
+        input[type=radio]:checked {
+          opacity: 1;
+        }
+
+        label, label img {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+          color: white;
+          font-size: 70px;
+          font-weight: bold;
+          border-radius: 3px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: transform 400ms ease;
+        }
+      }
+    }
+  }
+  .continents {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
+
+    .continents-header {
+      padding-bottom: 5vh;
+      span {
+        font-size: 1.5rem;
+      }
+    }
+
+    .continents-button-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-inline: 5vw;
+      
+      .america, .europe-africa, 
+      .asia-oceania {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: space-between;
+        gap: 50px;
+
+        .north-america, .south-america,
+        .europe, .africa,
+        .asia, .oceania {
+          display: flex;
+          flex-direction: column;
+          align-content: center;
+          justify-content: center;
+          width: 20vw;
+          min-width: 500px;
+
+          img {
+            width: 20vw;
+            height: 30vh;
+          }
+
+          button {
+            border: none;
+            background: none;
+
+            :hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/* Slider Functionality */
+
+/* Active Slide */
+#s1:checked ~ #slide1,
+ #s2:checked ~ #slide2,
+  #s3:checked ~ #slide3,
+   #s4:checked ~ #slide4,
+    #s5:checked ~ #slide5 {
+  box-shadow: 0 13px 26px rgba(0,0,0, 0.3), 0 12px 6px rgba(0,0,0, 0.2);
+  transform: translate3d(0%, 0, 0px);
+}
+
+/* Next Slide */
+#s1:checked ~ #slide2,
+ #s2:checked ~ #slide3,
+  #s3:checked ~ #slide4,
+   #s4:checked ~ #slide5,
+    #s5:checked ~ #slide1 {
+  box-shadow: 0 6px 10px rgba(0,0,0, 0.3), 0 2px 2px rgba(0,0,0, 0.2);
+  transform: translate3d(20%, 0, -100px);
+}
+
+
+/* Next to Next Slide */
+#s1:checked ~ #slide3,
+ #s2:checked ~ #slide4,
+  #s3:checked ~ #slide5,
+   #s4:checked ~ #slide1,
+    #s5:checked ~ #slide2 {
+  box-shadow: 0 1px 4px rgba(0,0,0, 0.4);
+  transform: translate3d(40%, 0, -250px);
+}
+
+/* Previous to Previous Slide */
+#s1:checked ~ #slide4,
+ #s2:checked ~ #slide5,
+  #s3:checked ~ #slide1,
+   #s4:checked ~ #slide2,
+    #s5:checked ~ #slide3 {
+  box-shadow: 0 1px 4px rgba(0,0,0, 0.4);
+  transform: translate3d(-40%, 0, -250px);
+}
+
+/* Previous Slide */
+#s1:checked ~ #slide5,
+ #s2:checked ~ #slide1,
+  #s3:checked ~ #slide2,
+   #s4:checked ~ #slide3,
+    #s5:checked ~ #slide4 {
+  box-shadow: 0 6px 10px rgba(0,0,0, 0.3), 0 2px 2px rgba(0,0,0, 0.2);
+  transform: translate3d(-20%, 0, -100px);
 }
