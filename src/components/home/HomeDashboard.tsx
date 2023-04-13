@@ -16,11 +16,6 @@ import { SlBadge as Badges } from "react-icons/sl";
 import Carousel from "react-bootstrap/Carousel";
 
 function HomeDashboard({ user }: { user: User }) {
-  useEffect(() => {
-    // Workaround for news slider not being selected
-    document.getElementById("s1")?.setAttribute("checked", "checked");
-  }, []);
-
   return (
     <div className="home-dashboard-container">
       <div className="menu-left">
