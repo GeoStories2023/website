@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import TourItem from "@/components/tour/TourItem";
 import "@/style/Country.scss";
+import TourLayout from "../TourLayout";
 
 function Country() {
   const { country } = useParams();
@@ -28,18 +29,11 @@ function Country() {
         premium: false,
       },
     ],
-  }
+  };
 
   return (
-    <div className="country-container" style={{ color: "black" }}>
-      <div className="country-header"><h1>{countryInfo.name}</h1></div>
-      <div className="country-popular-tours">
-        <div className="tour-list">
-          {countryInfo.tours.map((tour: any) => {
-            return <TourItem key={tour.id} tour={tour} />
-          })}
-        </div>
-      </div>
+    <div className="country-container">
+      <TourLayout title={countryInfo.name} tours={countryInfo.tours} />
     </div>
   );
 }
