@@ -1,18 +1,20 @@
-import React from 'react'
+import React from "react";
 import "@/style/Features.scss";
 import {
-    MdOutlineExplore as Explore,
-    MdTrendingUp as Points,
-    MdPercent as Percentage,
-    MdQuestionAnswer as Dialog,
+  MdOutlineExplore as Explore,
+  MdTrendingUp as Points,
+  MdPercent as Percentage,
+  MdQuestionAnswer as Dialog,
 } from "react-icons/md";
+import { BiBrain as Brain, BiLeaf as Sustainabilty } from "react-icons/bi";
+import { GiAchievement as Achievement } from "react-icons/gi";
+import { TiWeatherCloudy as Weather } from "react-icons/ti";
+import { GoLaw as Law } from "react-icons/go";
 import {
-  BiBrain as Brain,
-  BiLeaf as Sustainabilty,
-} from "react-icons/bi"
-import {
-  GiAchievement as Achievement,
-} from "react-icons/gi";
+  BsDoorOpenFill as EscapeRoom,
+  BsUniversalAccess as Accessibility,
+  BsShieldFillCheck as Privacy,
+} from "react-icons/bs";
 
 function Features() {
   return (
@@ -25,66 +27,96 @@ function Features() {
           <div className="feature-card">
             <div className="feature-card-inner">
               <div className="feature-card-front-container">
-                <Explore className="current-feature-icon"/>
+                <Explore className="current-feature-icon" />
                 <span>Erkunde Städte</span>
               </div>
               <div className="feature-card-back-container">
-                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde iusto aspernatur quod porro totam, hic dolorem illo beatae aut expedita at pariatur eos voluptatem doloremque quaerat facilis! Nobis, est qui.</span>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
+                  iusto aspernatur quod porro totam, hic dolorem illo beatae aut
+                  expedita at pariatur eos voluptatem doloremque quaerat
+                  facilis! Nobis, est qui.
+                </span>
               </div>
             </div>
           </div>
           <div className="feature-card">
             <div className="feature-card-inner">
               <div className="feature-card-front-container">
-                <Points className="current-feature-icon"/>
+                <Points className="current-feature-icon" />
                 <span>Sammle Punkte</span>
               </div>
               <div className="feature-card-back-container">
-                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde iusto aspernatur quod porro totam, hic dolorem illo beatae aut expedita at pariatur eos voluptatem doloremque quaerat facilis! Nobis, est qui.</span>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
+                  iusto aspernatur quod porro totam, hic dolorem illo beatae aut
+                  expedita at pariatur eos voluptatem doloremque quaerat
+                  facilis! Nobis, est qui.
+                </span>
               </div>
             </div>
           </div>
           <div className="feature-card">
             <div className="feature-card-inner">
               <div className="feature-card-front-container">
-                <Brain className="current-feature-icon"/>
+                <Brain className="current-feature-icon" />
                 <span>Lerne Neues</span>
               </div>
               <div className="feature-card-back-container">
-                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde iusto aspernatur quod porro totam, hic dolorem illo beatae aut expedita at pariatur eos voluptatem doloremque quaerat facilis! Nobis, est qui.</span>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
+                  iusto aspernatur quod porro totam, hic dolorem illo beatae aut
+                  expedita at pariatur eos voluptatem doloremque quaerat
+                  facilis! Nobis, est qui.
+                </span>
               </div>
             </div>
           </div>
           <div className="feature-card">
             <div className="feature-card-inner">
               <div className="feature-card-front-container">
-                <Percentage className="current-feature-icon"/>
+                <Percentage className="current-feature-icon" />
                 <span>Spare Geld</span>
               </div>
               <div className="feature-card-back-container">
-                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde iusto aspernatur quod porro totam, hic dolorem illo beatae aut expedita at pariatur eos voluptatem doloremque quaerat facilis! Nobis, est qui.</span>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
+                  iusto aspernatur quod porro totam, hic dolorem illo beatae aut
+                  expedita at pariatur eos voluptatem doloremque quaerat
+                  facilis! Nobis, est qui.
+                </span>
               </div>
             </div>
           </div>
           <div className="feature-card">
             <div className="feature-card-inner">
               <div className="feature-card-front-container">
-                <Dialog className="current-feature-icon"/>
+                <Dialog className="current-feature-icon" />
                 <span>Austausch mit Freunden</span>
               </div>
               <div className="feature-card-back-container">
-                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde iusto aspernatur quod porro totam, hic dolorem illo beatae aut expedita at pariatur eos voluptatem doloremque quaerat facilis! Nobis, est qui.</span>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
+                  iusto aspernatur quod porro totam, hic dolorem illo beatae aut
+                  expedita at pariatur eos voluptatem doloremque quaerat
+                  facilis! Nobis, est qui.
+                </span>
               </div>
             </div>
           </div>
           <div className="feature-card">
             <div className="feature-card-inner">
               <div className="feature-card-front-container">
-                <Achievement className="current-feature-icon"/>
+                <Achievement className="current-feature-icon" />
                 <span>Verdiene Abzeichen</span>
               </div>
               <div className="feature-card-back-container">
-                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde iusto aspernatur quod porro totam, hic dolorem illo beatae aut expedita at pariatur eos voluptatem doloremque quaerat facilis! Nobis, est qui.</span>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
+                  iusto aspernatur quod porro totam, hic dolorem illo beatae aut
+                  expedita at pariatur eos voluptatem doloremque quaerat
+                  facilis! Nobis, est qui.
+                </span>
               </div>
             </div>
           </div>
@@ -97,7 +129,13 @@ function Features() {
             <div className="roadmap-feature-container">
               <Sustainabilty className="roadmap-icon" />
               <div className="roadmap-description">
-                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam soluta, quae quod praesentium tempore aliquam facere quasi atque dolorum quaerat possimus harum quas explicabo laborum nisi, earum itaque deleniti non.</span>
+                <span className="description-header">Nachhaltigkeit</span>
+                <span className="description-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Veniam soluta, quae quod praesentium tempore aliquam facere
+                  quasi atque dolorum quaerat possimus harum quas explicabo
+                  laborum nisi, earum itaque deleniti non.
+                </span>
               </div>
               <div className="roadmap-date">
                 <span>Q1 23</span>
@@ -106,9 +144,14 @@ function Features() {
           </div>
           <div className="roadmap-feature">
             <div className="roadmap-feature-container">
-              <Sustainabilty className="roadmap-icon" />
+              <Weather className="roadmap-icon" />
               <div className="roadmap-description">
-                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam soluta, quae quod praesentium tempore aliquam facere quasi atque dolorum quaerat possimus harum quas explicabo laborum nisi, earum itaque deleniti non.</span>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Veniam soluta, quae quod praesentium tempore aliquam facere
+                  quasi atque dolorum quaerat possimus harum quas explicabo
+                  laborum nisi, earum itaque deleniti non.
+                </span>
               </div>
               <div className="roadmap-date">
                 <span>Q1 23</span>
@@ -117,9 +160,14 @@ function Features() {
           </div>
           <div className="roadmap-feature">
             <div className="roadmap-feature-container">
-              <Sustainabilty className="roadmap-icon" />
+              <Law className="roadmap-icon" />
               <div className="roadmap-description">
-                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam soluta, quae quod praesentium tempore aliquam facere quasi atque dolorum quaerat possimus harum quas explicabo laborum nisi, earum itaque deleniti non.</span>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Veniam soluta, quae quod praesentium tempore aliquam facere
+                  quasi atque dolorum quaerat possimus harum quas explicabo
+                  laborum nisi, earum itaque deleniti non.
+                </span>
               </div>
               <div className="roadmap-date">
                 <span>Q1 23</span>
@@ -128,9 +176,14 @@ function Features() {
           </div>
           <div className="roadmap-feature">
             <div className="roadmap-feature-container">
-              <Sustainabilty className="roadmap-icon" />
+              <EscapeRoom className="roadmap-icon" />
               <div className="roadmap-description">
-                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam soluta, quae quod praesentium tempore aliquam facere quasi atque dolorum quaerat possimus harum quas explicabo laborum nisi, earum itaque deleniti non.</span>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Veniam soluta, quae quod praesentium tempore aliquam facere
+                  quasi atque dolorum quaerat possimus harum quas explicabo
+                  laborum nisi, earum itaque deleniti non.
+                </span>
               </div>
               <div className="roadmap-date">
                 <span>Q1 23</span>
@@ -139,9 +192,14 @@ function Features() {
           </div>
           <div className="roadmap-feature">
             <div className="roadmap-feature-container">
-              <Sustainabilty className="roadmap-icon" />
+              <Accessibility className="roadmap-icon" />
               <div className="roadmap-description">
-                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam soluta, quae quod praesentium tempore aliquam facere quasi atque dolorum quaerat possimus harum quas explicabo laborum nisi, earum itaque deleniti non.</span>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Veniam soluta, quae quod praesentium tempore aliquam facere
+                  quasi atque dolorum quaerat possimus harum quas explicabo
+                  laborum nisi, earum itaque deleniti non.
+                </span>
               </div>
               <div className="roadmap-date">
                 <span>Q1 23</span>
@@ -150,9 +208,14 @@ function Features() {
           </div>
           <div className="roadmap-feature">
             <div className="roadmap-feature-container">
-              <Sustainabilty className="roadmap-icon" />
+              <Privacy className="roadmap-icon" />
               <div className="roadmap-description">
-                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam soluta, quae quod praesentium tempore aliquam facere quasi atque dolorum quaerat possimus harum quas explicabo laborum nisi, earum itaque deleniti non.</span>
+                <span>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Veniam soluta, quae quod praesentium tempore aliquam facere
+                  quasi atque dolorum quaerat possimus harum quas explicabo
+                  laborum nisi, earum itaque deleniti non.
+                </span>
               </div>
               <div className="roadmap-date">
                 <span>Q1 23</span>
@@ -162,7 +225,7 @@ function Features() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Features;
