@@ -13,8 +13,7 @@ import {
   BsFillStarFill as Favourites,
 } from "react-icons/bs";
 import { SlBadge as Badges } from "react-icons/sl";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Carousel from "react-bootstrap/Carousel";
 
 function HomeDashboard({ user }: { user: User }) {
   useEffect(() => {
@@ -36,77 +35,111 @@ function HomeDashboard({ user }: { user: User }) {
       <div className="news">
         <div className="news-container">
           <span>News</span>
-          <Carousel showArrows={true}>
-            <div>
-              <span>ttestest</span>
-              <p className="legend">test</p>
-            </div>
-            <div>
-              <span>ttestest</span>
-              <p className="legend">test</p>
-            </div>
-          </Carousel>
-          <section id="slider">
-            <input type="radio" name="slider" id="s1" />
-            <input type="radio" name="slider" id="s2" />
-            <input type="radio" name="slider" id="s3" />
-            <input type="radio" name="slider" id="s4" />
-            <input type="radio" name="slider" id="s5" />
+          <Carousel
+            className="carousel"
+            keyboard={true}
+            pause={"hover"}
+            touch={true}
+          >
+            <Carousel.Item className="carousel-item">
+              <img
+                className="d-block w-100"
+                src="https://wallpaperaccess.com/full/1154341.jpg"
+                alt="First slide"
+              />
+              <Carousel.Caption className="carousel-caption">
+                <h3>Hallo bei GeoStories</h3>
+                <p>
+                  Mit Geostories schreibst du deine Geschichte in der Welt.{" "}
+                  <a href="">Weiterlesen</a>
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item className="carousel-item">
+              <img
+                className="d-block w-100"
+                src="https://wallpapercave.com/wp/wp2634222.jpg"
+                alt="Second slide"
+              />
 
-            <label htmlFor="s1" id="slide1">
+              <Carousel.Caption className="carousel-caption">
+                <h3>Unsere Zukunftspläne</h3>
+                <p>
+                  Natürlich wollen wir uns weiterentwicklen.{" "}
+                  <a href="">Zur Roadmap</a>
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item className="carousel-item">
               <img
-                src="https://i.pinimg.com/originals/2b/de/de/2bdede0647e3cdf75b44ea33723201d9.jpg"
-                alt=""
-              />
-            </label>
-            <label htmlFor="s2" id="slide2">
-              <img
-                src="https://images6.alphacoders.com/462/thumb-1920-462371.jpg"
-                alt=""
-              />
-            </label>
-            <label htmlFor="s3" id="slide3">
-              <img src="https://wallpaperaccess.com/full/1154341.jpg" alt="" />
-            </label>
-            <label htmlFor="s4" id="slide4">
-              <img src="https://wallpapercave.com/wp/wp2634222.jpg" alt="" />
-            </label>
-            <label htmlFor="s5" id="slide5">
-              <img
+                className="d-block w-100"
                 src="https://images5.alphacoders.com/343/thumb-1920-343645.jpg"
-                alt=""
+                alt="Third slide"
               />
-            </label>
-          </section>
+
+              <Carousel.Caption className="carousel-caption">
+                <h3>Mitarbeiter des Monats</h3>
+                <p>
+                  Unser Mitarbeiter des Monats, Noah, gibt Einblicke in seine
+                  Arbeit. <a href="">Weiterlesen</a>
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
         </div>
       </div>
       <div className="seperator"></div>
       <div className="tours">
         <div className="tours-container">
           <span>Mögliche Kapitel für deine nächste Geschichte</span>
-          {/*<section id="slider">
-            <input type="radio" name="slider" id="s1" />
-            <input type="radio" name="slider" id="s2" />
-            <input type="radio" name="slider" id="s3" />
-            <input type="radio" name="slider" id="s4" />
-            <input type="radio" name="slider" id="s5" />
+          <Carousel
+            className="carousel"
+            keyboard={true}
+            pause={"hover"}
+            touch={true}
+          >
+            <Carousel.Item className="carousel-item">
+              <img
+                className="d-block w-100"
+                src="https://wallpaperaccess.com/full/1154341.jpg"
+                alt="First slide"
+              />
+              <Carousel.Caption className="carousel-caption">
+                <h3>Hallo bei GeoStories</h3>
+                <p>
+                  Mit Geostories schreibst du deine Geschichte in der Welt.{" "}
+                  <a href="">Weiterlesen</a>
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item className="carousel-item">
+              <img
+                className="d-block w-100"
+                src="https://wallpapercave.com/wp/wp2634222.jpg"
+                alt="Second slide"
+              />
 
-            <label htmlFor="s1" id="slide1">
-              <img src="https://i.pinimg.com/originals/2b/de/de/2bdede0647e3cdf75b44ea33723201d9.jpg" alt="" />
-            </label>
-            <label htmlFor="s2" id="slide2">
-              <img src="https://images6.alphacoders.com/462/thumb-1920-462371.jpg" alt=""/>
-            </label>
-            <label htmlFor="s3" id="slide3">
-              <img src="https://wallpaperaccess.com/full/1154341.jpg" alt=""/>
-            </label>
-            <label htmlFor="s4" id="slide4">
-              <img src="https://wallpapercave.com/wp/wp2634222.jpg" alt=""/>
-            </label>
-            <label htmlFor="s5" id="slide5">
-              <img src="https://images5.alphacoders.com/343/thumb-1920-343645.jpg" alt=""/>
-            </label>
-          </section>*/}
+              <Carousel.Caption className="carousel-caption">
+                <h3>Second slide label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item className="carousel-item">
+              <img
+                className="d-block w-100"
+                src="https://images5.alphacoders.com/343/thumb-1920-343645.jpg"
+                alt="Third slide"
+              />
+
+              <Carousel.Caption className="carousel-caption">
+                <h3>Third slide label</h3>
+                <p>
+                  Praesent commodo cursus magna, vel scelerisque nisl
+                  consectetur.
+                </p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
         </div>
       </div>
       <div className="seperator"></div>
