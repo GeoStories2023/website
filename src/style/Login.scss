@@ -1,12 +1,9 @@
 .login-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   position: relative;
   overflow: hidden;
   height: 100vh;
   background-color: #c2e5cb;
+  color: #fff;
 
   .blob {
     z-index: 1;
@@ -40,16 +37,13 @@
 
   .login-form-container {
     z-index: 100;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     background-color: #224a43;
-    width: 50%;
-    height: 65%;
+    position: relative;
+    margin: 4rem 0;
 
     .login-form-left {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      padding: 3rem 0;
+      width: 100%;
       .login-form-left-logo-container {
         margin-block: 1rem;
         p {
@@ -65,6 +59,10 @@
             color: #89d99d;
             font-family: Lobster, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
             font-size: 3rem;
+          }
+
+          img {
+            width: 6rem;
           }
         }
       }
@@ -92,13 +90,11 @@
     }
     .login-form-right {
       padding: 2rem 0.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      width: 100%;
       background: linear-gradient(#89d99d99, #89d99d99),
         url("@/assets/Login-Image-Asia.jpg") no-repeat;
       background-size: cover;
+      height: 100%;
       h1 {
         margin-block: 0 5rem;
         color: #224a43;
@@ -106,4 +102,31 @@
       }
     }
   }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width:786px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .login-container {
+    .login-form-container {
+      margin-top: 7rem;
+      .login-form-right {
+        padding-top: 8rem;
+      }
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
 }

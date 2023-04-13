@@ -15,7 +15,6 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
   const navigate = useNavigate();
   const auth = getAuth();
   function handleSignOut() {
-    console.log("Sign out");
     signOut(auth)
       .then(() => {
         // Sign-out successful
@@ -24,7 +23,6 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
       })
       .catch((error) => {
         // Error
-        console.log(error);
       });
   }
   return (

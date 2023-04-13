@@ -42,33 +42,54 @@ function LoginForm({
   }, []);
 
   return (
-    <section className="login-form-container">
-      <div className="login-form-left">
-        <div className="login-form-left-logo-container">
-          <p>Welcome to</p>
-          <div className="login-form-left-logo">
-            <img src={logo} alt="Logo" width="80px" height="80px" />
-            <h2>GeoStories</h2>
+    <section>
+      <div className="container">
+        <div className="row">
+          <div className="col-xl-8 offset-xl-2">
+            <div className="login-form-container">
+              <div className="row">
+                <div className="col-12 d-lg-none">
+                  <div className="login-form-right">
+                    <img src={logo} alt="Logo" width="125px" height="125px" />
+                    <h1>GeoStories</h1>
+                  </div>
+                </div>
+                <div className="col-lg-6">
+                  <div className="login-form-left">
+                    <div className="login-form-left-logo-container">
+                      <p>Welcome to</p>
+                      <div className="login-form-left-logo">
+                        <img src={logo} alt="Logo" />
+                        <h2>GeoStories</h2>
+                      </div>
+                    </div>
+                    <form onSubmit={handleSubmit} className="login-form">
+                      <input ref={emailRef} type="text" placeholder="E-Mail" required />
+                      <input
+                          ref={passwordRef}
+                          type="password"
+                          placeholder="Password"
+                          required
+                      />
+                      <button>LOGIN</button>
+                      <p>
+                        Don't have an account? Register <a href="/register">here</a>
+                      </p>
+                    </form>
+                  </div>
+                </div>
+                <div className="col-lg-6 d-none d-lg-block">
+                  <div className="login-form-right">
+                    <img src={logo} alt="Logo" width="125px" height="125px" />
+                    <h1>GeoStories</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <form onSubmit={handleSubmit} className="login-form">
-          <input ref={emailRef} type="text" placeholder="E-Mail" required />
-          <input
-            ref={passwordRef}
-            type="password"
-            placeholder="Password"
-            required
-          />
-          <button>LOGIN</button>
-          <p>
-            Don't have an account? Register <a href="/register">here</a>
-          </p>
-        </form>
       </div>
-      <div className="login-form-right">
-        <img src={logo} alt="Logo" width="125px" height="125px" />
-        <h1>GeoStories</h1>
-      </div>
+
     </section>
   );
 }

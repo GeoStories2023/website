@@ -7,53 +7,38 @@
     }
   }
 
-  .app-container {
+  .phone-container {
     background-color: #3b8c6e;
-    height: 400px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-block: 3rem;
-    padding-inline: 5vw;
+    padding: 2rem 0;
+
     .phone {
-      height: 120%;
-      z-index: 10;
+      height: auto;
+      width: 8rem;
     }
 
-    .app-description {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      margin-top: 5vh;
-      z-index: 1;
-      left: 0;
+    .app-description-text {
+      color: #fff;
 
-      .app-description-text {
-        display: flex;
-        flex-direction: column;
-        padding-right: 5vw;
-
-        .app-description-text-big {
-          font-size: 2.5rem;
-          font-weight: 700;
-        }
+      .app-description-text-big {
+        font-size: 2.5rem;
+        font-weight: 700;
       }
+    }
 
-      .app-qr-code {
-        width: 20%;
-      }
+    .app-qr-code {
+      margin: 2rem;
+      width: 4rem;
     }
   }
+
 
   .quote-container {
     display: flex;
     flex-direction: column;
     position: relative;
-    padding-top: 8rem;
+    padding: 8rem 0;
     background-color: #1e5959;
-    margin-top: 4rem;
+    margin: 4rem 0;
 
     &:after {
       content: "";
@@ -75,6 +60,7 @@
       justify-content: center;
       align-items: center;
       .quote-text {
+        color: #ffffff;
         .quote-quote {
           font-size: 1.5rem;
         }
@@ -93,41 +79,95 @@
       fill: #1e5959;
     }
   }
-  .features-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 90rem;
-    margin: 34vh auto 5vh auto;
+  .feature-container {
+    margin-top: 10rem;
+    margin-bottom: 4rem;
 
     .single-feature-container {
-      width: 28rem;
-      height: 40rem;
       background-color: #c2e5cb;
-      border-radius: 50px;
-      margin-inline: 2vh;
-      position: relative;
-
+      border-radius: 4rem;
+      margin-bottom: 12rem;
+      padding-bottom: 2rem;
+      height: 34rem;
       .img-feature {
-        position: absolute;
-        width: 25rem;
-        top: -10rem;
-        left: 1.5rem;
-        right: auto;
         border-radius: 20rem;
+        width: 16rem;
+        margin: -10rem auto 0 auto;
+
+        img {
+          border-radius: 20rem;
+        }
       }
 
       .text-feature {
         color: black;
         padding-inline: 2rem;
-        margin-top: 18rem;
+        padding-top: 2rem;
 
         .header-feature {
-          font-size: 1.8vw;
+          font-size: 2rem;
           font-weight: 500;
-          min-height: 8rem;
           display: block;
+          line-height: 2.8rem;
+          margin-bottom: 1rem;
         }
+      }
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .home-container {
+    .feature-container {
+      .single-feature-container {
+        .img-feature {
+          width: 70%;
+
+          img {
+            border-radius: 20rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width:768px) {
+  .home-container {
+    .phone-container {
+      .phone {
+        width: 12rem;
+      }
+
+      .app-description-text {
+        padding-top: 3rem;
+      }
+      .app-qr-code {
+        width: 6rem;
+      }
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .home-container {
+    .phone-container {
+      .container {
+        max-width: 720px;
+      }
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .home-container {
+    .feature-container {
+      .single-feature-container {
+        height: 28rem;
       }
     }
   }

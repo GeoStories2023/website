@@ -88,79 +88,97 @@ function RegisterForm() {
   }
 
   return (
-    <section className="register-form-container">
-      <div className="register-form-logo-container">
-        <p>Welcome to</p>
-        <div className="register-form-logo">
-          <img src={logo} alt="Logo" width="80px" height="80px" />
-          <h2>GeoStories</h2>
-        </div>
-      </div>
-      <div className="register-form-inner-container">
-        <form onSubmit={handleSubmit} className="register-form">
-          <input type="text" placeholder="Name" />
-          <input type="text" placeholder="Lastname" />
-          <input type="text" placeholder="City" />
-          <input type="text" placeholder="Postalcode" />
-          <input
-            className="colspan-2"
-            ref={emailRef}
-            type="email"
-            placeholder="E-Mail"
-            required
-          />
-          <input
-            className="colspan-2"
-            ref={passwordRef}
-            type="password"
-            placeholder="Password"
-            onChange={validatePassword}
-            required
-          />
-          <input
-            className="colspan-2"
-            ref={confirmPasswordRef}
-            type="password"
-            placeholder="Confirm Password"
-            onChange={validatePassword}
-          />
-          <div className="register-password-info">
-            {passwordInfo?.map((info: PasswordInfo) => {
-              return (
-                <div className="register-password-info-item" key={info.message}>
-                  <div
-                    className={
-                      info.status
-                        ? "register-password-info-item-icon"
-                        : "register-password-info-item-icon insufficient"
-                    }
-                  >
-                    {info.status ? "✔" : "✖"}
-                  </div>
-                  <p>{info.message}</p>
+    <section>
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+            <div className="register-form-container">
+              <div className="register-form-logo-container">
+                <p>Welcome to</p>
+                <div className="register-form-logo">
+                  <img src={logo} alt="Logo" />
+                  <h2>GeoStories</h2>
                 </div>
-              );
-            })}
-          </div>
-          <div className="register-form-checkbox-container">
-            <div className="register-form-checkbox">
-              <input type="checkbox" id="register-form-agb" />
-              <label htmlFor="register-form-agb">Accept our AGBs</label>
+              </div>
+              <div className="register-form-inner-container">
+                <form onSubmit={handleSubmit} className="register-form">
+                  <div className="row">
+                    <div className="col-md-6">
+                      <input type="text" className="input_name" placeholder="Name" />
+                    </div>
+                    <div className="col-md-6">
+                      <input type="text" className="input_lastname" placeholder="Lastname" />
+                    </div>
+                  </div>
+                  <input
+                      className="input_email"
+                      ref={emailRef}
+                      type="email"
+                      placeholder="E-Mail"
+                      required
+                  />
+                  <input
+                      className="input_password"
+                      ref={passwordRef}
+                      type="password"
+                      placeholder="Password"
+                      onChange={validatePassword}
+                      required
+                  />
+                  <input
+                      className="input_conf_password"
+                      ref={confirmPasswordRef}
+                      type="password"
+                      placeholder="Confirm Password"
+                      onChange={validatePassword}
+                  />
+                  <div className="row">
+                    <div className="col-md-6">
+                      <div className="register-password-info">
+                        {passwordInfo?.map((info: PasswordInfo) => {
+                          return (
+                              <div className="register-password-info-item" key={info.message}>
+                                <div
+                                    className={
+                                      info.status
+                                          ? "register-password-info-item-icon"
+                                          : "register-password-info-item-icon insufficient"
+                                    }
+                                >
+                                  {info.status ? "✔" : "✖"}
+                                </div>
+                                <p>{info.message}</p>
+                              </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="register-form-checkbox-container">
+                        <div className="register-form-checkbox">
+                          <input type="checkbox" id="register-form-agb" />
+                          <label htmlFor="register-form-agb">Accept our AGBs</label>
+                        </div>
+                        <div className="register-form-checkbox">
+                          <input type="checkbox" id="register-form-privacy-policy" />
+                          <label htmlFor="register-form-privacy-policy">
+                            Accept our privacy policy
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="register-form-button pt-4 pb-4">
+                    <button>REGISTER</button>
+                    <p>
+                      Already have an account? Login <a href="/login">here</a>
+                    </p>
+                  </div>
+                </form>
+              </div>
             </div>
-            <div className="register-form-checkbox">
-              <input type="checkbox" id="register-form-privacy-policy" />
-              <label htmlFor="register-form-privacy-policy">
-                Accept our privacy policy
-              </label>
-            </div>
           </div>
-          <div className="register-form-button colspan-2">
-            <button>REGISTER</button>
-            <p>
-              Already have an account? Login <a href="/login">here</a>
-            </p>
-          </div>
-        </form>
+        </div>
       </div>
     </section>
   );

@@ -5,8 +5,11 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  height: 100vh;
   background-color: #c2e5cb;
+
+  a {
+    color: #c2e5cb;
+  }
 
   .blob {
     z-index: 1;
@@ -40,14 +43,13 @@
 
   .register-form-container {
     z-index: 100;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     background-color: #224a43;
-    width: 50%;
+    color: #fff;
+    position: relative;
+    padding: 2rem;
+    margin: 2rem 0;
 
     .register-form-logo-container {
-      margin-block: 1rem;
       p {
         margin: 0;
       }
@@ -63,21 +65,27 @@
             sans-serif;
           font-size: 3rem;
         }
+
+        img {
+          max-width: 6rem;
+        }
       }
     }
     .register-form-inner-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      padding-top: 2rem;
       .register-form {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        padding-inline: 15%;
-        gap: 1ch;
+        margin: 0 1rem;
         input {
           padding: 0.8rem 0.5rem;
           border-radius: 5px;
           border: none;
+          width: 100%;
+          margin: 0 0 1rem 0;
+        }
+
+        input[type="checkbox"] {
+          width: auto;
+          margin-bottom: 0;
         }
         .colspan-2 {
           grid-column: 1 / 3;
@@ -109,6 +117,7 @@
             flex-direction: row;
             gap: 1ch;
             align-content: center;
+            padding-top: 1rem;
           }
         }
         .register-form-button {
@@ -126,4 +135,29 @@
       }
     }
   }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width:786px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .register-container {
+    .register-form-container {
+      margin: 4rem 0;
+
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
 }
