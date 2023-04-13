@@ -1,4 +1,5 @@
 import React from "react";
+import Socialmedia from "@/components/socialmedia/Socialmedia";
 import bigPicture from "@/assets/HomePagePic1_full.png";
 import phone from "@/assets/iphone.png";
 import qrcode from "@/assets/qr_code_playstore.png";
@@ -12,6 +13,7 @@ import { User } from "@/types/General";
 function HomeDefault({ user }: { user: User }) {
   return (
     <div className="home-container">
+      <Socialmedia />
       <div className="big-picture-container">
         <img src={bigPicture} alt="big-picture" className="big-picture" />
       </div>

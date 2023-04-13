@@ -14,8 +14,10 @@ import {
 } from "react-icons/bs";
 import { SlBadge as Badges } from "react-icons/sl";
 import Carousel from "react-bootstrap/Carousel";
+import { useNavigate } from "react-router";
 
 function HomeDashboard({ user }: { user: User }) {
+  const navigate = useNavigate();
   return (
     <div className="home-dashboard-container">
       <div className="menu-left">
@@ -145,13 +147,21 @@ function HomeDashboard({ user }: { user: User }) {
         <div className="continents-button-container">
           <div className="america">
             <div className="north-america">
-              <button>
+              <button
+                onClick={() => {
+                  navigate("/tours/northamerica");
+                }}
+              >
                 <img src={northAmerica} alt="North America" />
               </button>
               <span>Nordamerika</span>
             </div>
             <div className="south-america">
-              <button>
+              <button
+                onClick={() => {
+                  navigate("/tours/southamerica");
+                }}
+              >
                 <img src={southAmerica} alt="South America" />
               </button>
               <span>Südamerika</span>
@@ -159,27 +169,43 @@ function HomeDashboard({ user }: { user: User }) {
           </div>
           <div className="europe-africa">
             <div className="europe">
-              <button>
+              <button
+                onClick={() => {
+                  navigate("/tours/europe");
+                }}
+              >
                 <img src={europe} alt="Europe" />
               </button>
               <span>Europa</span>
             </div>
             <div className="africa">
-              <button>
+              <button
+                onClick={() => {
+                  navigate("/tours/africa");
+                }}
+              >
                 <img src={africa} alt="Africa" />
               </button>
-              <span>Südamerika</span>
+              <span>Afrika</span>
             </div>
           </div>
           <div className="asia-oceania">
             <div className="asia">
-              <button>
+              <button
+                onClick={() => {
+                  navigate("/tours/asia");
+                }}
+              >
                 <img src={asia} alt="Asia" />
               </button>
               <span>Asien</span>
             </div>
             <div className="oceania">
-              <button>
+              <button
+                onClick={() => {
+                  navigate("/tours/oceania");
+                }}
+              >
                 <img src={oceania} alt="Oceania" />
               </button>
               <span>Ozeaninen</span>
