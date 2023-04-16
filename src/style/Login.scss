@@ -54,6 +54,7 @@
         margin-block: 1rem;
         p {
           margin: 0;
+          color: #fff;
         }
         .login-form-left-logo {
           display: flex;
@@ -88,6 +89,28 @@
           border: none;
           cursor: pointer;
         }
+        .login-google-button{
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 1ch;
+          margin-top: 1ch;
+          padding: 0.8rem 0.5rem;
+          border-radius: 5px;
+          font-weight: 500;
+          background-color: #fff;
+          color: #333;
+          border: none;
+          cursor: pointer;
+          img{
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+        }
+          p{
+            color: #fff !important;
+          }
       }
     }
     .login-form-right {
