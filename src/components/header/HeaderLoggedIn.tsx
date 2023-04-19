@@ -14,6 +14,14 @@ import { useNavigate } from "react-router-dom";
 function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
   const navigate = useNavigate();
   const auth = getAuth();
+  const level = 33;
+  const levelName = "Storyteller";
+  const minLevelValue = level * 1000;
+  const maxLevelValue = (level + 1) * 1000;
+  const meter = document.getElementById("meter-level");
+  const meterCurrentValue = meter?.getAttribute("value");
+  const meterMinValue = meter?.getAttribute("min");
+  const meterMaxValue = meter?.getAttribute("max");
   function handleSignOut() {
     console.log("Sign out");
     signOut(auth)
@@ -29,7 +37,9 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
   }
   return (
     <header className="header-logged-in-container">
-      <div className="logo-container">
+      <div className="logo-container" onClick={() => {
+                  navigate("/");
+                }}>
         <img src={logo} className="logo" alt="Logo" />
         <div className="logo-title-container">
           <span className="logo-title">GeoStories</span>
@@ -39,8 +49,11 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
       <div className="header-actions">
         <img src={premiumBadge} alt="premium-badge" className="premium-badge" />
         <div className="level-container">
-          <span className="level-title">Level: 33 - Geschichtenerzähler</span>
-          <meter min="0" max="1000" value="600"></meter>
+          <span className="level-title">Level: {level} - {levelName}</span>
+          <div className="meter-level-score">
+            <meter id="meter-level" min={minLevelValue} max={maxLevelValue} value="33600"></meter>
+            <span className="meter-score">{meterCurrentValue}/{meterMaxValue}</span>
+          </div>
         </div>
         {user.username}
         <BurgerMenu size={52} />
