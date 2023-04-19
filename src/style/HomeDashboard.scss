@@ -44,6 +44,18 @@
     }
   }
 
+  .seperator {
+    height: 2rem;
+    width: 100%;
+    background-image: url("/src/assets/wave_green_full.svg");
+    background-repeat: repeat-x;
+    background-position: center;
+
+    &.is-blue {
+      background-image: url("/src/assets/wave_blue_full.svg");
+    }
+  }
+
   .news,
   .tours {
     margin: 3rem 0;
@@ -91,6 +103,7 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 10vh;
+    margin: 3rem 0;
 
     .continents-header {
       padding-bottom: 5vh;
@@ -100,41 +113,31 @@
     }
 
     .continents-button-container {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      padding-inline: 5vw;
+      .north-america,
+      .south-america,
+      .europe,
+      .africa,
+      .asia,
+      .oceania {
+        margin-bottom: 4rem;
+        width: 100%;
 
-      .america,
-      .europe-africa,
-      .asia-oceania {
+        img {
+          width: auto;
+          height: 16rem;
+        }
 
-        .north-america,
-        .south-america,
-        .europe,
-        .africa,
-        .asia,
-        .oceania {
-          width: 20vw;
-          min-width: 300px;
-          margin-bottom: 4rem;
+        button {
+          border: none;
+          background: none;
+          width: 100%;
 
-          img {
-            width: 20vw;
-            height: 30vh;
-          }
-
-          button {
-            border: none;
-            background: none;
-
-            :hover {
-              cursor: pointer;
-            }
+          :hover {
+            cursor: pointer;
           }
         }
       }
+
     }
   }
 }
@@ -151,7 +154,8 @@
       width: 50vw;
     }
     .news,
-    .tours {
+    .tours,
+    .continents {
       margin: 5rem 0;
     }
   }
@@ -170,7 +174,7 @@
     }
     .continents {
       width: 80rem;
-      margin: 0 auto;
+      margin: 5rem auto;
     }
   }
 }
@@ -179,6 +183,19 @@
   .home-dashboard-container {
     .continents {
       width: 90rem;
+
+      .continents-button-container {
+        .north-america,
+        .south-america,
+        .europe,
+        .africa,
+        .asia,
+        .oceania {
+          img {
+            height: 22rem;
+          }
+        }
+      }
     }
   }
 }

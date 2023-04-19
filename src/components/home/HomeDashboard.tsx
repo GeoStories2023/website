@@ -91,7 +91,7 @@ function HomeDashboard({ user }: { user: User }) {
           </Carousel>
         </div>
       </div>
-      <div className="seperator"></div>
+      <div className="seperator is-blue"></div>
       <div className="tours">
         <div className="tours-container">
           <h2>Mögliche Kapitel für deine nächste Geschichte</h2>
@@ -150,72 +150,81 @@ function HomeDashboard({ user }: { user: User }) {
           <h2>Wähle den Kontinent für dein nächstes Reiseziel</h2>
         </div>
         <div className="continents-button-container">
-          <div className="america">
-            <div className="north-america">
-              <button
-                onClick={() => {
-                  navigate("/tours/northamerica");
-                }}
-              >
-                <img src={northAmerica} alt="North America" />
-              </button>
-              <span>Nordamerika</span>
+          <div className="row">
+            <div className="col-sm-6 col-lg-4">
+              <div className="north-america">
+                <button
+                    onClick={() => {
+                      navigate("/tours/northamerica");
+                    }}
+                >
+                  <img src={northAmerica} alt="North America" />
+                </button>
+                <span>Nordamerika</span>
+              </div>
             </div>
-            <div className="south-america">
-              <button
-                onClick={() => {
-                  navigate("/tours/southamerica");
-                }}
-              >
-                <img src={southAmerica} alt="South America" />
-              </button>
-              <span>Südamerika</span>
+            <div className="col-sm-6 col-lg-4">
+              <div className="south-america">
+                <button
+                    onClick={() => {
+                      navigate("/tours/southamerica");
+                    }}
+                >
+                  <img src={southAmerica} alt="South America" />
+                </button>
+                <span>Südamerika</span>
+              </div>
             </div>
-          </div>
-          <div className="europe-africa">
-            <div className="europe">
-              <button
-                onClick={() => {
-                  navigate("/tours/europe");
-                }}
-              >
-                <img src={europe} alt="Europe" />
-              </button>
-              <span>Europa</span>
+            <div className="col-sm-6 col-lg-4">
+              <div className="europe">
+                <button
+                    onClick={() => {
+                      navigate("/tours/europe");
+                    }}
+                >
+                  <img src={europe} alt="Europe" />
+                </button>
+                <span>Europa</span>
+              </div>
             </div>
-            <div className="africa">
-              <button
-                onClick={() => {
-                  navigate("/tours/africa");
-                }}
-              >
-                <img src={africa} alt="Africa" />
-              </button>
-              <span>Afrika</span>
+            <div className="col-sm-6 col-lg-4">
+              <div className="africa">
+                <button
+                    onClick={() => {
+                      navigate("/tours/africa");
+                    }}
+                >
+                  <img src={africa} alt="Africa" />
+                </button>
+                <span>Afrika</span>
+              </div>
             </div>
-          </div>
-          <div className="asia-oceania">
-            <div className="asia">
-              <button
-                onClick={() => {
-                  navigate("/tours/asia");
-                }}
-              >
-                <img src={asia} alt="Asia" />
-              </button>
-              <span>Asien</span>
+            <div className="col-sm-6 col-lg-4">
+                <div className="asia">
+                  <button
+                      onClick={() => {
+                        navigate("/tours/asia");
+                      }}
+                  >
+                    <img src={asia} alt="Asia" />
+                  </button>
+                  <span>Asien</span>
+                </div>
             </div>
-            <div className="oceania">
-              <button
-                onClick={() => {
-                  navigate("/tours/oceania");
-                }}
-              >
-                <img src={oceania} alt="Oceania" />
-              </button>
-              <span>Ozeaninen</span>
+            <div className="col-sm-6 col-lg-4">
+              <div className="oceania">
+                <button
+                    onClick={() => {
+                      navigate("/tours/oceania");
+                    }}
+                >
+                  <img src={oceania} alt="Oceania" />
+                </button>
+                <span>Ozeaninen</span>
+              </div>
             </div>
-          </div>
+
+        </div>
         </div>
       </div>
     </div>
