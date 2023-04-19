@@ -13,6 +13,10 @@ header {
     align-items: center;
     justify-content: left;
 
+    &:hover {
+      cursor: pointer;
+    }
+
     img {
       height: 84px;
       width: 84px;
@@ -58,7 +62,7 @@ header {
       .menu_open {
         display: none;
         position: absolute;
-        top: 9.2rem;
+        top: 5.2rem;
         right: 0;
         height: 100vH;
         width: 100%;
@@ -68,9 +72,14 @@ header {
 
         ul {
           padding: 0;
+
+          a {
+            color: #fff;
+          }
           li {
             list-style: none;
             padding-bottom: 1rem;
+            color: #fff;
 
             &:hover {
               color: #c2e5cb;
@@ -186,18 +195,59 @@ header {
     align-items: center;
     gap: 1rem;
     img {
-      height: 52px;
-      width: 52px;
+      height: 32px;
+      width: 32px;
     }
     .level-container {
       display: flex;
       flex-direction: column;
+      color: #fff;
       .level-title {
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-weight: 500;
       }
-      meter {
-        width: 14vw;
+      .meter-level-score {
+        position: relative;
+        display: inline-block;
+
+        &:hover {
+          .meter-score {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+
+        meter {
+          width: 100%;
+        }
+
+        .meter-score {
+          visibility: hidden;
+          width: 120px;
+          background-color: #555;
+          color: #fff;
+          text-align: center;
+          border-radius: 6px;
+          padding: 5px 0;
+          position: absolute;
+          z-index: 1;
+          bottom: -125%;
+          left: 50%;
+          margin-left: -60px;
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+      }
+    }
+
+    .icons {
+      position: absolute;
+      top: 5.6rem;
+      right: 1rem;
+      svg {
+        width: 2rem;
+        height: 2rem;
+        margin-left: 1rem;
       }
     }
   }
@@ -255,11 +305,55 @@ header {
       }
     }
   }
+
+  // Only logged in header
+  .header-logged-in-container {
+    .header-actions {
+      img {
+        height: 32px;
+        width: 32px;
+      }
+      .level-container {
+        display: flex;
+        flex-direction: column;
+        .level-title {
+          font-size: 1rem;
+          font-weight: 500;
+        }
+      }
+
+      .icons {
+        position: absolute;
+        top: 1rem;
+        right: 6rem;
+        svg {
+          width: 2.6rem;
+          height: 2.6rem;
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
+  .header-logged-in-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+    .header-actions {
+      img {
+        height: 42px;
+        width: 42px;
+      }
+    }
+
+    .level-container {
+      margin-right: 12rem;
+    }
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)

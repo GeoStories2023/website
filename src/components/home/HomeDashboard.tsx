@@ -37,7 +37,7 @@ function HomeDashboard({ user }: { user: User }) {
       </div>
       <div className="news">
         <div className="news-container">
-          <span>News</span>
+          <h2>News</h2>
           <Carousel
             className="carousel"
             keyboard={true}
@@ -94,7 +94,7 @@ function HomeDashboard({ user }: { user: User }) {
       <div className="seperator"></div>
       <div className="tours">
         <div className="tours-container">
-          <span>Mögliche Kapitel für deine nächste Geschichte</span>
+          <h2>Mögliche Kapitel für deine nächste Geschichte</h2>
           <Carousel
             className="carousel"
             keyboard={true}
@@ -147,7 +147,7 @@ function HomeDashboard({ user }: { user: User }) {
       <div className="seperator"></div>
       <div className="continents">
         <div className="continents-header">
-          <span>Wähle den Kontinent für dein nächstes Reiseziel</span>
+          <h2>Wähle den Kontinent für dein nächstes Reiseziel</h2>
         </div>
         <div className="continents-button-container">
           <div className="america">
