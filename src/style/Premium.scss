@@ -1,3 +1,112 @@
 .premium-container{
   color: black;
+
+  .premium-header {
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .upgrade {
+    width: 100%;
+    background-color: #3B8C6E;
+    color: white;
+    margin-block: 5vh;
+
+    .upgrade-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding-block: 50px;
+      gap: 50px;
+
+      .login {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        span {
+          font-size: 1.2rem;
+        }
+      }
+
+      .upgrade-description {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 15px;
+
+        .premium-upgrade {
+          font-size: 2.5rem;
+          font-weight: 700;
+
+        }
+        .register {
+          font-size: 1.1rem;
+          font-weight: 200;
+        }
+      }
+    }
+  }
+
+  .premium-description {
+    width: 100%;
+    margin-block: 5vh;
+
+    .premium-description-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5vh;
+
+      .header-description {
+        font-size: 2.5rem;
+        font-weight: 700;
+      }
+
+      .text-description {
+        font-size: 1.2rem;
+        text-align: justify;
+        text-align-last: center;
+        max-width: 50%;
+      }
+    }
+  }
+
+  .advantages {
+    width: 100%;
+    margin-block: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .advantages-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      background-color: #89D99D;
+      width: 70vw;
+      text-align: left;
+      padding-inline: 5vw;
+      padding-block: 5vh;
+      border-radius: 15px;
+
+      .advantage {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        gap: 10vw;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+    }
+  }
 }
