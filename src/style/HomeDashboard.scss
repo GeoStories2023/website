@@ -1,5 +1,137 @@
 .home-dashboard-container {
+  color: black;
+
+  .menu-left {
+    position: fixed;
+    left: 0;
+    top: 15rem;
+    padding: 1rem 0.8rem;
+    background-color: #89d99d;
+    border-radius: 1rem 0 0 1rem;
+    z-index: 9999;
+
+    .icon {
+      size: 32px;
+      padding: 0.2rem 0;
+    }
+
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    svg {
+      fill: #ffffff;
+    }
+  }
+
   .home-dashboard-header {
-    color: black;
+    width: 50vw;
+    background-color: #1e5959;
+    color: white;
+    span {
+      font-size: 1.2rem;
+    }
+  }
+
+  .news,
+  .tours {
+    .news-container,
+    .tours-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        font-size: 1.5rem;
+      }
+
+      .carousel {
+        width: 50%;
+        max-width: 100%;
+
+        .carousel-item {
+          border-radius: 15px;
+          img {
+            border-radius: 15px;
+          }
+
+          .carousel-caption {
+            background-color: rgba(50, 50, 46, 0.8);
+            border-radius: 15px;
+
+            h3 {
+              font-size: 1.2rem;
+            }
+
+            p {
+              a {
+                color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .continents {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10vh;
+
+    .continents-header {
+      padding-bottom: 5vh;
+      span {
+        font-size: 1.5rem;
+      }
+    }
+
+    .continents-button-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-inline: 5vw;
+
+      .america,
+      .europe-africa,
+      .asia-oceania {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: space-between;
+        gap: 5vw;
+
+        .north-america,
+        .south-america,
+        .europe,
+        .africa,
+        .asia,
+        .oceania {
+          display: flex;
+          flex-direction: column;
+          align-content: center;
+          justify-content: center;
+          width: 20vw;
+          min-width: 300px;
+
+          img {
+            width: 20vw;
+            height: 30vh;
+          }
+
+          button {
+            border: none;
+            background: none;
+
+            :hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
   }
 }

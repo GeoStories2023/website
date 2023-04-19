@@ -1,6 +1,7 @@
 import React from "react";
 import "@/style/Favorites.scss";
 import TourItem from "@/components/tour/TourItem";
+import TourLayout from "../TourLayout";
 
 function Favorites() {
   // Fetching favorites from current user
@@ -27,14 +28,9 @@ function Favorites() {
 
   return (
     <div className="favorites-container">
-      <div className="favorites-header"><h1>Favorites</h1></div>
-      <section className="tour-list">
-        {favorites.map((favorite: any) => {
-          return <TourItem key={favorite.id} tour={favorite} />
-        })}
-      </section>
+      <TourLayout title="Favorites" tours={favorites} />
     </div>
-  )
+  );
 }
 
 export default Favorites;

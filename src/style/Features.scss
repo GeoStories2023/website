@@ -1,165 +1,172 @@
-.features-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: space-between;
-    color: black;
-    gap: 8vh;
-  
-    .features-header{
-      span{
-        font-size: 3.5rem;
-        font-weight: 700;
-        color: #1E5959;
-      }
+.features-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-between;
+  color: black;
+  gap: 8vh;
+
+  .features-header {
+    span {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #1e5959;
     }
+  }
 
-    .current-features {
-        .current-features-container {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          flex-wrap: wrap;
-          padding-bottom: 5vh;
+  .current-features {
+    .current-features-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding-bottom: 5vh;
 
-          .feature-card {
-            background-color: transparent;
-            line-height: 1;
-            width: 400px;
-            min-width: 200px;
-            height: 400px;
-            padding-inline: 2vw;
-            padding-block: 2vh;
-            perspective: 1000px;
-
-            .feature-card-inner { 
-              position: relative;
-              width: 100%;
-              height: 100%;
-              border: 1px solid #1E5959;
-              border-radius: 15px;
-              transition: transform 0.8s;
-              transform-style: preserve-3d;
-
-              .feature-card-front-container, .feature-card-back-container {
-                display: flex;
-                flex-direction: column;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                align-items: center;
-                position: absolute;
-                background-color: #C9E8D1;
-                border-radius: 15px;
-                width: 100%;
-                height: 100%;
-                -webkit-backface-visibility: hidden;
-                backface-visibility: hidden;
-              }
-
-              .feature-card-front-container {
-
-                .current-feature-icon {
-                  font-size: 10rem;
-                  color: #1E5959;
-                  padding-top: 5vh;
-                }
-  
-                span {
-                  font-size: 3rem;
-                  font-weight: 700;
-                  color: #1E5959;
-                  padding-bottom: 5vh;
-                }
-              }
-              .feature-card-back-container {
-                transform: rotateY(180deg);
-
-                span {
-                  font-size: 1.4rem;
-                  font-weight: 600;
-                  text-align: justify;
-                  text-align-last: center;
-                  padding-block: 5vh;
-                  padding-inline: 3vw ;
-                }
-              }
-          }
-        }
-        .feature-card:hover .feature-card-inner {
-          transform: rotateY(180deg);
-        }
-      }
-    }
-
-    .roadmap-features {
-      .roadmap-features-container {
-        display: flex;
-        flex-direction: column;
-        padding-block: 5vh;
+      .feature-card {
+        background-color: transparent;
+        line-height: 1;
+        width: 400px;
+        min-width: 200px;
+        height: 400px;
         padding-inline: 2vw;
+        padding-block: 2vh;
+        perspective: 1000px;
 
-        .roadmap-header {
-          font-size: 2.7rem;
-          font-weight: 700;
-          color: #1E5959;
-          padding-bottom: 5vh;
-        }
-        .roadmap-feature {
-          padding-block: 2vh;
-          
-          .roadmap-feature-container {
+        .feature-card-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          border: 1px solid #1e5959;
+          border-radius: 15px;
+          transition: transform 0.8s;
+          transform-style: preserve-3d;
+
+          .feature-card-front-container,
+          .feature-card-back-container {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-between;
             align-items: center;
-            gap: 5vw;
-            height: 10vh;
-            padding-block: 5vh;
-            max-width: 90vw;
+            position: absolute;
+            background-color: #c9e8d1;
+            border-radius: 15px;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+          }
 
-            .roadmap-icon {
-              align-self: center;
-              font-size: 5rem;
-              color: #1E5959;
+          .feature-card-front-container {
+            .current-feature-icon {
+              font-size: 10rem;
+              color: #1e5959;
+              padding-top: 5vh;
             }
-            .roadmap-description {
-              display: flex;
-              justify-content: center;
+
+            span {
+              font-size: 3rem;
+              font-weight: 700;
+              color: #1e5959;
+              padding-bottom: 5vh;
+            }
+          }
+          .feature-card-back-container {
+            transform: rotateY(180deg);
+
+            span {
+              font-size: 1.4rem;
+              font-weight: 600;
               text-align: justify;
               text-align-last: center;
-              padding-inline: 2vw;
-              padding-block: 2vh;
-              width: 70vw;
-              max-width: 800px;
-              background-color: #C9E8D1;
-              border: 2px solid #1E5959;
-              border-radius: 15px;
-              span {
-                font-size: 1.2rem;
-                font-weight: 600;
-              }
-            }
-            .roadmap-date {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              align-self: center;
-              background-color: #C9E8D1;
-              border: 2px solid #1E5959;
-              border-radius: 50%;
-              position: relative;
-              width: 10%;
-              span {
-                font-size: 1.2rem;
-                font-weight: 600;
-              }
-            }
-
-            .roadmap-date::before {
-              content: "";
-              padding-top: 100%;
+              padding-block: 5vh;
+              padding-inline: 3vw;
             }
           }
         }
       }
+      .feature-card:hover .feature-card-inner {
+        transform: rotateY(180deg);
+      }
     }
+  }
+
+  .roadmap-features {
+    .roadmap-features-container {
+      display: flex;
+      flex-direction: column;
+      padding-block: 5vh;
+      padding-inline: 2vw;
+
+      .roadmap-header {
+        font-size: 2.7rem;
+        font-weight: 700;
+        color: #1e5959;
+        padding-bottom: 5vh;
+      }
+      .roadmap-feature {
+        padding-block: 2vh;
+
+        .roadmap-feature-container {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 5vw;
+          height: 10vh;
+          padding-block: 5vh;
+          max-width: 90vw;
+
+          .roadmap-icon {
+            align-self: center;
+            font-size: 5rem;
+            color: #1e5959;
+          }
+          .roadmap-description {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: justify;
+            text-align-last: center;
+            padding-inline: 2vw;
+            padding-block: 2vh;
+            width: 70vw;
+            max-width: 800px;
+            background-color: #c9e8d1;
+            border: 2px solid #1e5959;
+            border-radius: 15px;
+
+            .description-header {
+              font-size: 1.5rem;
+              font-weight: 800;
+            }
+
+            .description-text {
+              font-size: 1.2rem;
+              font-weight: 600;
+            }
+          }
+          .roadmap-date {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-self: center;
+            background-color: #c9e8d1;
+            border: 2px solid #1e5959;
+            border-radius: 50%;
+            position: relative;
+            width: 10%;
+            span {
+              font-size: 1.2rem;
+              font-weight: 600;
+            }
+          }
+
+          .roadmap-date::before {
+            content: "";
+            padding-top: 100%;
+          }
+        }
+      }
+    }
+  }
 }
