@@ -1,3 +1,82 @@
-.friends-container{
+.friends-container {
   color: black;
+
+  .friends-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    .friends-title {
+      color: #1e5959;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-left: 5vw;
+    }
+
+    .add-friends {
+      display: flex;
+      align-items: center;
+      min-width: 300px;
+      margin-left: 10vw;
+
+      input {
+        width: 30vw;
+        margin-right: 3vw;
+      }
+
+      .btn-add-friends {
+        margin-right: 3vw;
+        font-size: 1.1rem;
+        font-weight: 600;
+        background-color: #89d99d;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        padding: 3px;
+      }
+    }
+  }
+
+  .status {
+    .status-container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      gap: 10vw;
+      margin-inline: 5vw;
+      margin-block: 10vh;
+
+      svg {
+        color: #1e5959;
+      }
+
+      .status-options {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        gap: 5px;
+
+        .status-text {
+          font-size: 1.2rem;
+          align-self: flex-start;
+        }
+
+        #status {
+          align-self: center;
+          width: 50vw;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+
+  .friends-list-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5vw;
+    margin-bottom: 10vh;
+    margin-inline: 5vw;
+  }
 }
