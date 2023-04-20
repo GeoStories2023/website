@@ -1,18 +1,5 @@
 .features-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: space-between;
-  color: black;
-  gap: 8vh;
-
-  .features-header {
-    span {
-      font-size: 3.5rem;
-      font-weight: 700;
-      color: #1e5959;
-    }
-  }
+  margin: 3rem 0;
 
   .current-features {
     .current-features-container {
@@ -25,9 +12,9 @@
       .feature-card {
         background-color: transparent;
         line-height: 1;
-        width: 400px;
+        width: 300px;
         min-width: 200px;
-        height: 400px;
+        height: 300px;
         padding-inline: 2vw;
         padding-block: 2vh;
         perspective: 1000px;
@@ -43,12 +30,6 @@
 
           .feature-card-front-container,
           .feature-card-back-container {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            position: absolute;
             background-color: #c9e8d1;
             border-radius: 15px;
             width: 100%;
@@ -62,10 +43,12 @@
               font-size: 10rem;
               color: #1e5959;
               padding-top: 5vh;
+              display: block;
+              margin: 0 auto 0;
             }
 
             span {
-              font-size: 3rem;
+              font-size: 2.4rem;
               font-weight: 700;
               color: #1e5959;
               padding-bottom: 5vh;
@@ -73,14 +56,21 @@
           }
           .feature-card-back-container {
             transform: rotateY(180deg);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
 
             span {
-              font-size: 1.4rem;
-              font-weight: 600;
-              text-align: justify;
-              text-align-last: center;
-              padding-block: 5vh;
-              padding-inline: 3vw;
+              font-size: 1.2rem;
+              margin: auto 0;
+              line-height: 1.6rem;
+              position: absolute;
+              top: 50%;
+              left: 1rem;
+              right: 1rem;
+              transform: translateY(-50%);
             }
           }
         }
@@ -169,4 +159,44 @@
       }
     }
   }
+}
+
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width:768px) {
+  .features-container {
+    .current-features {
+      .current-features-container {
+        .feature-card {
+          width: 400px;
+          min-width: 200px;
+          height: 400px;
+          padding-top: 2rem;
+
+          .feature-card-inner {
+            .feature-card-front-container {
+              .current-feature-icon {
+                margin: 0 auto 2rem auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .features-container {
+    margin: 5rem 0;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
 }

@@ -20,7 +20,7 @@ function Features() {
   return (
     <div className="features-container">
       <div className="features-header">
-        <span>Features</span>
+        <h2>Features</h2>
       </div>
       <div className="current-features">
         <div className="current-features-container">
@@ -124,7 +124,7 @@ function Features() {
       </div>
       <div className="roadmap-features">
         <div className="roadmap-features-container">
-          <span className="roadmap-header">Roadmap</span>
+          <h2 className="roadmap-header">Roadmap</h2>
           <div className="roadmap-feature">
             <div className="roadmap-feature-container">
               <Sustainabilty className="roadmap-icon" />
