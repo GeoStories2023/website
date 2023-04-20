@@ -1,30 +1,61 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "@/style/Header.scss";
 import logo from "@/assets/geo-stories_logo_3.svg";
 import { Link } from "react-router-dom";
 import { IoReorderThreeOutline as BurgerMenu } from "react-icons/io5";
 
 function Header() {
+    function open_menu() {
+        const menu_open = document.querySelector('.menu_open');
+        const nav = document.querySelector('#nav');
+        if (menu_open.classList.contains('is-open')) {
+            menu_open.classList.remove('is-open');
+            nav.classList.remove('active');
+        } else {
+            menu_open.classList.add('is-open');
+            nav.classList.add('active');
+        }
+    }
+
   return (
     <header className="header-container">
-      <div className="logo-container">
-        <img src={logo} className="logo" alt="Logo" />
-        <div className="logo-title-container">
-          <span className="logo-title">GeoStories</span>
-          <span className="logo-subtitle">Write your story in the world!</span>
+        <div className="row">
+            <div className="col-md-6 col-lg-8">
+                <Link to={"/"} className="logo-container">
+                    <img src={logo} className="logo" alt="Logo" />
+                    <div className="logo-title-container">
+                        <span className="logo-title">GeoStories</span>
+                        <span className="logo-subtitle">Write your story in the world!</span>
+                    </div>
+                </Link>
+            </div>
+            <div className="col-md-6 col-lg-4">
+                <div className="header-actions">
+                    <Link to={"/register"} className="header-actions-register">
+                        Register
+                    </Link>
+                    <Link to={"/login"} className="header-actions-login">
+                        Login
+                    </Link>
+                    <div className="navigation">
+                        <a href="#" id="nav"  onClick={open_menu} className="mobile_nav_handler hamburger-icon-container">
+                            <span className="hamburger-icon"></span>
+                        </a>
+                        <div className="menu_open">
+                            <ul>
+                                <Link to={"/login"}><li>Login</li></Link>
+                                <Link to={"/register"}><li>Register</li></Link>
+                                <Link to={"/continent"}><li>Kontinente</li></Link>
+                                <Link to={"/continent/country"}><li>Länder</li></Link>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div className="header-actions">
-        <Link to={"/register"} className="header-actions-register">
-          Register
-        </Link>
-        <Link to={"/login"} className="header-actions-login">
-          Login
-        </Link>
-        <BurgerMenu size={64} />
-      </div>
     </header>
   );
 }
 
 export default Header;
+<BurgerMenu size={64} />

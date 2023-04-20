@@ -1,41 +1,64 @@
 .home-dashboard-container {
   color: black;
 
+  h2 {
+    padding: 1rem 0;
+  }
+
   .menu-left {
     position: fixed;
     left: 0;
     top: 15rem;
     padding: 1rem 0.8rem;
     background-color: #89d99d;
-    border-radius: 1rem 0 0 1rem;
+    border-radius: 0 1rem 1rem 0;
     z-index: 9999;
 
-    .icon {
-      size: 32px;
-      padding: 0.2rem 0;
+    svg {
+      width: 2rem;
+      height: 2rem;
+      fill: #ffffff;
+      margin: 0.4rem 0;
+
+      &.icon {
+        size: 32px;
+        padding: 0.2rem 0;
+        display: block;
+      }
     }
 
     img {
       width: 2rem;
       height: 2rem;
     }
-
-    svg {
-      fill: #ffffff;
-    }
   }
 
   .home-dashboard-header {
-    width: 50vw;
+    width: 100vw;
     background-color: #1e5959;
     color: white;
+    text-align: left;
+    padding-left: 1rem;
     span {
       font-size: 1.2rem;
     }
   }
 
+  .seperator {
+    height: 2rem;
+    width: 100%;
+    background-image: url("/src/assets/wave_green_full.svg");
+    background-repeat: repeat-x;
+    background-position: center;
+
+    &.is-blue {
+      background-image: url("/src/assets/wave_blue_full.svg");
+    }
+  }
+
   .news,
   .tours {
+    margin: 3rem 0;
     .news-container,
     .tours-container {
       display: flex;
@@ -80,6 +103,7 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 10vh;
+    margin: 3rem 0;
 
     .continents-header {
       padding-bottom: 5vh;
@@ -89,46 +113,86 @@
     }
 
     .continents-button-container {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      padding-inline: 5vw;
+      .north-america,
+      .south-america,
+      .europe,
+      .africa,
+      .asia,
+      .oceania {
+        margin-bottom: 4rem;
+        width: 100%;
 
-      .america,
-      .europe-africa,
-      .asia-oceania {
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        justify-content: space-between;
-        gap: 5vw;
+        img {
+          width: auto;
+          height: 16rem;
+        }
 
+        button {
+          border: none;
+          background: none;
+          width: 100%;
+
+          :hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width:768px) {
+  .home-dashboard-container {
+    .home-dashboard-header {
+      padding: 0.6rem 0 0.6rem 2rem;
+      width: 50vw;
+    }
+    .news,
+    .tours,
+    .continents {
+      margin: 5rem 0;
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .home-dashboard-container {
+    .home-dashboard-header {
+      width: 30vw;
+    }
+    .continents {
+      width: 80rem;
+      margin: 5rem auto;
+    }
+  }
+}
+
+@media (min-width: 1800px) {
+  .home-dashboard-container {
+    .continents {
+      width: 90rem;
+
+      .continents-button-container {
         .north-america,
         .south-america,
         .europe,
         .africa,
         .asia,
         .oceania {
-          display: flex;
-          flex-direction: column;
-          align-content: center;
-          justify-content: center;
-          width: 20vw;
-          min-width: 300px;
-
           img {
-            width: 20vw;
-            height: 30vh;
-          }
-
-          button {
-            border: none;
-            background: none;
-
-            :hover {
-              cursor: pointer;
-            }
+            height: 22rem;
           }
         }
       }

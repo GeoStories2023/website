@@ -17,18 +17,30 @@ function HomeDefault({ user }: { user: User }) {
       <div className="big-picture-container">
         <img src={bigPicture} alt="big-picture" className="big-picture" />
       </div>
-      <div className="app-container">
-        <img src={phone} alt="phone" className="phone" />
-        <div className="app-description">
-          <div className="app-description-text">
-            <span className="app-description-text-big">
-              Jetzt die App <br /> herunterladen!
-            </span>
-            <span className="app-description-text-small">
-              Verfügbar für iOS und Android
-            </span>
+      <div className="phone-container">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-4 col-lg-4">
+              <img src={phone} alt="phone" className="phone" />
+            </div>
+            <div className="col-md-8 col-lg-8">
+              <div className="app-description-text">
+                <div className="row pt-5">
+                  <div className="col-sm-8">
+                    <span className="app-description-text-big">
+                      Jetzt die App <br /> herunterladen! <br />
+                    </span>
+                    <span className="app-description-text-small">
+                      Verfügbar für iOS und Android
+                    </span>
+                  </div>
+                  <div className="col-sm-4">
+                    <img src={qrcode} alt="app-qr-code" className="app-qr-code"  />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <img src={qrcode} alt="app-qr-code" className="app-qr-code" />
         </div>
       </div>
       <div className="quote-container">
@@ -47,45 +59,57 @@ function HomeDefault({ user }: { user: User }) {
           <img src={book} alt="quote-book" className="quote-book" />
         </div>
       </div>
-      <div className="features-container">
-        <div className="single-feature-container">
-          <img src={explore} alt="explore-img" className="img-feature" />
-          <div className="text-feature">
-            <span className="header-feature">
-              Erkunde neue Länder und Städte
-            </span>
-            <span className="description-feature">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua.
-            </span>
+      <div className="feature-container">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6 col-lg-4">
+              <div className="single-feature-container">
+                <img src={explore} alt="explore-img" className="img-feature" />
+                <div className="text-feature">
+                <span className="header-feature">
+                  Erkunde neue Länder und Städte
+                </span>
+                  <span className="description-feature">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+                erat, sed diam voluptua.
+                </span>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-4">
+              <div className="single-feature-container">
+                <img src={diary} alt="diary-img" className="img-feature" />
+                <div className="text-feature">
+                  <span className="header-feature">Schreibe dein Tagebuch</span>
+                  <span className="description-feature">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+                erat, sed diam voluptua.
+                </span>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-4">
+              <div className="single-feature-container">
+                <img src={review} alt="review-img" className="img-feature" />
+                <div className="text-feature">
+                <span className="header-feature">
+                  Blick auf deine Geo-Story zurück
+                </span>
+                  <span className="description-feature">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+                nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+                erat, sed diam voluptua.
+                </span>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="single-feature-container">
-          <img src={diary} alt="diary-img" className="img-feature" />
-          <div className="text-feature">
-            <span className="header-feature">Schreibe dein Tagebuch</span>
-            <span className="description-feature">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua.
-            </span>
-          </div>
-        </div>
-        <div className="single-feature-container">
-          <img src={review} alt="review-img" className="img-feature" />
-          <div className="text-feature">
-            <span className="header-feature">
-              Blick auf deine Geo-Story zurück
-            </span>
-            <span className="description-feature">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua.
-            </span>
-          </div>
+
         </div>
       </div>
+
     </div>
   );
 }

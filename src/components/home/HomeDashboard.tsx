@@ -7,6 +7,12 @@ import europe from "@/assets/img-dashboard/continent-europe.svg";
 import africa from "@/assets/img-dashboard/continent-africa.svg";
 import asia from "@/assets/img-dashboard/continent-asia.svg";
 import oceania from "@/assets/img-dashboard/continent-oceania.svg";
+import homepagePicture from "@/assets/HomePagePic1_full.png"; 
+import vision from "@/assets/img-news/vision.png";
+import work from "@/assets/img-news/work.png";
+import rome from "@/assets/img-dashboard-tours/rome.png";
+import hamburg from "@/assets/img-dashboard-tours/hamburg.jpg";
+import london from "@/assets/img-dashboard-tours/london.png";
 import {
   BsJournalRichtext as Diary,
   BsFillPeopleFill as Friends,
@@ -31,7 +37,7 @@ function HomeDashboard({ user }: { user: User }) {
       </div>
       <div className="news">
         <div className="news-container">
-          <span>News</span>
+          <h2>News</h2>
           <Carousel
             className="carousel"
             keyboard={true}
@@ -41,7 +47,7 @@ function HomeDashboard({ user }: { user: User }) {
             <Carousel.Item className="carousel-item">
               <img
                 className="d-block w-100"
-                src="https://wallpaperaccess.com/full/1154341.jpg"
+                src={homepagePicture}
                 alt="First slide"
               />
               <Carousel.Caption className="carousel-caption">
@@ -55,7 +61,7 @@ function HomeDashboard({ user }: { user: User }) {
             <Carousel.Item className="carousel-item">
               <img
                 className="d-block w-100"
-                src="https://wallpapercave.com/wp/wp2634222.jpg"
+                src={vision}
                 alt="Second slide"
               />
 
@@ -70,7 +76,7 @@ function HomeDashboard({ user }: { user: User }) {
             <Carousel.Item className="carousel-item">
               <img
                 className="d-block w-100"
-                src="https://images5.alphacoders.com/343/thumb-1920-343645.jpg"
+                src={work}
                 alt="Third slide"
               />
 
@@ -85,10 +91,10 @@ function HomeDashboard({ user }: { user: User }) {
           </Carousel>
         </div>
       </div>
-      <div className="seperator"></div>
+      <div className="seperator is-blue"></div>
       <div className="tours">
         <div className="tours-container">
-          <span>Mögliche Kapitel für deine nächste Geschichte</span>
+          <h2>Mögliche Kapitel für deine nächste Geschichte</h2>
           <Carousel
             className="carousel"
             keyboard={true}
@@ -98,13 +104,13 @@ function HomeDashboard({ user }: { user: User }) {
             <Carousel.Item className="carousel-item">
               <img
                 className="d-block w-100"
-                src="https://wallpaperaccess.com/full/1154341.jpg"
+                src={rome}
                 alt="First slide"
               />
               <Carousel.Caption className="carousel-caption">
-                <h3>Hallo bei GeoStories</h3>
+                <h3>Erkunde die Museen von Rom</h3>
                 <p>
-                  Mit Geostories schreibst du deine Geschichte in der Welt.{" "}
+                  Du hast Lust die Museums-Tour in Rom?{" "}
                   <a href="">Weiterlesen</a>
                 </p>
               </Carousel.Caption>
@@ -112,27 +118,26 @@ function HomeDashboard({ user }: { user: User }) {
             <Carousel.Item className="carousel-item">
               <img
                 className="d-block w-100"
-                src="https://wallpapercave.com/wp/wp2634222.jpg"
+                src= {hamburg}
                 alt="Second slide"
               />
 
               <Carousel.Caption className="carousel-caption">
-                <h3>Second slide label</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h3>Das deutsche Venedig</h3>
+                <p>Erkunde die Brückenstadt im Norden Deutschlands.</p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item className="carousel-item">
               <img
                 className="d-block w-100"
-                src="https://images5.alphacoders.com/343/thumb-1920-343645.jpg"
+                src={london}
                 alt="Third slide"
               />
 
               <Carousel.Caption className="carousel-caption">
-                <h3>Third slide label</h3>
+                <h3>Kannst du die Glocken hören?</h3>
                 <p>
-                  Praesent commodo cursus magna, vel scelerisque nisl
-                  consectetur.
+                  Der Big Ben und weitere Attraktionen warten in London auf dich.
                 </p>
               </Carousel.Caption>
             </Carousel.Item>
@@ -142,75 +147,84 @@ function HomeDashboard({ user }: { user: User }) {
       <div className="seperator"></div>
       <div className="continents">
         <div className="continents-header">
-          <span>Wähle den Kontinent für dein nächstes Reiseziel</span>
+          <h2>Wähle den Kontinent für dein nächstes Reiseziel</h2>
         </div>
         <div className="continents-button-container">
-          <div className="america">
-            <div className="north-america">
-              <button
-                onClick={() => {
-                  navigate("/tours/northamerica");
-                }}
-              >
-                <img src={northAmerica} alt="North America" />
-              </button>
-              <span>Nordamerika</span>
+          <div className="row">
+            <div className="col-sm-6 col-lg-4">
+              <div className="north-america">
+                <button
+                    onClick={() => {
+                      navigate("/tours/northamerica");
+                    }}
+                >
+                  <img src={northAmerica} alt="North America" />
+                </button>
+                <span>Nordamerika</span>
+              </div>
             </div>
-            <div className="south-america">
-              <button
-                onClick={() => {
-                  navigate("/tours/southamerica");
-                }}
-              >
-                <img src={southAmerica} alt="South America" />
-              </button>
-              <span>Südamerika</span>
+            <div className="col-sm-6 col-lg-4">
+              <div className="south-america">
+                <button
+                    onClick={() => {
+                      navigate("/tours/southamerica");
+                    }}
+                >
+                  <img src={southAmerica} alt="South America" />
+                </button>
+                <span>Südamerika</span>
+              </div>
             </div>
-          </div>
-          <div className="europe-africa">
-            <div className="europe">
-              <button
-                onClick={() => {
-                  navigate("/tours/europe");
-                }}
-              >
-                <img src={europe} alt="Europe" />
-              </button>
-              <span>Europa</span>
+            <div className="col-sm-6 col-lg-4">
+              <div className="europe">
+                <button
+                    onClick={() => {
+                      navigate("/tours/europe");
+                    }}
+                >
+                  <img src={europe} alt="Europe" />
+                </button>
+                <span>Europa</span>
+              </div>
             </div>
-            <div className="africa">
-              <button
-                onClick={() => {
-                  navigate("/tours/africa");
-                }}
-              >
-                <img src={africa} alt="Africa" />
-              </button>
-              <span>Afrika</span>
+            <div className="col-sm-6 col-lg-4">
+              <div className="africa">
+                <button
+                    onClick={() => {
+                      navigate("/tours/africa");
+                    }}
+                >
+                  <img src={africa} alt="Africa" />
+                </button>
+                <span>Afrika</span>
+              </div>
             </div>
-          </div>
-          <div className="asia-oceania">
-            <div className="asia">
-              <button
-                onClick={() => {
-                  navigate("/tours/asia");
-                }}
-              >
-                <img src={asia} alt="Asia" />
-              </button>
-              <span>Asien</span>
+            <div className="col-sm-6 col-lg-4">
+                <div className="asia">
+                  <button
+                      onClick={() => {
+                        navigate("/tours/asia");
+                      }}
+                  >
+                    <img src={asia} alt="Asia" />
+                  </button>
+                  <span>Asien</span>
+                </div>
             </div>
-            <div className="oceania">
-              <button
-                onClick={() => {
-                  navigate("/tours/oceania");
-                }}
-              >
-                <img src={oceania} alt="Oceania" />
-              </button>
-              <span>Ozeaninen</span>
+            <div className="col-sm-6 col-lg-4">
+              <div className="oceania">
+                <button
+                    onClick={() => {
+                      navigate("/tours/oceania");
+                    }}
+                >
+                  <img src={oceania} alt="Oceania" />
+                </button>
+                <span>Ozeaninen</span>
+              </div>
             </div>
-          </div>
+
+        </div>
         </div>
       </div>
     </div>

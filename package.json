@@ -13,7 +13,7 @@
     "@prisma/client": "^4.12.0",
     "@types/node": "^18.15.11",
     "bootstrap": "^5.2.3",
-    "firebase": "^9.18.0",
+    "firebase": "^9.19.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.3",
     "react-dom": "^18.2.0",
