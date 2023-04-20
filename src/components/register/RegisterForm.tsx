@@ -37,7 +37,7 @@ function RegisterForm() {
   function validatePassword() {
     const password = passwordRef.current?.value ?? "";
     const passwordInfo: PasswordInfo[] = [
-      { status: password.length > 8, message: "8 characters long" },
+      { status: password.length >= 8, message: "8 characters long" },
       {
         status: /(?=.*[a-z])/.test(password),
         message: "At least one lowercase letter",
@@ -104,51 +104,62 @@ function RegisterForm() {
                 <form onSubmit={handleSubmit} className="register-form">
                   <div className="row">
                     <div className="col-md-6">
-                      <input type="text" className="input_name" placeholder="Name" />
+                      <input
+                        type="text"
+                        className="input_name"
+                        placeholder="Name"
+                      />
                     </div>
                     <div className="col-md-6">
-                      <input type="text" className="input_lastname" placeholder="Lastname" />
+                      <input
+                        type="text"
+                        className="input_lastname"
+                        placeholder="Lastname"
+                      />
                     </div>
                   </div>
                   <input
-                      className="input_email"
-                      ref={emailRef}
-                      type="email"
-                      placeholder="E-Mail"
-                      required
+                    className="input_email"
+                    ref={emailRef}
+                    type="email"
+                    placeholder="E-Mail"
+                    required
                   />
                   <input
-                      className="input_password"
-                      ref={passwordRef}
-                      type="password"
-                      placeholder="Password"
-                      onChange={validatePassword}
-                      required
+                    className="input_password"
+                    ref={passwordRef}
+                    type="password"
+                    placeholder="Password"
+                    onChange={validatePassword}
+                    required
                   />
                   <input
-                      className="input_conf_password"
-                      ref={confirmPasswordRef}
-                      type="password"
-                      placeholder="Confirm Password"
-                      onChange={validatePassword}
+                    className="input_conf_password"
+                    ref={confirmPasswordRef}
+                    type="password"
+                    placeholder="Confirm Password"
+                    onChange={validatePassword}
                   />
                   <div className="row">
                     <div className="col-md-6">
                       <div className="register-password-info">
                         {passwordInfo?.map((info: PasswordInfo) => {
                           return (
-                              <div className="register-password-info-item" key={info.message}>
-                                <div
-                                    className={
-                                      info.status
-                                          ? "register-password-info-item-icon"
-                                          : "register-password-info-item-icon insufficient"
-                                    }
-                                >
-                                  {info.status ? "✔" : "✖"}
-                                </div>
-                                <p>{info.message}</p>
+                            <div
+                              className="register-password-info-item"
+                              key={info.message}
+                            >
+                              <div
+                                className={
+                                  info.status
+                                    ? "register-password-info-item-icon"
+                                    : "register-password-info-item-icon insufficient"
+                                }
+                              >
+                                {info.status ? "✔" : "✖"}
                               </div>
+                              <p>{info.message}</p>
+                            </div>
                           );
                         })}
                       </div>
@@ -157,10 +168,15 @@ function RegisterForm() {
                       <div className="register-form-checkbox-container">
                         <div className="register-form-checkbox">
                           <input type="checkbox" id="register-form-agb" />
-                          <label htmlFor="register-form-agb">Accept our AGBs</label>
+                          <label htmlFor="register-form-agb">
+                            Accept our AGBs
+                          </label>
                         </div>
                         <div className="register-form-checkbox">
-                          <input type="checkbox" id="register-form-privacy-policy" />
+                          <input
+                            type="checkbox"
+                            id="register-form-privacy-policy"
+                          />
                           <label htmlFor="register-form-privacy-policy">
                             Accept our privacy policy
                           </label>
