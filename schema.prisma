@@ -1,0 +1,176 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  uid            String         @id
+  username       String         @unique @default(cuid())
+  askUsername    Boolean        @default(true)
+  profileImage   Image?         @relation(fields: [profileImageId], references: [id])
+  profileImageId String?
+  isPremium      Boolean        @default(false)
+  isAdmin        Boolean        @default(false)
+  dateCreated    DateTime       @default(now())
+  dateUpdated    DateTime       @default(now()) @updatedAt
+  xp             Int            @default(0)
+  startedTours   StartedTour[]
+  coupons        Coupon[]
+  favoriteTours  FavoriteTour[]
+}
+
+model Level {
+  id          String @id @default(uuid())
+  name        String
+  description String @default("")
+  xp          Int    @default(0)
+}
+
+model Company {
+  id          String   @id @default(uuid())
+  name        String
+  description String   @default("")
+  dateCreated DateTime @default(now())
+  dateUpdated DateTime @default(now()) @updatedAt
+  coupons     Coupon[]
+}
+
+model Coupon {
+  id          String   @id @default(uuid())
+  code        String
+  description String   @default("")
+  dateCreated DateTime @default(now())
+  dateUpdated DateTime @default(now()) @updatedAt
+  company     Company? @relation(fields: [companyId], references: [id])
+  companyId   String?
+  user        User?    @relation(fields: [userId], references: [uid])
+  userId      String?
+}
+
+model FavoriteTour {
+  id          String   @id @default(uuid())
+  dateCreated DateTime @default(now())
+  dateUpdated DateTime @default(now()) @updatedAt
+  tourId      String
+  tour        Tour     @relation(fields: [tourId], references: [id])
+  userId      String
+  user        User     @relation(fields: [userId], references: [uid])
+}
+
+model StartedTour {
+  id          String    @id @default(uuid())
+  isCompleted Boolean   @default(false)
+  dateStarted DateTime  @default(now())
+  dateEnded   DateTime?
+  tourId      String
+  tour        Tour      @relation(fields: [tourId], references: [id])
+  userId      String
+  user        User      @relation(fields: [userId], references: [uid])
+}
+
+model Continent {
+  id        String    @id @default(uuid())
+  name      String
+  imageId   String?
+  image     Image?    @relation(fields: [imageId], references: [id])
+  countries Country[]
+}
+
+model Country {
+  id          String    @id @default(uuid())
+  name        String
+  continentId String
+  continent   Continent @relation(fields: [continentId], references: [id])
+  imageId     String?
+  image       Image?    @relation(fields: [imageId], references: [id])
+  cities      City[]
+}
+
+model City {
+  id        String  @id @default(uuid())
+  name      String
+  countryId String
+  country   Country @relation(fields: [countryId], references: [id])
+  imageId   String?
+  image     Image?  @relation(fields: [imageId], references: [id])
+  tours     Tour[]
+}
+
+model TourPointType {
+  id          String      @id @default(uuid())
+  name        String
+  tourPoints  TourPoint[]
+  dateCreated DateTime    @default(now())
+  dateUpdated DateTime    @default(now()) @updatedAt
+}
+
+model TourPoint {
+  id          String        @id @default(uuid())
+  typeId      String
+  type        TourPointType @relation(fields: [typeId], references: [id])
+  longitude   Float
+  latitude    Float
+  description String        @default("")
+  dateCreated DateTime      @default(now())
+  dateUpdated DateTime      @default(now()) @updatedAt
+  tour        Tour?         @relation(fields: [tourId], references: [id])
+  tourId      String?
+}
+
+model Tour {
+  id            String         @id @default(uuid())
+  name          String
+  description   String         @default("")
+  tourPoints    TourPoint[]
+  image         Image?         @relation(fields: [imageId], references: [id])
+  imageId       String?
+  dateCreated   DateTime       @default(now())
+  dateUpdated   DateTime       @default(now()) @updatedAt
+  xp            Int            @default(0)
+  startedTours  StartedTour[]
+  city          City?          @relation(fields: [cityId], references: [id])
+  cityId        String?
+  favoriteTours FavoriteTour[]
+}
+
+model News {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  dateCreated DateTime @default(now())
+  dateUpdated DateTime @default(now()) @updatedAt
+  image       Image?   @relation(fields: [imageId], references: [id])
+  imageId     String?
+}
+
+model Achievement {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  dateCreated DateTime @default(now())
+  dateUpdated DateTime @default(now()) @updatedAt
+  image       Image?   @relation(fields: [imageId], references: [id])
+  imageId     String?
+}
+
+model Image {
+  id           String        @id @default(uuid())
+  url          String
+  name         String        @default("")
+  dateCreated  DateTime      @default(now())
+  dateUpdated  DateTime      @default(now()) @updatedAt
+  tours        Tour[]
+  users        User[]
+  news         News[]
+  continents   Continent[]
+  countries    Country[]
+  cities       City[]
+  achievements Achievement[]
+}

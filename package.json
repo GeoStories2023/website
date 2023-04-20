@@ -4,12 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "npm i && npm run dev",
+    "start": "npm i && npx prisma generate && npm run dev",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@prisma/client": "^4.12.0",
+    "@types/node": "^18.15.11",
     "bootstrap": "^5.2.3",
     "firebase": "^9.18.0",
     "react": "^18.2.0",
@@ -24,7 +26,7 @@
     "@types/react-dom": "^18.0.10",
     "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react-swc": "^3.0.0",
-    "typescript": "^4.9.3",
+    "typescript": "^5.0.4",
     "vite": "^4.1.0"
   }
 }
