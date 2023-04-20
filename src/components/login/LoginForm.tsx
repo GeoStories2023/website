@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import logo from "@/assets/geo-stories_logo_3.svg";
 import googleLogo from "@/assets/google_logo.svg";
+import githubLogo from "@/assets/github_logo_black.svg";
 import {
   getAuth,
   GoogleAuthProvider,
@@ -9,14 +10,12 @@ import {
 } from "firebase/auth";
 import { app } from "@/firebase";
 import { useNavigate } from "react-router-dom";
-// import { User } from "@/types/General";
 
 function LoginForm({
   setUser,
 }: {
   setUser: any; //React.Dispatch<React.SetStateAction<User>>;
 }) {
-  const provider = new GoogleAuthProvider();
   const navigate = useNavigate();
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
@@ -29,38 +28,43 @@ function LoginForm({
   }
 
   function signInWithGoogle() {
+    const provider = new GoogleAuthProvider();
     const auth = getAuth(app);
     signInWithPopup(auth, provider)
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential?.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        // ...
+        // const credential = GoogleAuthProvider.credentialFromResult(result);
+        // const token = credential?.accessToken;
+        // const user = result.user;
+        // navigate("/");
       })
       .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
+        // const email = error.email;
+        // const credential = GoogleAuthProvider.credentialFromError(error);
       });
   }
 
   function login(email: string, password: string) {
     const auth = getAuth(app);
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then(async (userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
+        const accessToken = await user.getIdToken();
+        console.log("ACCESS TOKEN:", accessToken);
+        console.log("USER:", user);
         // Fetch User
+        const response = await fetch("http://localhost:3000/api/v1/users", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        console.log(response);
         setUser({ ...user, username: "Test" });
-        navigate("/");
+        // navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -109,7 +113,7 @@ function LoginForm({
                       <button>LOGIN</button>
                       <button
                         onClick={signInWithGoogle}
-                        className="login-google-button"
+                        className="login-extern-button"
                       >
                         <img src={googleLogo} alt="Google Logo" />
                         Sign in with Google

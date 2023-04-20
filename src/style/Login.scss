@@ -62,7 +62,8 @@
           h2 {
             margin-block: 0;
             color: #89d99d;
-            font-family: Lobster, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+            font-family: Lobster, Inter, system-ui, Avenir, Helvetica, Arial,
+              sans-serif;
             font-size: 3rem;
           }
 
@@ -91,7 +92,7 @@
           border: none;
           cursor: pointer;
         }
-        .login-google-button{
+        .login-extern-button {
           display: flex;
           flex-direction: row;
           justify-content: center;
@@ -105,14 +106,14 @@
           color: #333;
           border: none;
           cursor: pointer;
-          img{
+          img {
             width: 1.5rem;
             height: 1.5rem;
           }
         }
-          p{
-            color: #fff !important;
-          }
+        p {
+          color: #fff !important;
+        }
       }
     }
     .login-form-right {
@@ -125,7 +126,8 @@
       h1 {
         margin-block: 0 5rem;
         color: #224a43;
-        font-family: Lobster, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+        font-family: Lobster, Inter, system-ui, Avenir, Helvetica, Arial,
+          sans-serif;
       }
     }
   }
@@ -133,12 +135,10 @@
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-
 }
 
 // Medium devices (tablets, 768px and up)
-@media (min-width:786px) {
-
+@media (min-width: 786px) {
 }
 
 // Large devices (desktops, 992px and up)
@@ -155,5 +155,4 @@
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-
 }
