@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@firebase/app-types": "^0.9.0",
     "@prisma/client": "^4.12.0",
     "@types/node": "^18.15.11",
     "bootstrap": "^5.2.3",

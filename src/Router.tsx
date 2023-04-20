@@ -26,15 +26,15 @@ function Router() {
       setFirebaseUser(fUser);
       // fetch user from rest
       const bearerToken = await fUser.getIdToken();
-      const response = await fetch("http://localhost:3000/users", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${bearerToken}`,
-        },
-      });
-      console.log("test");
-      console.log(response);
+      // const response = await fetch("http://localhost:3000/users", {
+      //   method: "GET",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     Authorization: `Bearer ${bearerToken}`,
+      //   },
+      // });
+      // console.log("test");
+      // console.log(response);
     }
   });
 
