@@ -82,6 +82,7 @@
   }
 
   .roadmap-features {
+    margin-top: 3rem;
     .roadmap-features-container {
       display: flex;
       flex-direction: column;
@@ -89,71 +90,51 @@
       padding-inline: 2vw;
 
       .roadmap-header {
-        font-size: 2.7rem;
-        font-weight: 700;
-        color: #1e5959;
         padding-bottom: 5vh;
       }
       .roadmap-feature {
         padding-block: 2vh;
 
         .roadmap-feature-container {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          gap: 5vw;
-          height: 10vh;
-          padding-block: 5vh;
-          max-width: 90vw;
 
           .roadmap-icon {
             align-self: center;
             font-size: 5rem;
             color: #1e5959;
+            margin-bottom: 1rem;
           }
           .roadmap-description {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: justify;
-            text-align-last: center;
-            padding-inline: 2vw;
-            padding-block: 2vh;
-            width: 70vw;
-            max-width: 800px;
+            padding: 2rem;
+            width: 100%;
             background-color: #c9e8d1;
             border: 2px solid #1e5959;
             border-radius: 15px;
+            text-align: left;
 
             .description-header {
               font-size: 1.5rem;
-              font-weight: 800;
+              font-weight: 700;
+              display: block;
             }
 
             .description-text {
-              font-size: 1.2rem;
-              font-weight: 600;
+              font-size: 1rem;
+              font-weight: 500;
             }
           }
           .roadmap-date {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            align-self: center;
             background-color: #c9e8d1;
             border: 2px solid #1e5959;
             border-radius: 50%;
             position: relative;
-            width: 10%;
+            width: 5rem;
+            height: 5rem;
+            margin: 1rem auto;
+            padding-top: 1.2rem;
             span {
               font-size: 1.2rem;
               font-weight: 600;
             }
-          }
-
-          .roadmap-date::before {
-            content: "";
-            padding-top: 100%;
           }
         }
       }
@@ -181,6 +162,22 @@
               .current-feature-icon {
                 margin: 0 auto 2rem auto;
               }
+            }
+          }
+        }
+      }
+    }
+    .roadmap-features {
+      .roadmap-features-container {
+        .roadmap-feature {
+          .roadmap-feature-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .roadmap-description {
+              width: 70%;
+              margin: 0 1rem;
             }
           }
         }

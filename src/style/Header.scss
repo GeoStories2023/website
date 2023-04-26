@@ -13,18 +13,16 @@ header {
     align-items: center;
     justify-content: left;
 
-    &:hover {
-      cursor: pointer;
-    }
-
     img {
       height: 84px;
       width: 84px;
+      cursor: pointer;
     }
     .logo-title-container {
       text-align: left;
       position: relative;
       color: #ffffff;
+      cursor: pointer;
       .logo-title {
         font-size: 2.25rem;
         font-weight: bold;

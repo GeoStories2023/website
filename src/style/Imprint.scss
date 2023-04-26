@@ -1,8 +1,25 @@
 .imprint-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    max-width: 90%;
-    align-items: center;
-    justify-content: center;
+    text-align: left;
+    padding: 3rem 0;
+}
+
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width:768px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .imprint-container {
+        padding: 5rem 0;
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
 }

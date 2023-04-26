@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import logo from "@/assets/geo-stories_logo_3.svg";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { app } from "@/firebase";
+import {useNavigate} from "react-router";
 
 interface PasswordInfo {
   status: boolean;
@@ -12,6 +13,7 @@ function RegisterForm() {
   const passwordRef = useRef<HTMLInputElement>(null);
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
+  const navigate=useNavigate();
 
   const [passwordInfo, setPasswordInfo] = useState<PasswordInfo[]>([
     { status: false, message: "8 characters long" },
@@ -93,7 +95,7 @@ function RegisterForm() {
         <div className="row">
           <div className="col-12">
             <div className="register-form-container">
-              <div className="register-form-logo-container">
+              <div className="register-form-logo-container" onClick={() => { navigate("/") }}>
                 <p>Welcome to</p>
                 <div className="register-form-logo">
                   <img src={logo} alt="Logo" />
