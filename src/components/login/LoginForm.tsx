@@ -55,7 +55,7 @@ function LoginForm({
         console.log("ACCESS TOKEN:", accessToken);
         console.log("USER:", user);
         // Fetch User
-        const response = await fetch("http://localhost:3000/api/v1/users", {
+        const response = await fetch("http://89.58.39.82:3000/api/v1/users", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

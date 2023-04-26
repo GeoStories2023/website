@@ -15,6 +15,7 @@ import About from "./components/about/About";
 import Features from "./components/features/Features";
 import TravelDiary from "./components/traveldiary/TravelDiary";
 import Imprint from "@/components/imprint/Imprint";
+import PremiumAdvertisement from "@/components/premium-advertisement/PremiumAdvertisement";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { User as UserType } from "@prisma/client";
 
@@ -100,6 +101,11 @@ function Router() {
           path: "imprint",
           element: <Imprint />,
         },
+        /* Just for testing */
+        {
+          path: "premium-ad",
+          element: <PremiumAdvertisement />,
+        }
       ],
     },
     {
