@@ -13,18 +13,16 @@ header {
     align-items: center;
     justify-content: left;
 
-    &:hover {
-      cursor: pointer;
-    }
-
     img {
       height: 84px;
       width: 84px;
+      cursor: pointer;
     }
     .logo-title-container {
       text-align: left;
       position: relative;
       color: #ffffff;
+      cursor: pointer;
       .logo-title {
         font-size: 2.25rem;
         font-weight: bold;
@@ -184,10 +182,23 @@ header {
       letter-spacing: 1px;
     }
     .header-actions-login {
-      padding: 0.25rem 2rem;
+      padding: 0.15rem 2rem 0.4rem 2rem;
       border-radius: 50px;
       background-color: #1e5959;
+      transition: all ease-in-out 0.3s;
       cursor: pointer;
+
+      &:hover {
+        background-color: #fff;
+        color: #1e5959 !important;
+      }
+    }
+
+    .header-actions-register {
+      transition: all ease-in-out 0.3s;
+      &:hover {
+        color: #1e5959 !important;
+      }
     }
   }
 }

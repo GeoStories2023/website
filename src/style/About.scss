@@ -1,12 +1,9 @@
 .about-container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: space-between;
   color: black;
-  gap: 8vh;
+  margin: 3rem 0;
 
   .about-header{
+    margin-bottom: 1rem;
     span{
       font-size: 3.5rem;
       font-weight: 700;
@@ -15,14 +12,11 @@
   }
 
   .about-vision{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: flex-start;
     width: 80vw;
+    margin: 0 auto 3rem auto;
     background-color: #C9E8D1;
     border-radius: 15px;
-    padding-inline: 2vw;
+    padding: 2rem;
     border: 1px solid #1E5959;
 
     span{
@@ -33,44 +27,37 @@
     }
   }
   .about-team{
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 5vh;
-
 
     .team-title{
       font-size: 3rem;
       font-weight: 700;
       color: #1E5959;
-      padding-bottom: 5vh;
     }
 
     .team-cards-container{
       display: flex;
       flex-direction: row;
       justify-content: center;
-      gap: 5vw;
+      gap: 3vw;
+      margin: 1rem 0;
       flex-wrap: wrap;
 
       .team-card-container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex-wrap: wrap;
         width: 20vw;
         min-width: 400px; 
         background-color: #C9E8D1;
         border: 1px solid #1E5959;
         border-radius: 15px;
-        padding-inline: 2vw;
-        padding-block: 5vh;
+        padding: 2rem;
 
         .team-member-name{
           font-size: 2rem;
+          display: block;
           font-weight: 700;
           color: #1E5959;
           border-bottom: 5px solid #1E5959;
           margin-bottom: 2vh;
+          padding: 1rem 0;
         }
 
         .team-member-description{
@@ -81,6 +68,42 @@
           text-align-last: center;
         }
       }
+    }
+  }
+}
+
+
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width:768px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .about-container {
+    .about-vision {
+      width: 60vw;
+      margin: 0 auto 3rem auto;
+      padding: 3rem 6rem;
+    }
+    .about-team {
+      margin: 5rem 0;
+      .team-cards-container {
+        margin: 2rem;
+      }
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .about-container {
+    .about-vision {
+      width: 50vw;
     }
   }
 }

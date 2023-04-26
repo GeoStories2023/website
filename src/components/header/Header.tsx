@@ -3,8 +3,11 @@ import "@/style/Header.scss";
 import logo from "@/assets/geo-stories_logo_3.svg";
 import { Link } from "react-router-dom";
 import { IoReorderThreeOutline as BurgerMenu } from "react-icons/io5";
+import {useNavigate} from "react-router";
 
 function Header() {
+    const navigate=useNavigate();
+
     function open_menu() {
         const menu_open = document.querySelector('.menu_open');
         const nav = document.querySelector('#nav');
@@ -21,13 +24,13 @@ function Header() {
     <header className="header-container">
         <div className="row">
             <div className="col-md-6 col-lg-8">
-                <Link to={"/"} className="logo-container">
-                    <img src={logo} className="logo" alt="Logo" />
-                    <div className="logo-title-container">
+                <div className="logo-container">
+                    <img src={logo} className="logo" alt="Logo" onClick={() => { navigate("/")}} />
+                    <div className="logo-title-container" onClick={() => { navigate("/")}}>
                         <span className="logo-title">GeoStories</span>
                         <span className="logo-subtitle">Write your story in the world!</span>
                     </div>
-                </Link>
+                </div>
             </div>
             <div className="col-md-6 col-lg-4">
                 <div className="header-actions">

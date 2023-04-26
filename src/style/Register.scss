@@ -1,5 +1,6 @@
 .register-container {
   display: flex;
+  height: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -58,16 +59,19 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+
         h2 {
           margin-block: 0;
           color: #89d99d;
           font-family: Lobster, Inter, system-ui, Avenir, Helvetica, Arial,
             sans-serif;
           font-size: 3rem;
+          cursor: pointer;
         }
 
         img {
           max-width: 6rem;
+          cursor: pointer;
         }
       }
     }

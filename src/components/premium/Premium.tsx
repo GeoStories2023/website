@@ -9,27 +9,42 @@ import {
 
 function Premium() {
   const navigate = useNavigate();
+  const content = [
+      'ohne Werbung',
+      'ganz viele neue tolle Inhalte',
+      'neue Touren',
+      'weitere Abzeichen werden freigeschaltet',
+      'für 49,99€ im Jahr oder 4,99€ im Monat',
+  ]
 
   return (
     <div className="premium-container">
       <div className="premium-header">
-        <span>Vorteile mit Pro</span>
+        <div className="premium-headline">
+          <h1>Vorteile mit Pro</h1>
+        </div>
         <img src={panoramaSmall} alt="landscape" />
       </div>
       <div className="upgrade">
         <div className="upgrade-container">
-          <div className="login" onClick={() => {
-                  navigate("/login");
+          <div className="row">
+            <div className="col-md-3">
+              <div className="login" onClick={() => {
+                navigate("/login");
                 }}>
-            <ProfilePicture size={52} />
-            <span>Login</span>
-          </div>
-          <div className="upgrade-description">
-            <span className="premium-upgrade">Jetzt anmelden und auf 
-            <br /> PRO-Version upgraden!
+                <ProfilePicture size={52} />
+                <span>Login</span>
+              </div>
+            </div>
+            <div className="col-md-9">
+              <div className="upgrade-description">
+            <span className="premium-upgrade">Jetzt anmelden und auf PRO-Version upgraden!
             </span>
-            <span className="register">Noch kein Konto? Dann schnell <a href="/register">registrieren</a></span>
+                <span className="register">Noch kein Konto? Dann schnell <a href="/register">registrieren</a></span>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
       <div className="premium-description">
@@ -40,26 +55,18 @@ function Premium() {
       </div>
       <div className="advantages">
         <div className="advantages-container">
-          <div className="advantage">
-            <ProfilePicture size={52} />
-            <span>ohne Werbung</span>
-          </div>
-          <div className="advantage">
-            <ProfilePicture size={52} />
-            <span>ganz viele neue tolle Inhalte</span>
-          </div>
-          <div className="advantage">
-            <ProfilePicture size={52} />
-            <span>neue Touren</span>
-          </div>
-          <div className="advantage">
-            <ProfilePicture size={52} />
-            <span>weitere Abzeichen werden freigeschaltet</span>
-          </div>
-          <div className="advantage">
-            <ProfilePicture size={52} />
-            <span>für 49,99€ im Jahr oder 4,99€ im Monat</span>
-          </div>
+          {content.map(item => (
+              <div className="advantage">
+                <div className="row">
+                  <div className="col-2 col-xl-1">
+                    <ProfilePicture size={52} />
+                  </div>
+                  <div className="col-10 col-xl-11">
+                    <span>{item}</span>
+                  </div>
+                </div>
+              </div>
+          ))}
         </div>
       </div>
     </div>

@@ -123,102 +123,111 @@ function Features() {
         </div>
       </div>
       <div className="roadmap-features">
-        <div className="roadmap-features-container">
-          <h2 className="roadmap-header">Roadmap</h2>
-          <div className="roadmap-feature">
-            <div className="roadmap-feature-container">
-              <Sustainabilty className="roadmap-icon" />
-              <div className="roadmap-description">
-                <span className="description-header">Nachhaltigkeit</span>
-                <span className="description-text">
+        <div className="row">
+          <div className="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+            <div className="roadmap-features-container">
+              <h2 className="roadmap-header">Roadmap</h2>
+              <div className="roadmap-feature">
+                <div className="roadmap-feature-container">
+                  <Sustainabilty className="roadmap-icon" />
+                  <div className="roadmap-description">
+                    <span className="description-header">Nachhaltigkeit</span>
+                    <span className="description-text">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Veniam soluta, quae quod praesentium tempore aliquam facere
                   quasi atque dolorum quaerat possimus harum quas explicabo
                   laborum nisi, earum itaque deleniti non.
                 </span>
+                  </div>
+                  <div className="roadmap-date">
+                    <span>Q1 23</span>
+                  </div>
+                </div>
               </div>
-              <div className="roadmap-date">
-                <span>Q1 23</span>
-              </div>
-            </div>
-          </div>
-          <div className="roadmap-feature">
-            <div className="roadmap-feature-container">
-              <Weather className="roadmap-icon" />
-              <div className="roadmap-description">
-                <span>
+              <div className="roadmap-feature">
+                <div className="roadmap-feature-container">
+                  <Weather className="roadmap-icon" />
+                  <div className="roadmap-description">
+                    <span className="description-header">Nachhaltigkeit</span>
+                    <span className="description-text">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Veniam soluta, quae quod praesentium tempore aliquam facere
                   quasi atque dolorum quaerat possimus harum quas explicabo
                   laborum nisi, earum itaque deleniti non.
                 </span>
+                  </div>
+                  <div className="roadmap-date">
+                    <span>Q1 23</span>
+                  </div>
+                </div>
               </div>
-              <div className="roadmap-date">
-                <span>Q1 23</span>
-              </div>
-            </div>
-          </div>
-          <div className="roadmap-feature">
-            <div className="roadmap-feature-container">
-              <Law className="roadmap-icon" />
-              <div className="roadmap-description">
-                <span>
+              <div className="roadmap-feature">
+                <div className="roadmap-feature-container">
+                  <Law className="roadmap-icon" />
+                  <div className="roadmap-description">
+                    <span className="description-header">Nachhaltigkeit</span>
+                    <span className="description-text">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Veniam soluta, quae quod praesentium tempore aliquam facere
                   quasi atque dolorum quaerat possimus harum quas explicabo
                   laborum nisi, earum itaque deleniti non.
                 </span>
+                  </div>
+                  <div className="roadmap-date">
+                    <span>Q1 23</span>
+                  </div>
+                </div>
               </div>
-              <div className="roadmap-date">
-                <span>Q1 23</span>
-              </div>
-            </div>
-          </div>
-          <div className="roadmap-feature">
-            <div className="roadmap-feature-container">
-              <EscapeRoom className="roadmap-icon" />
-              <div className="roadmap-description">
-                <span>
+              <div className="roadmap-feature">
+                <div className="roadmap-feature-container">
+                  <EscapeRoom className="roadmap-icon" />
+                  <div className="roadmap-description">
+                    <span className="description-header">Nachhaltigkeit</span>
+                    <span className="description-text">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Veniam soluta, quae quod praesentium tempore aliquam facere
                   quasi atque dolorum quaerat possimus harum quas explicabo
                   laborum nisi, earum itaque deleniti non.
                 </span>
+                  </div>
+                  <div className="roadmap-date">
+                    <span>Q1 23</span>
+                  </div>
+                </div>
               </div>
-              <div className="roadmap-date">
-                <span>Q1 23</span>
-              </div>
-            </div>
-          </div>
-          <div className="roadmap-feature">
-            <div className="roadmap-feature-container">
-              <Accessibility className="roadmap-icon" />
-              <div className="roadmap-description">
-                <span>
+              <div className="roadmap-feature">
+                <div className="roadmap-feature-container">
+                  <Accessibility className="roadmap-icon" />
+                  <div className="roadmap-description">
+                    <span className="description-header">Nachhaltigkeit</span>
+                    <span className="description-text">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Veniam soluta, quae quod praesentium tempore aliquam facere
                   quasi atque dolorum quaerat possimus harum quas explicabo
                   laborum nisi, earum itaque deleniti non.
                 </span>
+                  </div>
+                  <div className="roadmap-date">
+                    <span>Q1 23</span>
+                  </div>
+                </div>
               </div>
-              <div className="roadmap-date">
-                <span>Q1 23</span>
-              </div>
-            </div>
-          </div>
-          <div className="roadmap-feature">
-            <div className="roadmap-feature-container">
-              <Privacy className="roadmap-icon" />
-              <div className="roadmap-description">
-                <span>
+              <div className="roadmap-feature">
+                <div className="roadmap-feature-container">
+                  <Privacy className="roadmap-icon" />
+                  <div className="roadmap-description">
+                    <span className="description-header">Nachhaltigkeit</span>
+                    <span className="description-text">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Veniam soluta, quae quod praesentium tempore aliquam facere
                   quasi atque dolorum quaerat possimus harum quas explicabo
                   laborum nisi, earum itaque deleniti non.
                 </span>
-              </div>
-              <div className="roadmap-date">
-                <span>Q1 23</span>
+                  </div>
+                  <div className="roadmap-date">
+                    <span>Q1 23</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
