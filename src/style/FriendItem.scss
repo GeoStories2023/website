@@ -1,0 +1,24 @@
+.friend-item {
+  background-color: #c2e5cb;
+  width: 25vw;
+  border-radius: 15px;
+  .friend-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block: 5vh;
+    .friend-item-image {
+      position: relative;
+      .status-circle {
+        position: absolute;
+        bottom: 5%;
+        left: 65%;
+      }
+    }
+
+    .friend-item-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+  }
+}

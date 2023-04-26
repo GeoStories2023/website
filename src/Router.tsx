@@ -14,15 +14,28 @@ import Premium from "./components/premium/Premium";
 import About from "./components/about/About";
 import Features from "./components/features/Features";
 import TravelDiary from "./components/traveldiary/TravelDiary";
-import { User as UserType } from "./types/General";
+import Imprint from "@/components/imprint/Imprint";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { User as UserType } from "@prisma/client";
 
 function Router() {
-  const [user, setUser] = useState<any /*UserType*/>();
+  const [user, setUser] = useState<UserType>();
+  const [firebaseUser, setFirebaseUser] = useState<any>();
   const auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      setUser({ ...user, username: "TestRefresh" });
+  onAuthStateChanged(auth, async (fUser) => {
+    if (fUser) {
+      setFirebaseUser(fUser);
+      // fetch user from rest
+      const bearerToken = await fUser.getIdToken();
+      // const response = await fetch("http://localhost:3000/users", {
+      //   method: "GET",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     Authorization: `Bearer ${bearerToken}`,
+      //   },
+      // });
+      // console.log("test");
+      // console.log(response);
     }
   });
 
@@ -82,6 +95,10 @@ function Router() {
         {
           path: "traveldiary",
           element: <TravelDiary />,
+        },
+        {
+          path: "imprint",
+          element: <Imprint />,
         },
       ],
     },

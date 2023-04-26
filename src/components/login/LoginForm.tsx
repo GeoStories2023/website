@@ -1,9 +1,15 @@
 import React, { useRef, useEffect } from "react";
 import logo from "@/assets/geo-stories_logo_3.svg";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import googleLogo from "@/assets/google_logo.svg";
+import githubLogo from "@/assets/github_logo_black.svg";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
 import { app } from "@/firebase";
 import { useNavigate } from "react-router-dom";
-import { User } from "@/types/General";
 
 function LoginForm({
   setUser,
@@ -21,16 +27,44 @@ function LoginForm({
     login(email, password);
   }
 
+  function signInWithGoogle() {
+    const provider = new GoogleAuthProvider();
+    const auth = getAuth(app);
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // const credential = GoogleAuthProvider.credentialFromResult(result);
+        // const token = credential?.accessToken;
+        // const user = result.user;
+        // navigate("/");
+      })
+      .catch((error) => {
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
+        // const email = error.email;
+        // const credential = GoogleAuthProvider.credentialFromError(error);
+      });
+  }
+
   function login(email: string, password: string) {
     const auth = getAuth(app);
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then(async (userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
+        const accessToken = await user.getIdToken();
+        console.log("ACCESS TOKEN:", accessToken);
+        console.log("USER:", user);
         // Fetch User
+        const response = await fetch("http://localhost:3000/api/v1/users", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        console.log(response);
         setUser({ ...user, username: "Test" });
-        navigate("/");
+        // navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -64,16 +98,29 @@ function LoginForm({
                       </div>
                     </div>
                     <form onSubmit={handleSubmit} className="login-form">
-                      <input ref={emailRef} type="text" placeholder="E-Mail" required />
                       <input
-                          ref={passwordRef}
-                          type="password"
-                          placeholder="Password"
-                          required
+                        ref={emailRef}
+                        type="text"
+                        placeholder="E-Mail"
+                        required
+                      />
+                      <input
+                        ref={passwordRef}
+                        type="password"
+                        placeholder="Password"
+                        required
                       />
                       <button>LOGIN</button>
+                      <button
+                        onClick={signInWithGoogle}
+                        className="login-extern-button"
+                      >
+                        <img src={googleLogo} alt="Google Logo" />
+                        Sign in with Google
+                      </button>
                       <p>
-                        Don't have an account? Register <a href="/register">here</a>
+                        Don't have an account? Register{" "}
+                        <a href="/register">here</a>
                       </p>
                     </form>
                   </div>
@@ -89,7 +136,6 @@ function LoginForm({
           </div>
         </div>
       </div>
-
     </section>
   );
 }

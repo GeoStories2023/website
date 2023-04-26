@@ -1,5 +1,5 @@
 import React from "react";
-import { User } from "@/types/General";
+import { User } from "@/types/index";
 import HomeDefault from "./HomeDefault";
 import HomeDashboard from "./HomeDashboard";
 
