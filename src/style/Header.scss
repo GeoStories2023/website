@@ -43,6 +43,9 @@ header {
   }
   .header-actions {
     //position: relative;
+    a {
+      color: #fff !important;
+    }
 
     svg {
       cursor: pointer;
@@ -66,6 +69,7 @@ header {
         right: 0;
         height: 100vH;
         width: 100%;
+        z-index: 9999;
         background-color: #3b8c6e;
         padding: 2rem 0;
         text-align: center;
@@ -80,6 +84,7 @@ header {
             list-style: none;
             padding-bottom: 1rem;
             color: #fff;
+            font-size: 1.8rem;
 
             &:hover {
               color: #c2e5cb;
