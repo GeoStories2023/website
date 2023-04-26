@@ -20,23 +20,24 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { User as UserType } from "@prisma/client";
 
 function Router() {
-  const [user, setUser] = useState<UserType>();
-  const [firebaseUser, setFirebaseUser] = useState<any>();
+  const [user, setUser] = useState < UserType > ();
   const auth = getAuth();
   onAuthStateChanged(auth, async (fUser) => {
     if (fUser) {
-      setFirebaseUser(fUser);
       // fetch user from rest
-      const bearerToken = await fUser.getIdToken();
-      // const response = await fetch("http://localhost:3000/users", {
-      //   method: "GET",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     Authorization: `Bearer ${bearerToken}`,
-      //   },
-      // });
-      // console.log("test");
-      // console.log(response);
+      const accessToken = await fUser.getIdToken();
+      console.log(accessToken)
+      let xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log("RESPONSE:", this.responseText);
+          const user = JSON.parse(this.responseText);
+          setUser(user);
+        }
+      };
+      xhttp.open("GET", "http://thiering.org:3000/api/v1/users", true);
+      xhttp.setRequestHeader("Authorization", `Bearer ${accessToken}}`);
+      xhttp.send();
     }
   });
 

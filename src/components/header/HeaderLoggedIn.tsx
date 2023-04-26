@@ -6,9 +6,9 @@ import {
   IoPersonCircle as ProfilePicture,
   IoLogOutOutline as Logout,
 } from "react-icons/io5";
-import { User } from "@/types/General";
 import { getAuth, signOut } from "firebase/auth";
-import {Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { User } from "@prisma/client";
 
 function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
   const navigate = useNavigate();
@@ -36,19 +36,19 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
   function open_menu() {
     const menu_open = document.querySelector('.menu_open');
     const nav = document.querySelector('#nav');
-    if (menu_open.classList.contains('is-open')) {
+    if (menu_open?.classList.contains('is-open')) {
       menu_open.classList.remove('is-open');
-      nav.classList.remove('active');
+      nav?.classList.remove('active');
     } else {
-      menu_open.classList.add('is-open');
-      nav.classList.add('active');
+      menu_open?.classList.add('is-open');
+      nav?.classList.add('active');
     }
   }
   return (
     <header className="header-logged-in-container">
       <div className="logo-container" onClick={() => {
-                  navigate("/");
-                }}>
+        navigate("/");
+      }}>
         <img src={logo} className="logo" alt="Logo" />
         <div className="logo-title-container">
           <span className="logo-title">GeoStories</span>
@@ -65,11 +65,11 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
           </div>
         </div>
         <div className="icons">
-          <ProfilePicture  />
+          <ProfilePicture />
           <Logout onClick={handleSignOut} />
         </div>
         <div className="navigation">
-          <a href="#" id="nav"  onClick={open_menu} className="mobile_nav_handler hamburger-icon-container">
+          <a href="#" id="nav" onClick={open_menu} className="mobile_nav_handler hamburger-icon-container">
             <span className="hamburger-icon"></span>
           </a>
           <div className="menu_open">

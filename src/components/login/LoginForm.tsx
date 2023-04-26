@@ -45,6 +45,7 @@ function LoginForm({
       });
   }
 
+
   function login(email: string, password: string) {
     const auth = getAuth(app);
     signInWithEmailAndPassword(auth, email, password)
@@ -55,16 +56,18 @@ function LoginForm({
         console.log("ACCESS TOKEN:", accessToken);
         console.log("USER:", user);
         // Fetch User
-        const response = await fetch("http://89.58.39.82:3000/api/v1/users", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
-        console.log(response);
-        setUser({ ...user, username: "Test" });
-        // navigate("/");
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log("RESPONSE:", this.responseText);
+            const user = JSON.parse(this.responseText);
+            setUser(user);
+            navigate("/");
+          }
+        };
+        xhttp.open("GET", "http://thiering.org:3000/api/v1/users", true);
+        xhttp.setRequestHeader("Authorization", `Bearer ${accessToken}`);
+        xhttp.send();
       })
       .catch((error) => {
         console.log(error);
