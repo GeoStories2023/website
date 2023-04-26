@@ -1,0 +1,26 @@
+.premium-advertisement-banner-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-height: fit-content;
+    background-color: #1E5959;
+    cursor: pointer;
+    white-space: nowrap;
+    padding-inline: 20vw;
+    padding-block: 5px;
+    gap: 10vw;
+
+    span {
+        color: white;
+        font-size: 2rem;
+        font-weight: 500;
+    }
+
+    .premium-logo {
+        max-height: 75px;
+        max-width: fit-content;
+    }
+}
