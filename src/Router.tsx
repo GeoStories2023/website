@@ -14,6 +14,7 @@ import Premium from "./components/premium/Premium";
 import About from "./components/about/About";
 import Features from "./components/features/Features";
 import TravelDiary from "./components/traveldiary/TravelDiary";
+import Imprint from "@/components/imprint/Imprint";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { User as UserType } from "@prisma/client";
 
@@ -94,6 +95,10 @@ function Router() {
         {
           path: "traveldiary",
           element: <TravelDiary />,
+        },
+        {
+          path: "imprint",
+          element: <Imprint />,
         },
       ],
     },
