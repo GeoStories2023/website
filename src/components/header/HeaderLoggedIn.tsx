@@ -34,21 +34,24 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
   }
 
   function open_menu() {
-    const menu_open = document.querySelector('.menu_open');
-    const nav = document.querySelector('#nav');
-    if (menu_open?.classList.contains('is-open')) {
-      menu_open.classList.remove('is-open');
-      nav?.classList.remove('active');
+    const menu_open = document.querySelector(".menu_open");
+    const nav = document.querySelector("#nav");
+    if (menu_open?.classList.contains("is-open")) {
+      menu_open.classList.remove("is-open");
+      nav?.classList.remove("active");
     } else {
-      menu_open?.classList.add('is-open');
-      nav?.classList.add('active');
+      menu_open?.classList.add("is-open");
+      nav?.classList.add("active");
     }
   }
   return (
     <header className="header-logged-in-container">
-      <div className="logo-container" onClick={() => {
-        navigate("/");
-      }}>
+      <div
+        className="logo-container"
+        onClick={() => {
+          navigate("/");
+        }}
+      >
         <img src={logo} className="logo" alt="Logo" />
         <div className="logo-title-container">
           <span className="logo-title">GeoStories</span>
@@ -58,10 +61,22 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
       <div className="header-actions">
         <img src={premiumBadge} alt="premium-badge" className="premium-badge" />
         <div className="level-container">
-          <span className="level-title">Level: {level} - {levelName}</span>
+          <span className="level-title">
+            Level: {level} - {levelName}
+          </span>
           <div className="meter-level-score">
-            <meter id="meter-level" min={minLevelValue} max={maxLevelValue} value="33600"></meter>
-            <span className="meter-score">{meterCurrentValue}/{meterMaxValue}</span>
+            <meter
+              id="meter-level"
+              min={minLevelValue}
+              max={maxLevelValue}
+              value="33600"
+            ></meter>
+            <span className="meter-score">
+              {meterCurrentValue}/{meterMaxValue}
+            </span>
+            <span className="meter-score">
+              {meterCurrentValue}/{meterMaxValue}
+            </span>
           </div>
         </div>
         <div className="icons">
@@ -69,15 +84,28 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
           <Logout onClick={handleSignOut} />
         </div>
         <div className="navigation">
-          <a href="#" id="nav" onClick={open_menu} className="mobile_nav_handler hamburger-icon-container">
+          <a
+            href="#"
+            id="nav"
+            onClick={open_menu}
+            className="mobile_nav_handler hamburger-icon-container"
+          >
             <span className="hamburger-icon"></span>
           </a>
           <div className="menu_open">
             <ul>
-              <Link to={"/login"}><li>Login</li></Link>
-              <Link to={"/register"}><li>Register</li></Link>
-              <Link to={"/continent"}><li>Kontinente</li></Link>
-              <Link to={"/continent/country"}><li>Länder</li></Link>
+              <Link to={"/login"}>
+                <li>Login</li>
+              </Link>
+              <Link to={"/register"}>
+                <li>Register</li>
+              </Link>
+              <Link to={"/continent"}>
+                <li>Kontinente</li>
+              </Link>
+              <Link to={"/continent/country"}>
+                <li>Länder</li>
+              </Link>
             </ul>
           </div>
         </div>

@@ -1,3 +1,54 @@
-.badges-container{
+.badges-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   color: black;
+  margin-inline: 10vw;
+  margin-block: 10vh;
+  min-height: 100vh;
+
+  .title {
+    font-size: 4rem;
+    font-weight: 650;
+    color: #1e5959;
+  }
+
+  .badges-collected-container,
+  .badges-available-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    margin-block: 20px;
+    span {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .badges-collected,
+    .badges-available {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 25px;
+      align-items: center;
+      justify-content: center;
+      background-color: #3b8c6e;
+      border: 5px solid #1e5959;
+      border-radius: 15px;
+      width: 70vw;
+      padding: 20px;
+
+      .single-badge-collected,
+      .single-badge-available {
+        width: 20vw;
+        max-width: 75px;
+      }
+
+      .single-badge-available {
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%) saturate(100%) contrast(10%);
+      }
+    }
+  }
 }
