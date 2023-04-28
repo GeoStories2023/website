@@ -20,6 +20,7 @@ function LoginForm({
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
+
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const email = emailRef.current?.value ?? "";
@@ -96,8 +97,8 @@ function LoginForm({
                     <div className="login-form-left-logo-container">
                       <p>Welcome to</p>
                       <div className="login-form-left-logo">
-                        <img src={logo} alt="Logo" />
-                        <h2>GeoStories</h2>
+                        <img src={logo} alt="Logo" onClick={() => { navigate("/") }} />
+                        <h2 onClick={() => { navigate("/") }}>GeoStories</h2>
                       </div>
                     </div>
                     <form onSubmit={handleSubmit} className="login-form">

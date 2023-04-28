@@ -5,6 +5,14 @@ import {
 } from "react-icons/io5";
 
 function About() {
+  const team = [
+    {icon: <Avatar size={90}/>, name: 'Lena', content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\n'},
+    {icon: <Avatar size={90}/>, name: 'Julius', content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\n'},
+    {icon: <Avatar size={90}/>, name: 'Noah', content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\n'},
+    {icon: <Avatar size={90}/>, name: 'Janis', content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\n'},
+    {icon: <Avatar size={90}/>, name: 'Nils', content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\n'},
+    {icon: <Avatar size={90}/>, name: 'Tom', content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\n'},
+  ];
   return (
     <div className="about-container">
       <div className="about-header">
@@ -20,48 +28,16 @@ function About() {
       <section className="about-team">
         <span className="team-title">Team</span>
         <div className="team-cards-container">
-          <div className="team-card-container">
-            <Avatar size={90}/>
-            <span className="team-member-name">Lena</span>
-            <span className="team-member-description">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-              </span>
-          </div>
-          <div className="team-card-container">
-            <Avatar size={90}/>
-            <span className="team-member-name">Julius</span>
-            <span className="team-member-description">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-              </span>
-          </div>
-          <div className="team-card-container">
-            <Avatar size={90}/>
-            <span className="team-member-name">Noah</span>
-            <span className="team-member-description">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-              </span>
-          </div>
-          <div className="team-card-container">
-            <Avatar size={90}/>
-            <span className="team-member-name">Janis</span>
-            <span className="team-member-description">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-              </span>
-          </div>
-          <div className="team-card-container">
-            <Avatar size={90}/>
-            <span className="team-member-name">Nils</span>
-            <span className="team-member-description">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-              </span>
-          </div>
-          <div className="team-card-container">
-            <Avatar size={90}/>
-            <span className="team-member-name">Tom</span>
-            <span className="team-member-description">
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-              </span>
-          </div>
+          {team.map(item => (
+              <div className="team-card-container">
+                {item.icon}
+                <span className="team-member-name">{item.name}</span>
+                <span className="team-member-description">
+                  {item.content}
+                </span>
+              </div>
+          ))}
+
         </div>
       </section>
     </div>

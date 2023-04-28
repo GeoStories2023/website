@@ -5,17 +5,19 @@ import panorama from "@/assets/img-premium/panorama.jpg";
 import panoramaSmall from "@/assets/img-premium/panorama-small.png";
 import {
   IoPersonCircle as ProfilePicture,
+  IoEarth as Icon,
 } from "react-icons/io5";
 
 function Premium() {
   const navigate = useNavigate();
-  const content = [
-      'ohne Werbung',
-      'ganz viele neue tolle Inhalte',
-      'neue Touren',
-      'weitere Abzeichen werden freigeschaltet',
-      'für 49,99€ im Jahr oder 4,99€ im Monat',
-  ]
+
+    const content = [
+        {icon: <Icon size={52} />, content: 'ohne Werbung'},
+        {icon: <Icon size={52} />, content: 'ganz viele neue tolle Inhalte'},
+        {icon: <Icon size={52} />, content: 'neue Touren'},
+        {icon: <Icon size={52} />, content: 'weitere Abzeichen werden freigeschaltet'},
+        {icon: <Icon size={52} />, content: 'für 49,99€ im Jahr oder 4,99€ im Monat'},
+    ];
 
   return (
     <div className="premium-container">
@@ -59,10 +61,10 @@ function Premium() {
               <div className="advantage">
                 <div className="row">
                   <div className="col-2 col-xl-1">
-                    <ProfilePicture size={52} />
+                      {item.icon}
                   </div>
                   <div className="col-10 col-xl-11">
-                    <span>{item}</span>
+                    <span>{item.content}</span>
                   </div>
                 </div>
               </div>
