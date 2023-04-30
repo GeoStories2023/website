@@ -1,0 +1,68 @@
+.statistics-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    color: #1E5959;
+    margin-inline: 5vw;
+    margin-bottom: 5vh;
+
+    .statistics-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+    }
+
+    .statistics-items {
+        width: 100%;
+
+        .statistics-items-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            .statistic-cards {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 50px;
+                width: 60%;
+            }
+
+            .statistics-friends {
+                width: 30%;
+                min-width: 300px;
+                background-color: #89D99D;
+                border: 1px solid #1E5959;
+                border-radius: 15px;
+
+                .statistics-friends-container {
+                    font-size: 1.5rem;
+                    font-weight: 600;
+
+                    table {
+                        width: 100%;
+                    }
+
+                    tr {
+                       &:nth-child(1) {
+                        th {
+                            &:nth-child(1) {
+                                    width: 20%;
+                                }
+                            
+                                &:nth-child(2) {
+                                    width: 50%;
+                                }
+                            
+                                &:last-child {
+                                    width: 30%;
+                                }
+                        }
+                       }
+                    }
+                }
+            }
+        }
+    }
+}

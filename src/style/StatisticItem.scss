@@ -1,0 +1,28 @@
+.statistic-item-container {
+    background-color: #89D99D;
+    color: #1E5959;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+    width: 20%;
+    min-width: 300px;
+    border: 1px solid #1E5959;
+    border-radius: 15px;
+
+    .statistic-item-title {
+        font-size: 4rem;
+        font-weight: 700;
+    }
+
+    .statistic-item-amount {
+        font-size: 8rem;
+        font-weight: 900;
+    }
+
+    .statistic-item-icon {
+        align-self: flex-end;
+        padding-right: 1vw;
+    }
+}

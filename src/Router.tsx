@@ -16,6 +16,7 @@ import Features from "./components/features/Features";
 import TravelDiary from "./components/traveldiary/TravelDiary";
 import Imprint from "@/components/imprint/Imprint";
 import PremiumAdvertisement from "@/components/premium-advertisement/PremiumAdvertisement";
+import Statistics from "@/components/statistics/Statistics";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { User as UserType } from "@prisma/client";
 
@@ -85,6 +86,7 @@ function Router() {
         },
         {
           path: "statistics",
+          element: <Statistics />
         },
         {
           path: "about",
