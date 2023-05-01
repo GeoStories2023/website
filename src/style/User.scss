@@ -1,3 +1,109 @@
 .user-container{
   color: black;
+  display: flex;
+  flex-direction: column;
+  margin-block: 5vh;
+  margin-inline: 5vw;
+
+  .user-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2vw;
+    margin-bottom: 5vh;
+
+    img {
+      width: 120px;
+      border-radius: 50%;
+      border: 3px solid #1E5959;
+    }
+
+    .user-name-status {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      color: #1E5959;
+
+      .user-title {
+        font-size: 3rem;
+        font-weight: 800;
+      }
+
+      .user-status {
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .user-statistics-and-friends {
+
+    .user-statistics-and-friends-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      .user-statistics {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 60vw;
+
+        .statistic-cards {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 20px;
+        }
+      }
+
+      .user-friends {
+        background-color: #89D99D;
+        border: 1px solid #1E5959;
+        border-radius: 15px;
+        width: 25vw;
+        min-width: 300px;
+
+        .user-friends-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 2vh;
+          color: #1E5959;
+
+          .friends-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+          }
+
+          .friends-single {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 5vw;
+            font-size: 1.5rem;
+            width: 100%;
+            padding-inline: 2vw;
+
+            .friends-profile-picture {
+              width: 60px;
+              border: 3px solid #1E5959;
+              border-radius: 50%;
+            }
+
+            .friends-name {
+              font-size: 1.5rem;
+              font-weight: 700;
+            }
+          }
+        }
+      }
+    }
+  }
 }

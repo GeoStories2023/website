@@ -1,7 +1,7 @@
 import React from "react";
 import "@/style/Statistics.scss";
 import StatisticItem from "./StatisticItem";
-import { IoEarth as Countries } from "react-icons/io5";
+import { IoEarth as Countries, IoPersonCircle as ProfilePicture } from "react-icons/io5";
 import { FaCity as Cities } from "react-icons/fa";
 import { MdPhotoCamera as Tours } from "react-icons/md";
 
