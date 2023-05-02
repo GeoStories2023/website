@@ -19,26 +19,24 @@ import PremiumAdvertisement from "@/components/premium-advertisement/PremiumAdve
 import Statistics from "@/components/statistics/Statistics";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { User as UserType } from "@prisma/client";
+import { FetchApi } from "./FetchApi";
 
 function Router() {
   const [user, setUser] = useState < UserType > ();
   const auth = getAuth();
   onAuthStateChanged(auth, async (fUser) => {
-    if (fUser) {
+    if (fUser && !user) {
       // fetch user from rest
       const accessToken = await fUser.getIdToken();
-      console.log(accessToken)
-      let xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          console.log("RESPONSE:", this.responseText);
-          const user = JSON.parse(this.responseText);
+      console.log(accessToken);
+      FetchApi.get("/users", accessToken)
+        .then((user) => {
+          console.log(user);
           setUser(user);
-        }
-      };
-      xhttp.open("GET", "http://thiering.org:3000/api/v1/users", true);
-      xhttp.setRequestHeader("Authorization", `Bearer ${accessToken}}`);
-      xhttp.send();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   });
 
@@ -86,7 +84,7 @@ function Router() {
         },
         {
           path: "statistics",
-          element: <Statistics />
+          element: <Statistics />,
         },
         {
           path: "about",
@@ -108,7 +106,7 @@ function Router() {
         {
           path: "premium-ad",
           element: <PremiumAdvertisement />,
-        }
+        },
       ],
     },
     {

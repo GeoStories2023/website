@@ -10,6 +10,7 @@ import {
 } from "firebase/auth";
 import { app } from "@/firebase";
 import { useNavigate } from "react-router-dom";
+import { FetchApi } from "@/FetchApi";
 
 function LoginForm({
   setUser,
@@ -17,9 +18,8 @@ function LoginForm({
   setUser: any; //React.Dispatch<React.SetStateAction<User>>;
 }) {
   const navigate = useNavigate();
-  const emailRef = useRef<HTMLInputElement>(null);
-  const passwordRef = useRef<HTMLInputElement>(null);
-
+  const emailRef = useRef < HTMLInputElement > (null);
+  const passwordRef = useRef < HTMLInputElement > (null);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -46,7 +46,6 @@ function LoginForm({
       });
   }
 
-
   function login(email: string, password: string) {
     const auth = getAuth(app);
     signInWithEmailAndPassword(auth, email, password)
@@ -57,18 +56,15 @@ function LoginForm({
         console.log("ACCESS TOKEN:", accessToken);
         console.log("USER:", user);
         // Fetch User
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            console.log("RESPONSE:", this.responseText);
-            const user = JSON.parse(this.responseText);
-            setUser(user);
+        FetchApi.get("/users", accessToken)
+          .then((response) => {
+            console.log("RESPONSE:", response);
+            setUser(response);
             navigate("/");
-          }
-        };
-        xhttp.open("GET", "http://thiering.org:3000/api/v1/users", true);
-        xhttp.setRequestHeader("Authorization", `Bearer ${accessToken}`);
-        xhttp.send();
+          })
+          .catch((error) => {
+            console.log("ERROR:", error);
+          });
       })
       .catch((error) => {
         console.log(error);
@@ -97,8 +93,20 @@ function LoginForm({
                     <div className="login-form-left-logo-container">
                       <p>Welcome to</p>
                       <div className="login-form-left-logo">
-                        <img src={logo} alt="Logo" onClick={() => { navigate("/") }} />
-                        <h2 onClick={() => { navigate("/") }}>GeoStories</h2>
+                        <img
+                          src={logo}
+                          alt="Logo"
+                          onClick={() => {
+                            navigate("/");
+                          }}
+                        />
+                        <h2
+                          onClick={() => {
+                            navigate("/");
+                          }}
+                        >
+                          GeoStories
+                        </h2>
                       </div>
                     </div>
                     <form onSubmit={handleSubmit} className="login-form">
