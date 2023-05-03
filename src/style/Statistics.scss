@@ -4,8 +4,7 @@
     align-items: flex-start;
     justify-content: center;
     color: #1E5959;
-    margin-inline: 5vw;
-    margin-bottom: 5vh;
+    margin: 4rem 1.6rem;
 
     .statistics-title {
         font-size: 3.5rem;
@@ -13,32 +12,23 @@
     }
 
     .statistics-items {
-        width: 100%;
 
         .statistics-items-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            flex-wrap: wrap;
-
-            .statistic-cards {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 50px;
-                width: 60%;
-            }
+            margin: 2rem auto;
 
             .statistics-friends {
-                width: 30%;
-                min-width: 300px;
-                background-color: #89D99D;
+                width: 100%;
+                margin: 1rem 0;
+                background-color: #1E5959;
                 border: 1px solid #1E5959;
+                color: white;
                 border-radius: 15px;
 
                 .statistics-friends-container {
                     font-size: 1.5rem;
                     font-weight: 600;
+                    min-height: 23.2rem;
+                    padding: 2rem;
 
                     table {
                         width: 100%;
@@ -60,6 +50,35 @@
                                 }
                         }
                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width:768px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    .statistics-container {
+        .statistics-items {
+            .statistics-items-container {
+                .statistics-friends {
+                    .statistics-friends-container {
+                        min-height: 24.2rem;
                     }
                 }
             }

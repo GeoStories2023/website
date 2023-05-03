@@ -48,39 +48,49 @@ function Statistics(){
 
     return (
         <div className="statistics-container">
-            <span className="statistics-title">Statistiken</span>
-            <div className="statistics-items">
-                <div className="statistics-items-container">
-                    <section className="statistic-cards">
-                    {statistics.map((statistics: any) => {
-                        return <StatisticItem key={statistics.id} statistics={statistics} />;
-                    })}
-                    </section>
-                    <div className="statistics-friends">
-                        <div className="statistics-friends-container">
-                            <table>
-                                <tr>
-                                    <th>Platz</th>
-                                    <th>Name</th>
-                                    <th>Story-Points</th>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Lena</td>
-                                    <td>40.000</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Noah</td>
-                                    <td>30.000</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Nils</td>
-                                    <td>25.000</td>
-                                </tr>
-                            </table>
-                        </div>
+            <div className="container">
+                <span className="statistics-title">Statistiken</span>
+                <div className="statistics-items">
+                    <div className="statistics-items-container">
+                        <section className="statistic-cards">
+                            <div className="row">
+                                <div className="col-12 col-lg-8">
+                                    <div className="row">
+                                        {statistics.map((statistics: any) => {
+                                            return <StatisticItem key={statistics.id} statistics={statistics} />;
+                                        })}
+                                    </div>
+                                </div>
+                                <div className="col-12 col-lg-4">
+                                    <div className="statistics-friends">
+                                        <div className="statistics-friends-container">
+                                            <table>
+                                                <tr>
+                                                    <th>Platz</th>
+                                                    <th>Name</th>
+                                                    <th>Story-Points</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Lena</td>
+                                                    <td>40.000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Noah</td>
+                                                    <td>30.000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Nils</td>
+                                                    <td>25.000</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>

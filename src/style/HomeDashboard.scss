@@ -77,13 +77,21 @@
       }
 
       .carousel {
-        width: 90%;
-        max-width: 100%;
+        width: 100%;
+        height: 20rem;
+
+        .carousel-inner {
+          height: 100%;
+        }
 
         .carousel-item {
           border-radius: 15px;
+          height: 100%;
           img {
             border-radius: 15px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
           }
 
           .carousel-caption {
@@ -119,12 +127,7 @@
     }
 
     .continents-button-container {
-      .north-america,
-      .south-america,
-      .europe,
-      .africa,
-      .asia,
-      .oceania {
+      .continents-image {
         margin-bottom: 4rem;
         width: 100%;
 
@@ -141,6 +144,11 @@
           :hover {
             cursor: pointer;
           }
+        }
+
+        .continents-title {
+          font-weight: bold;
+          color: #1e5959;
         }
       }
     }
@@ -162,6 +170,16 @@
     .continents {
       margin: 5rem 0;
     }
+
+    .news,
+    .tours {
+      .news-container,
+      .tours-container {
+        .carousel {
+          height: 30rem;
+        }
+      }
+    }
   }
 }
 
@@ -178,6 +196,15 @@
     .continents {
       width: 80rem;
       margin: 5rem auto;
+    }
+    .news,
+    .tours {
+      .news-container,
+      .tours-container {
+        .carousel {
+          height: 38rem;
+        }
+      }
     }
   }
 }
@@ -197,6 +224,16 @@
           img {
             height: 22rem;
           }
+        }
+      }
+    }
+
+    .news,
+    .tours {
+      .news-container,
+      .tours-container {
+        .carousel {
+          height: 44rem;
         }
       }
     }

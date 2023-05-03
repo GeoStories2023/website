@@ -9,8 +9,7 @@ function Favorites() {
     {
       id: 1,
       name: "Bremer Altstadt-Tour",
-      description:
-        "Ganz viel Text kann dann hier hinkkommen. Lorem impsum dolor sit amet, consetetur sadipscing elitr.",
+      description: "Ganz viel Text kann dann hier hinkkommen. Lorem impsum dolor sit amet, consetetur sadipscing elitr.",
       duration: 45,
       city: "Bremen",
       premium: true,
@@ -18,8 +17,7 @@ function Favorites() {
     {
       id: 2,
       name: "Bremer Altstadt-Tour",
-      description:
-        "Ganz viel Text kann dann hier hinkkommen. Lorem impsum dolor sit amet, consetetur sadipscing elitr.",
+      description: "Ganz viel Text kann dann hier hinkkommen. Lorem impsum dolor sit amet, consetetur sadipscing elitr.",
       duration: 45,
       city: "Bremen",
       premium: false,
@@ -28,7 +26,9 @@ function Favorites() {
 
   return (
     <div className="favorites-container">
-      <TourLayout title="Favorites" tours={favorites} />
+      <div className="">
+        <TourLayout title="Favorites" tours={favorites} />
+      </div>
     </div>
   );
 }
