@@ -63,7 +63,7 @@ function Router() {
           ],
         },
         {
-          path: "users/:user",
+          path: "users/:uid",
           element: <User />,
         },
         {
