@@ -12,6 +12,14 @@
   url('../assets/fonts/lobster-v28-latin-regular.svg#Lobster') format('svg'); /* Legacy iOS */
 }
 
+.basiclayout-container{
+  display: flex;
+  flex-direction: column;
+  .basiclayout-content{
+    min-height: 100vh;
+    flex: 1;
+  }
+}
 
 #root {
   margin: 0 auto;
