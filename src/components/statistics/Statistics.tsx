@@ -48,7 +48,7 @@ function Statistics(){
 
     return (
         <div className="statistics-container">
-            <div className="container">
+            <div className="">
                 <span className="statistics-title">Statistiken</span>
                 <div className="statistics-items">
                     <div className="statistics-items-container">

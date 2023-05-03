@@ -1,19 +1,9 @@
 .user-container{
   color: black;
-  display: flex;
-  flex-direction: column;
-  margin-block: 5vh;
-  margin-inline: 5vw;
+  margin: 4rem 2rem;
 
   .user-header {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 2vw;
-    margin-bottom: 5vh;
-
+    margin-bottom: 2rem;
     img {
       width: 120px;
       border-radius: 50%;
@@ -21,15 +11,14 @@
     }
 
     .user-name-status {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
+      text-align: left;
       color: #1E5959;
 
       .user-title {
-        font-size: 3rem;
+        font-size: 2.4rem;
         font-weight: 800;
+        hyphens: auto;
+        display: block;
       }
 
       .user-status {
@@ -42,38 +31,23 @@
   .user-statistics-and-friends {
 
     .user-statistics-and-friends-container {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-
       .user-statistics {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        max-width: 60vw;
-
         .statistic-cards {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-          gap: 20px;
         }
       }
 
       .user-friends {
-        background-color: #89D99D;
+        background-color: #1E5959;
         border: 1px solid #1E5959;
+        color: white;
         border-radius: 15px;
-        width: 25vw;
-        min-width: 300px;
+        width: 100%;
+        margin: 1rem 0;
+        min-height: 23.2rem;
 
         .user-friends-container {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          gap: 2vh;
-          color: #1E5959;
+          color: white;
+          padding: 2rem 1rem;
 
           .friends-title {
             font-size: 2.5rem;
@@ -86,7 +60,7 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: flex-start;
-            gap: 5vw;
+            margin-bottom: 1rem;
             font-size: 1.5rem;
             width: 100%;
             padding-inline: 2vw;
@@ -100,10 +74,45 @@
             .friends-name {
               font-size: 1.5rem;
               font-weight: 700;
+              padding-left: 2rem;
             }
           }
         }
       }
     }
+  }
+}
+
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width:768px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .user-container {
+    .user-statistics-and-friends {
+      .user-statistics-and-friends-container {
+        .user-friends {
+          min-height: 24.2rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .user-container {
+    width: 80%;
+    margin: 4rem auto;
   }
 }

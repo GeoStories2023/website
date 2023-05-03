@@ -93,39 +93,53 @@ function User() {
       ) : (
         <>
           <div className="user-header">
-            <img src={testProfilePicture} alt="profilePictureUser" />
-            <div className="user-name-status">
-              <span className="user-title">Username: '{user?.username}'</span>
-              <span className="user-status">Status: On an adventure</span>
+            <div className="row">
+              <div className="col-md-4 col-xl-2">
+                <img src={testProfilePicture} alt="profilePictureUser" />
+              </div>
+              <div className="col-md-8 col-xl-10">
+                <div className="user-name-status">
+                  <span className="user-title">Username: '{user?.username}'</span>
+                  <span className="user-status">Status: On an adventure</span>
+                </div>
+              </div>
             </div>
           </div>
           <div className="user-statistics-and-friends">
             <div className="user-statistics-and-friends-container">
-              <div className="user-statistics">
-                <section className="statistic-cards">
-                  {statistics.map((statistics: any) => {
-                    return (
-                      <StatisticItem
-                        key={statistics.id}
-                        statistics={statistics}
-                      />
-                    );
-                  })}
-                </section>
-              </div>
-              <div className="user-friends">
-                <div className="user-friends-container">
-                  <span className="friends-title">Freunde</span>
-                  {friends.map((item, i) => (
-                    <div className="friends-single" key={i}>
-                      <img
-                        className="friends-profile-picture"
-                        src={item.profilePicture}
-                        alt="profilePicture"
-                      />
-                      <span className="friends-name">{item.name}</span>
+              <div className="row">
+                <div className="col-12 col-lg-8">
+                  <div className="user-statistics">
+                    <section className="statistic-cards">
+                      <div className="row">
+                        {statistics.map((statistics: any) => {
+                          return (
+                              <StatisticItem
+                                  key={statistics.id}
+                                  statistics={statistics}
+                              />
+                          );
+                        })}
+                      </div>
+                    </section>
+                  </div>
+                </div>
+                <div className="col-12 col-lg-4">
+                  <div className="user-friends">
+                    <div className="user-friends-container">
+                      <span className="friends-title">Freunde</span>
+                      {friends.map((item, i) => (
+                          <div className="friends-single" key={i}>
+                            <img
+                                className="friends-profile-picture"
+                                src={item.profilePicture}
+                                alt="profilePicture"
+                            />
+                            <span className="friends-name">{item.name}</span>
+                          </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
                 </div>
               </div>
             </div>
