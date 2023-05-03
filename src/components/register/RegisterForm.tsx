@@ -2,20 +2,21 @@ import React, { useRef, useState } from "react";
 import logo from "@/assets/geo-stories_logo_3.svg";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { app } from "@/firebase";
-import {useNavigate} from "react-router";
+import { useNavigate } from "react-router";
 
 interface PasswordInfo {
   status: boolean;
   message: string;
 }
 
+// TODO: redirect to login page after successful registration
 function RegisterForm() {
-  const passwordRef = useRef<HTMLInputElement>(null);
-  const confirmPasswordRef = useRef<HTMLInputElement>(null);
-  const emailRef = useRef<HTMLInputElement>(null);
-  const navigate=useNavigate();
+  const passwordRef = useRef < HTMLInputElement > (null);
+  const confirmPasswordRef = useRef < HTMLInputElement > (null);
+  const emailRef = useRef < HTMLInputElement > (null);
+  const navigate = useNavigate();
 
-  const [passwordInfo, setPasswordInfo] = useState<PasswordInfo[]>([
+  const [passwordInfo, setPasswordInfo] = useState < PasswordInfo[] > ([
     { status: false, message: "8 characters long" },
     { status: false, message: "At least one lowercase letter" },
     { status: false, message: "At least one uppercase letter" },
@@ -23,7 +24,7 @@ function RegisterForm() {
     { status: false, message: "At least one special character" },
     { status: false, message: "Passwords match" },
   ]);
-  let passwordOk = useRef<boolean>(false);
+  let passwordOk = useRef < boolean > (false);
 
   function validateEmail(email: string): boolean {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -78,6 +79,7 @@ function RegisterForm() {
 
   function register(email: string, password: string) {
     const auth = getAuth(app);
+    console.log("ASDASDASDASD")
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
