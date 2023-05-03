@@ -1,5 +1,4 @@
 import React from "react";
-import TourLayout from "@/components/TourLayout";
 
 function TravelDiary() {
   return (
