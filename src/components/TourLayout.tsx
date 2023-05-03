@@ -6,21 +6,23 @@ function TourLayout({
   title,
   tours,
   header,
+  image,
 }: {
   title: string;
   tours: any;
   header?: any;
+  image?: any;
 }) {
   return (
     <div className="tour-layout-container">
       <div className="tour-layout-header">
-        {header ? header : null}
-        <h1>{title}</h1>
+        {image ? <img src={image} alt="" /> : ""}
+        <h1 style={{ color: "white" }}>{title}</h1>
       </div>
       <div className="tour-list">
-        {tours.map((tour: any) => {
+        {tours.length > 0 ? tours.map((tour: any) => {
           return <TourItem key={tour.id} tour={tour} />;
-        })}
+        }) : <h1>No tours found</h1>}
       </div>
     </div>
   );

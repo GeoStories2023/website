@@ -1,5 +1,28 @@
 .tour-layout-container {
+  display: flex;
+  flex-direction: column;
   .tour-layout-header {
     color: black;
+    position: relative;
+    img{
+    }
+    h1{
+      position: absolute;
+      text-align: center;
+      top: 2rem;
+      width: 100%;
+      font-weight: bold;
+    }
+  }
+  .tour-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    background-color: #c2e5cb;
+    h1{
+      font-weight: bold;
+      color: #224a43;
+    }
   }
 }
