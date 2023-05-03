@@ -51,4 +51,23 @@ export class FetchApi {
 
     return FetchApi.send(xhr);
   }
+
+  /**
+    * @param url - the url to send the request to
+    * @param authorization - the access token
+    * @param body - the body of the request
+    * @returns {Promise<any>} the response
+    */
+  static async put(
+    url: string,
+    authorization: string,
+    body: any
+  ): Promise<any> {
+    let xhr = new XMLHttpRequest();
+    xhr.open("PUT", `${BASE_URL}${url}`, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Authorization", `Bearer ${authorization}`);
+
+    return FetchApi.send(xhr, body);
+  }
 }
