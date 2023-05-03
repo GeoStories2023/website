@@ -61,7 +61,10 @@ function TourOverview() {
                     <div className="tour-description">
                         <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam libero fugit ratione, 
                             ullam officia eum minima labore reiciendis veniam, 
-                            at maiores! Commodi itaque eaque ipsam minima. Odio natus optio magni. <br />
+                            at maiores! Commodi itaque eaque ipsam minima. Odio natus optio magni. Lorem ipsum 
+                            dolor sit amet consectetur, adipisicing elit. Quas unde accusamus repellendus? Praesentium 
+                            tenetur ut amet exercitationem maxime repudiandae sapiente, quidem nisi recusandae quasi modi 
+                            et illum iusto numquam non. <br />
                             Dauer: ca. 2 Stunden</span>
                     </div>
                 </div>
