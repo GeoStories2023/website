@@ -24,6 +24,26 @@ import { User } from "@prisma/client";
 
 function HomeDashboard({ user }: { user: User }) {
   const navigate = useNavigate();
+  const news = [
+    {img: homepagePicture, headline: 'Hallo bei GeoStories', content: 'Mit Geostories schreibst du deine Geschichte in der Welt.', link: <a href="">Weiterlesen</a>},
+    {img: vision, headline: 'Unsere Zukunftspläne', content: 'Natürlich wollen wir uns weiterentwicklen.', link: <a href="">Zur Roadmap</a>},
+    {img: work, headline: 'Mitarbeiter des Monats', content: 'Unser Mitarbeiter des Monats, Noah, gibt Einblicke in seine Arbeit.', link: <a href="">Weiterlesen</a>},
+  ];
+
+  const stories = [
+    {img: rome, headline: 'Erkunde die Museen von Rom', content: 'Du hast Lust die Museums-Tour in Rom?', link: <a href="">Weiterlesen</a>},
+    {img: hamburg, headline: 'Das deutsche Venedig', content: 'Erkunde die Brückenstadt im Norden Deutschlands.', link: <a href="">Zur Roadmap</a>},
+    {img: london, headline: 'Kannst du die Glocken hören?', content: 'Der Big Ben und weitere Attraktionen warten in London auf dich.', link: <a href="">Weiterlesen</a>},
+  ];
+
+  const countries = [
+    { title: 'Nordamerika', navigate: <button onClick={() => { navigate("/tours/northamerica");}}><img src={northAmerica} alt="Nordamerika" /></button>},
+    { title: 'Südamerika', navigate: <button onClick={() => { navigate("/tours/southamerica");}}><img src={southAmerica} alt="Südamerika" /></button>},
+    { title: 'Europa', navigate: <button onClick={() => { navigate("/tours/europe");}}><img src={europe} alt="Europa" /></button>},
+    { title: 'Afrika', navigate: <button onClick={() => { navigate("/tours/africa");}}><img src={africa} alt="Afrika" /></button>},
+    { title: 'Asien', navigate: <button onClick={() => { navigate("/tours/asia");}}><img src={asia} alt="Asien" /></button>},
+    { title: 'Ozeanien', navigate: <button onClick={() => { navigate("/tours/oceania");}}><img src={oceania} alt="Ozeanien" /></button>},
+  ]
   return (
     <div className="home-dashboard-container">
       <div className="menu-left">
@@ -57,92 +77,60 @@ function HomeDashboard({ user }: { user: User }) {
       </div>
       <div className="news">
         <div className="news-container">
-          <h2>News</h2>
-          <Carousel
-            className="carousel"
-            keyboard={true}
-            pause={"hover"}
-            touch={true}
-          >
-            <Carousel.Item className="carousel-item">
-              <img
-                className="d-block w-100"
-                src={homepagePicture}
-                alt="First slide"
-              />
-              <Carousel.Caption className="carousel-caption">
-                <h3>Hallo bei GeoStories</h3>
-                <p>
-                  Mit Geostories schreibst du deine Geschichte in der Welt.{" "}
-                  <a href="">Weiterlesen</a>
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item className="carousel-item">
-              <img className="d-block w-100" src={vision} alt="Second slide" />
+          <div className="container">
+            <h2>News</h2>
+            <Carousel
+                className="carousel"
+                keyboard={true}
+                pause={"hover"}
+                touch={true}
+            >
+              {news.map(item => (
+                  <Carousel.Item className="carousel-item">
+                    <img
+                        className="d-block w-100"
+                        src={item.img}
+                        alt="First slide"
+                    />
+                    <Carousel.Caption className="carousel-caption">
+                      <h3>{item.headline}</h3>
+                      <p>
+                        {item.content} {" "}
+                        {item.link}
+                      </p>
+                    </Carousel.Caption>
+                  </Carousel.Item>
+              ))}
 
-              <Carousel.Caption className="carousel-caption">
-                <h3>Unsere Zukunftspläne</h3>
-                <p>
-                  Natürlich wollen wir uns weiterentwicklen.{" "}
-                  <a href="">Zur Roadmap</a>
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item className="carousel-item">
-              <img className="d-block w-100" src={work} alt="Third slide" />
-
-              <Carousel.Caption className="carousel-caption">
-                <h3>Mitarbeiter des Monats</h3>
-                <p>
-                  Unser Mitarbeiter des Monats, Noah, gibt Einblicke in seine
-                  Arbeit. <a href="">Weiterlesen</a>
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
+            </Carousel>
+          </div>
         </div>
       </div>
       <div className="seperator is-blue"></div>
       <div className="tours">
         <div className="tours-container">
-          <h2>Mögliche Kapitel für deine nächste Geschichte</h2>
-          <Carousel
-            className="carousel"
-            keyboard={true}
-            pause={"hover"}
-            touch={true}
-          >
-            <Carousel.Item className="carousel-item">
-              <img className="d-block w-100" src={rome} alt="First slide" />
-              <Carousel.Caption className="carousel-caption">
-                <h3>Erkunde die Museen von Rom</h3>
-                <p>
-                  Du hast Lust die Museums-Tour in Rom?{" "}
-                  <a href="">Weiterlesen</a>
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item className="carousel-item">
-              <img className="d-block w-100" src={hamburg} alt="Second slide" />
-
-              <Carousel.Caption className="carousel-caption">
-                <h3>Das deutsche Venedig</h3>
-                <p>Erkunde die Brückenstadt im Norden Deutschlands.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item className="carousel-item">
-              <img className="d-block w-100" src={london} alt="Third slide" />
-
-              <Carousel.Caption className="carousel-caption">
-                <h3>Kannst du die Glocken hören?</h3>
-                <p>
-                  Der Big Ben und weitere Attraktionen warten in London auf
-                  dich.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
+          <div className="container">
+            <h2>Mögliche Kapitel für deine nächste Geschichte</h2>
+            <Carousel
+                className="carousel"
+                keyboard={true}
+                pause={"hover"}
+                touch={true}
+            >
+              {stories.map(item => (
+                  <Carousel.Item className="carousel-item">
+                    <img className="d-block w-100" src={item.img} alt="First slide" />
+                    <Carousel.Caption className="carousel-caption">
+                      <h3>{item.headline}</h3>
+                      <p>
+                        {item.content} {" "}
+                        {item.link}
+                      </p>
+                    </Carousel.Caption>
+                  </Carousel.Item>
+              ))}
+            </Carousel>
+          </div>
         </div>
       </div>
       <div className="seperator"></div>
@@ -152,78 +140,15 @@ function HomeDashboard({ user }: { user: User }) {
         </div>
         <div className="continents-button-container">
           <div className="row">
-            <div className="col-sm-6 col-lg-4">
-              <div className="north-america">
-                <button
-                  onClick={() => {
-                    navigate("/tours/northamerica");
-                  }}
-                >
-                  <img src={northAmerica} alt="North America" />
-                </button>
-                <span>Nordamerika</span>
-              </div>
-            </div>
-            <div className="col-sm-6 col-lg-4">
-              <div className="south-america">
-                <button
-                  onClick={() => {
-                    navigate("/tours/southamerica");
-                  }}
-                >
-                  <img src={southAmerica} alt="South America" />
-                </button>
-                <span>Südamerika</span>
-              </div>
-            </div>
-            <div className="col-sm-6 col-lg-4">
-              <div className="europe">
-                <button
-                  onClick={() => {
-                    navigate("/tours/europe");
-                  }}
-                >
-                  <img src={europe} alt="Europe" />
-                </button>
-                <span>Europa</span>
-              </div>
-            </div>
-            <div className="col-sm-6 col-lg-4">
-              <div className="africa">
-                <button
-                  onClick={() => {
-                    navigate("/tours/africa");
-                  }}
-                >
-                  <img src={africa} alt="Africa" />
-                </button>
-                <span>Afrika</span>
-              </div>
-            </div>
-            <div className="col-sm-6 col-lg-4">
-              <div className="asia">
-                <button
-                  onClick={() => {
-                    navigate("/tours/asia");
-                  }}
-                >
-                  <img src={asia} alt="Asia" />
-                </button>
-                <span>Asien</span>
-              </div>
-            </div>
-            <div className="col-sm-6 col-lg-4">
-              <div className="oceania">
-                <button
-                  onClick={() => {
-                    navigate("/tours/oceania");
-                  }}
-                >
-                  <img src={oceania} alt="Oceania" />
-                </button>
-                <span>Ozeaninen</span>
-              </div>
-            </div>
+            {countries.map(item => (
+                <div className="col-sm-6 col-lg-4">
+                  <div className="continents-image">
+                    {item.navigate}
+                    <span className="continents-title">{item.title}</span>
+                  </div>
+                </div>
+            ))}
+
           </div>
         </div>
       </div>
