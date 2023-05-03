@@ -1,6 +1,6 @@
 import React from "react";
 import "@/style/Favorites.scss";
-import TourItem from "@/components/tour/TourItem";
+import favoritesImg from "@/assets/favorites.jpg";
 import TourLayout from "../TourLayout";
 
 function Favorites() {
@@ -26,9 +26,7 @@ function Favorites() {
 
   return (
     <div className="favorites-container">
-      <div className="">
-        <TourLayout title="Favorites" tours={favorites} />
-      </div>
+      <TourLayout title="Favorites" image={favoritesImg} tours={favorites} />
     </div>
   );
 }
