@@ -14,11 +14,13 @@ function BasicLayout({
   setUser: any;
 }) {
   return (
-    <>
+    <div className="basiclayout-container">
       {user ? <HeaderLoggedIn user={user} setUser={setUser} /> : <Header />}
-      <Outlet />
+      <div className="basiclayout-content">
+        <Outlet />
+      </div>
       <Footer />
-    </>
+    </div>
   );
 }
 
