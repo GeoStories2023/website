@@ -1,4 +1,4 @@
-const BASE_URL = "http://thiering.org:3000/api/v1";
+const BASE_URL = "http://localhost/api/v1";
 
 export class FetchApi {
   /**
