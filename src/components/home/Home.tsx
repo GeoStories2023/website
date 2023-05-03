@@ -1,18 +1,10 @@
 import React from "react";
-import { User } from "@/types/index";
 import HomeDefault from "./HomeDefault";
 import HomeDashboard from "./HomeDashboard";
+import { User } from "@prisma/client";
 
-function Home({ user }: { user: User }) {
-  return (
-    <>
-      {user?.username ? (
-        <HomeDashboard user={user} />
-      ) : (
-        <HomeDefault user={user} />
-      )}
-    </>
-  );
+function Home({ user }: { user: User | undefined }) {
+  return <>{user ? <HomeDashboard user={user} /> : <HomeDefault />}</>;
 }
 
 export default Home;

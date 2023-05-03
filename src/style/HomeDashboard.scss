@@ -19,6 +19,12 @@
       height: 2rem;
       fill: #ffffff;
       margin: 0.4rem 0;
+      cursor: pointer;
+
+      transition: fill 100ms ease-in-out;
+      &:hover {
+        fill: #1e5959;
+      }
 
       &.icon {
         size: 32px;
@@ -137,17 +143,15 @@
           }
         }
       }
-
     }
   }
 }
 
 @media (min-width: 576px) {
-
 }
 
 // Medium devices (tablets, 768px and up)
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .home-dashboard-container {
     .home-dashboard-header {
       padding: 0.6rem 0 0.6rem 2rem;
@@ -163,7 +167,6 @@
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-
 }
 
 // Extra large devices (large desktops, 1200px and up)

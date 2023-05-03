@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "@/style/Header.scss";
 import logo from "@/assets/geo-stories_logo_3.svg";
 import premiumBadge from "@/assets/premium_globus.svg";
@@ -9,27 +9,50 @@ import {
 import { getAuth, signOut } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { User } from "@prisma/client";
+import { FetchApi } from "@/FetchApi";
 
 function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
   const navigate = useNavigate();
-  const auth = getAuth();
-  const level = 33;
-  const levelName = "Storyteller";
+  const accessToken = localStorage.getItem("accessToken") ?? "";
+
+  const level: number = Math.floor(user.xp / 1000);
   const minLevelValue = level * 1000;
   const maxLevelValue = (level + 1) * 1000;
+  const [levelName, setLevelName] = useState("Beginner");
+
   const meter = document.getElementById("meter-level");
   const meterCurrentValue = meter?.getAttribute("value");
   const meterMinValue = meter?.getAttribute("min");
   const meterMaxValue = meter?.getAttribute("max");
+
+  useEffect(() => {
+    async function fetching() {
+      await getLevelName();
+    }
+    fetching();
+  }, []);
+
+  async function getLevelName() {
+    FetchApi.get(`/levels/${level}`, accessToken)
+      .then((res) => {
+        setLevelName(res.name); // Set level name
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   function handleSignOut() {
+    const auth = getAuth();
     signOut(auth)
       .then(() => {
         // Sign-out successful
         setUser(null);
+        localStorage.removeItem("accessToken");
         navigate("/");
       })
       .catch((error) => {
-        // Error
+        console.log(error);
       });
   }
 
@@ -69,7 +92,7 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
               id="meter-level"
               min={minLevelValue}
               max={maxLevelValue}
-              value="33600"
+              value={user.xp}
             ></meter>
             <span className="meter-score">
               {meterCurrentValue}/{meterMaxValue}

@@ -8,9 +8,8 @@ import explore from "@/assets/homepage-erkunden.jpg";
 import diary from "@/assets/homepage-tagebuch.jpg";
 import review from "@/assets/homepage-rueckblick.jpg";
 import "@/style/HomeDefault.scss";
-import { User } from "@/types/General";
 
-function HomeDefault({ user }: { user: User }) {
+function HomeDefault() {
   return (
     <div className="home-container">
       <Socialmedia />
@@ -35,7 +34,11 @@ function HomeDefault({ user }: { user: User }) {
                     </span>
                   </div>
                   <div className="col-sm-4">
-                    <img src={qrcode} alt="app-qr-code" className="app-qr-code"  />
+                    <img
+                      src={qrcode}
+                      alt="app-qr-code"
+                      className="app-qr-code"
+                    />
                   </div>
                 </div>
               </div>
@@ -66,14 +69,14 @@ function HomeDefault({ user }: { user: User }) {
               <div className="single-feature-container">
                 <img src={explore} alt="explore-img" className="img-feature" />
                 <div className="text-feature">
-                <span className="header-feature">
-                  Erkunde neue Länder und Städte
-                </span>
+                  <span className="header-feature">
+                    Erkunde neue Länder und Städte
+                  </span>
                   <span className="description-feature">
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-                erat, sed diam voluptua.
-                </span>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                    diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                    aliquyam erat, sed diam voluptua.
+                  </span>
                 </div>
               </div>
             </div>
@@ -83,10 +86,10 @@ function HomeDefault({ user }: { user: User }) {
                 <div className="text-feature">
                   <span className="header-feature">Schreibe dein Tagebuch</span>
                   <span className="description-feature">
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-                erat, sed diam voluptua.
-                </span>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                    diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                    aliquyam erat, sed diam voluptua.
+                  </span>
                 </div>
               </div>
             </div>
@@ -94,22 +97,20 @@ function HomeDefault({ user }: { user: User }) {
               <div className="single-feature-container">
                 <img src={review} alt="review-img" className="img-feature" />
                 <div className="text-feature">
-                <span className="header-feature">
-                  Blick auf deine Geo-Story zurück
-                </span>
+                  <span className="header-feature">
+                    Blick auf deine Geo-Story zurück
+                  </span>
                   <span className="description-feature">
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-                erat, sed diam voluptua.
-                </span>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                    diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                    aliquyam erat, sed diam voluptua.
+                  </span>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
-
     </div>
   );
 }

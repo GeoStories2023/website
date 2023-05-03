@@ -27,22 +27,35 @@ function LoginForm({
     const password = passwordRef.current?.value ?? "";
     login(email, password);
   }
+  function fetchUser(accessToken: string) {
+    FetchApi.get("/users", accessToken)
+      .then((response) => {
+        console.log("RESPONSE:", response);
+        setUser(response);
+        localStorage.setItem("accessToken", accessToken);
 
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log("ERROR:", error);
+      });
+  }
+
+  // TODO: Fix sign in with google. Gets Unauthorized error
   function signInWithGoogle() {
     const provider = new GoogleAuthProvider();
     const auth = getAuth(app);
     signInWithPopup(auth, provider)
       .then((result) => {
-        // const credential = GoogleAuthProvider.credentialFromResult(result);
-        // const token = credential?.accessToken;
-        // const user = result.user;
-        // navigate("/");
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        if (credential) {
+          const accessToken = credential.idToken;
+          console.log("ACCESS TOKEN GOOGLE:", accessToken);
+          fetchUser(accessToken ?? "");
+        }
       })
       .catch((error) => {
-        // const errorCode = error.code;
-        // const errorMessage = error.message;
-        // const email = error.email;
-        // const credential = GoogleAuthProvider.credentialFromError(error);
+        console.log("ERROR:", error);
       });
   }
 
@@ -50,21 +63,9 @@ function LoginForm({
     const auth = getAuth(app);
     signInWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        const accessToken = await user.getIdToken();
+        const accessToken = await userCredential.user.getIdToken();
         console.log("ACCESS TOKEN:", accessToken);
-        console.log("USER:", user);
-        // Fetch User
-        FetchApi.get("/users", accessToken)
-          .then((response) => {
-            console.log("RESPONSE:", response);
-            setUser(response);
-            navigate("/");
-          })
-          .catch((error) => {
-            console.log("ERROR:", error);
-          });
+        fetchUser(accessToken);
       })
       .catch((error) => {
         console.log(error);
