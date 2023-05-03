@@ -1,0 +1,15 @@
+.tour-step-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2vw;
+    background-color: #3B8C6E;
+    border-radius: 15px;
+    padding-inline: 2vw;
+    padding-block: 1vh;
+
+    .tour-step-name {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+}

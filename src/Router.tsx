@@ -13,6 +13,7 @@ import Favorites from "@/components/favorites/Favorites";
 import Premium from "./components/premium/Premium";
 import About from "./components/about/About";
 import Features from "./components/features/Features";
+import Tourhistory from "./components/tourhistory/Tourhistory";
 import TravelDiary from "./components/traveldiary/TravelDiary";
 import Imprint from "@/components/imprint/Imprint";
 import PremiumAdvertisement from "@/components/premium-advertisement/PremiumAdvertisement";
@@ -94,6 +95,10 @@ function Router() {
         {
           path: "features",
           element: <Features />,
+        },
+        {
+          path: "tourhistory",
+          element: <Tourhistory />,
         },
         {
           path: "traveldiary",
