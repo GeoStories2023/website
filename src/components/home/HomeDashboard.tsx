@@ -82,18 +82,6 @@ function HomeDashboard({ user }: { user: User }) {
       ),
     },
     {
-      title: "Südamerika",
-      navigate: (
-        <button
-          onClick={() => {
-            navigate("/tours/southamerica");
-          }}
-        >
-          <img src={southAmerica} alt="Südamerika" />
-        </button>
-      ),
-    },
-    {
       title: "Europa",
       navigate: (
         <button
@@ -106,18 +94,6 @@ function HomeDashboard({ user }: { user: User }) {
       ),
     },
     {
-      title: "Afrika",
-      navigate: (
-        <button
-          onClick={() => {
-            navigate("/tours/africa");
-          }}
-        >
-          <img src={africa} alt="Afrika" />
-        </button>
-      ),
-    },
-    {
       title: "Asien",
       navigate: (
         <button
@@ -126,6 +102,30 @@ function HomeDashboard({ user }: { user: User }) {
           }}
         >
           <img src={asia} alt="Asien" />
+        </button>
+      ),
+    },
+    {
+      title: "Südamerika",
+      navigate: (
+        <button
+          onClick={() => {
+            navigate("/tours/southamerica");
+          }}
+        >
+          <img src={southAmerica} alt="Südamerika" />
+        </button>
+      ),
+    },
+    {
+      title: "Afrika",
+      navigate: (
+        <button
+          onClick={() => {
+            navigate("/tours/africa");
+          }}
+        >
+          <img src={africa} alt="Afrika" />
         </button>
       ),
     },
