@@ -70,6 +70,7 @@ export class FetchApi {
     xhr.open("PUT", `${BASE_URL}${url}`, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("Authorization", `Bearer ${authorization}`);
+    xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
 
     return FetchApi.send(xhr, body);
   }
