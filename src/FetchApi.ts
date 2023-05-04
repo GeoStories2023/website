@@ -15,6 +15,7 @@ export class FetchApi {
           reject(xhr.statusText);
         }
       };
+      xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
       xhr.onerror = () => reject(xhr.statusText);
       xhr.send(body ? JSON.stringify(body) : undefined);
     });
@@ -35,6 +36,7 @@ export class FetchApi {
     xhr.open("POST", `${BASE_URL}${url}`, true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("Authorization", `Bearer ${authorization}`);
+    xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
 
     return FetchApi.send(xhr, body);
   }
@@ -48,16 +50,17 @@ export class FetchApi {
     let xhr = new XMLHttpRequest();
     xhr.open("GET", `${BASE_URL}${url}`, true);
     xhr.setRequestHeader("Authorization", `Bearer ${authorization}`);
+    xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
 
     return FetchApi.send(xhr);
   }
 
   /**
-    * @param url - the url to send the request to
-    * @param authorization - the access token
-    * @param body - the body of the request
-    * @returns {Promise<any>} the response
-    */
+   * @param url - the url to send the request to
+   * @param authorization - the access token
+   * @param body - the body of the request
+   * @returns {Promise<any>} the response
+   */
   static async put(
     url: string,
     authorization: string,
