@@ -1,0 +1,50 @@
+.popular-tour-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #89d99d;
+  border-radius: 15px;
+  width: 25vw;
+  min-width: 300px;
+  align-items: center;
+  justify-content: center;
+  padding-block: 2vh;
+  padding-inline: 2vw;
+  gap: 2vh;
+  font-size: 1.2rem;
+
+  .popular-tour-img {
+    height: 12rem;
+    width: 12rem;
+    min-width: 200px;
+    border-radius: 50%;
+    margin-bottom: 5vh;
+  }
+
+  .popular-tour-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+
+  .popular-tour-description {
+    text-align: justify;
+    text-align-last: center;
+    margin-bottom: 2vh;
+  }
+
+  .popular-tour-duration,
+  .popular-tour-country {
+    align-self: flex-start;
+  }
+
+  .popular-tour-premium-container {
+    min-height: 10vh;
+    align-self: flex-end;
+
+    .popular-tour-premium {
+      img {
+        width: 5vw;
+        min-width: 50px;
+      }
+    }
+  }
+}
