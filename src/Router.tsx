@@ -31,6 +31,7 @@ function Router() {
       // fetch user from rest
       const accessToken = await fUser.getIdToken();
       console.log(accessToken);
+      localStorage.setItem("accessToken", accessToken);
       FetchApi.get("/users", accessToken)
         .then((user) => {
           console.log(user);
