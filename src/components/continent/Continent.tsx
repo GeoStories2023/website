@@ -84,6 +84,7 @@ function Continent() {
           responsive={responsive}
           infinite={true}
           swipeable={true}
+          removeArrowOnDeviceType={["tablet", "mobile"]}
           className="continent-country-carousel"
         >
           <div className="single-item">

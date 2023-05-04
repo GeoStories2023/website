@@ -29,18 +29,20 @@
 
   .continent-country-carousel-container {
     background-color: #3b8c6e;
+    width: 100%;
 
     .continent-country-carousel {
+      padding-block: 5vh;
       .single-item {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-block: 2vh;
-        padding-inline: 6vw;
+        margin-inline: 2vw;
 
         .country-img {
-          width: 90%;
+          width: 20vw;
+          max-width: 200px;
           aspect-ratio: 4 / 3;
           overflow: hidden;
           border-radius: 15px;
