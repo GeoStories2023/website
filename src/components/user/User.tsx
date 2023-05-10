@@ -12,9 +12,10 @@ import { Friend, Tour, User } from "@prisma/client";
 function User() {
   const { uid } = useParams();
   const navigate = useNavigate();
-  const [user, setUser] = useState<User>();
+  const [user, setUser] = useState < User > ();
+  const [statistics, setStatistics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | undefined>();
+  const [error, setError] = useState < string | undefined > ();
   const accessToken = localStorage.getItem("accessToken") ?? "";
 
   useEffect(() => {
@@ -28,6 +29,16 @@ function User() {
       .catch((err) => {
         setError(err);
       });
+    FetchApi.get(`/users/${uid}/statistics`, accessToken)
+      .then((res) => {
+        console.log("stats", res)
+        console.log(Object.keys(res.visitedCities).length)
+        setStatistics(res);
+      })
+      .catch((err) => {
+        setError(err);
+      });
+
   }, []);
 
 
@@ -36,22 +47,22 @@ function User() {
     navigate(0)
   }
 
-  const statistics = [
+  const stats = [
     {
       name: "Countries",
-      amount: 5,
+      amount: Object.keys(statistics?.visitedCountries).length ?? 0,
       icon: <Countries size={90} />,
       id: 1,
     },
     {
       name: "Cities",
-      amount: 5,
+      amount: Object.keys(statistics?.visitedCities).length ?? 0,
       icon: <Cities size={90} />,
       id: 2,
     },
     {
       name: "Tours",
-      amount: user?.startedTours.filter((tour: Tour) => tour.isCompleted).length,
+      amount: user?.startedTours.filter((tour: Tour) => tour.isCompleted).length ?? 0,
       icon: <Tours size={90} />,
       id: 3,
     },
@@ -83,7 +94,7 @@ function User() {
                   <div className="user-statistics">
                     <section className="statistic-cards">
                       <div className="row">
-                        {statistics.map((statistics: any) => {
+                        {stats.map((statistics: any) => {
                           return (
                             <StatisticItem
                               key={statistics.id}
