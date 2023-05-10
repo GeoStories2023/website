@@ -23,6 +23,7 @@ function Friends({ user }: { user: User }) {
         if (res) {
           setError("")
           // Add friend
+          // TODO: Error 500 from REST. Please fix
           FetchApi.post(`/users/${user.uid}/friends`, accessToken, {
             friendUid: friendUid
           })
