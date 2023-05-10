@@ -1,5 +1,5 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useRef } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import PopularTour from "@/components/country/PopularTour";
 import PremiumAdBanner from "@/components/premium-advertisement/PremiumAdvertisementBanner";
 import "@/style/Continent.scss";
@@ -12,6 +12,9 @@ import London from "@/assets/img-dashboard-tours/london.png";
 
 function Continent() {
   const { continent } = useParams();
+  const navigate = useNavigate();
+
+  const countrySearchRef = useRef < HTMLInputElement > (null)
   // Fetch Continent Info (name, countries, popular tours)
 
   const continentInfo = {
@@ -27,6 +30,7 @@ function Continent() {
         city: "Syke",
         country: "Germany",
         premium: true,
+        id: 1
       },
       {
         image: Hamburg,
@@ -37,6 +41,7 @@ function Continent() {
         city: "Bremen",
         country: "Germany",
         premium: false,
+        id: 2
       },
       {
         image: Hamburg,
@@ -47,6 +52,7 @@ function Continent() {
         city: "Bremen",
         country: "Germany",
         premium: false,
+        id: 3
       },
     ],
   };
@@ -70,6 +76,12 @@ function Continent() {
       items: 1,
     },
   };
+
+
+  function handleSearchSubmit(e: any) {
+    e.preventDefault()
+    navigate(`/tours/${continent}/${countrySearchRef.current?.value ?? ""}`)
+  }
 
   return (
     <div className="continent-container" style={{ color: "black" }}>
@@ -113,11 +125,26 @@ function Continent() {
           </div>
         </Carousel>
       </section>
+
+      <section className="continent-country-search-container">
+        <span className="continent-country-search-title">Search country:</span>
+        <div className="continent-country-search">
+          <form onSubmit={handleSearchSubmit}>
+            <div className="continent-country-search-input">
+              <input ref={countrySearchRef} type="text" placeholder="Search for country" />
+            </div>
+            <div className="continent-country-search-button">
+              <button>Search</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
       <section className="continent-popular-tours-container">
         <span className="popular-tours-title">Die besten Touren</span>
         <div className="popular-tours">
           {continentInfo.popularTours.map((tour: any) => {
-            return <PopularTour tour={tour} />;
+            return <PopularTour tour={tour} key={tour.id} />;
           })}
         </div>
       </section>
