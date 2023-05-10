@@ -50,13 +50,13 @@ function User() {
   const stats = [
     {
       name: "Countries",
-      amount: Object.keys(statistics?.visitedCountries).length ?? 0,
+      amount: statistics.visitedCountries ? Object.keys(statistics?.visitedCountries).length : 0,
       icon: <Countries size={90} />,
       id: 1,
     },
     {
       name: "Cities",
-      amount: Object.keys(statistics?.visitedCities).length ?? 0,
+      amount: statistics.visitedCities ? Object.keys(statistics?.visitedCities).length : 0,
       icon: <Cities size={90} />,
       id: 2,
     },
@@ -110,7 +110,7 @@ function User() {
                   <div className="user-friends">
                     <div className="user-friends-container">
                       <span className="friends-title">Friends</span>
-                      {user?.friends.map((friendItem: Friend, i) => {
+                      {user?.friends?.map((friendItem: Friend, i) => {
                         const friend: User = friendItem.friendUser;
                         return (
                           <div className="friends-single" key={i} onClick={() => { navigateToFriend(friend) }}>
