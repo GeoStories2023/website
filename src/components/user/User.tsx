@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "@/style/User.scss";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import StatisticItem from "../statistics/StatisticItem";
 import { IoEarth as Countries } from "react-icons/io5";
 import { FaCity as Cities } from "react-icons/fa";
 import { MdPhotoCamera as Tours } from "react-icons/md";
 import testProfilePicture from "@/assets/profilePicture/avatar.png";
 import { FetchApi } from "@/FetchApi";
-import { User } from "@prisma/client";
+import { Friend, Tour, User } from "@prisma/client";
 
 function User() {
   const { uid } = useParams();
+  const navigate = useNavigate();
   const [user, setUser] = useState<User>();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | undefined>();
@@ -28,61 +29,30 @@ function User() {
         setError(err);
       });
   }, []);
-  // Fetch user info
+
+
+  function navigateToFriend(friend: User) {
+    navigate(`/users/${friend.uid}`)
+    navigate(0)
+  }
 
   const statistics = [
     {
-      name: "Länder",
+      name: "Countries",
       amount: 5,
       icon: <Countries size={90} />,
       id: 1,
     },
     {
-      name: "Städte",
-      amount: 15,
-      icon: <Cities size={90} />,
-      id: 2,
-    },
-    {
-      name: "Touren",
-      amount: 30,
-      icon: <Tours size={90} />,
-      id: 3,
-    },
-    {
-      name: "Länder",
+      name: "Cities",
       amount: 5,
-      icon: <Countries size={90} />,
-      id: 4,
-    },
-    {
-      name: "Städte",
-      amount: 15,
       icon: <Cities size={90} />,
-      id: 5,
-    },
-    {
-      name: "Touren",
-      amount: 30,
-      icon: <Tours size={90} />,
-      id: 6,
-    },
-  ];
-
-  const friends = [
-    {
-      profilePicture: `${testProfilePicture}`,
-      name: "Lena123",
-      id: 1,
-    },
-    {
-      profilePicture: `${testProfilePicture}`,
-      name: "Julius123",
       id: 2,
     },
     {
-      profilePicture: `${testProfilePicture}`,
-      name: "Noah123",
+      name: "Tours",
+      amount: user?.startedTours.filter((tour: Tour) => tour.isCompleted).length,
+      icon: <Tours size={90} />,
       id: 3,
     },
   ];
@@ -128,17 +98,20 @@ function User() {
                 <div className="col-12 col-lg-4">
                   <div className="user-friends">
                     <div className="user-friends-container">
-                      <span className="friends-title">Freunde</span>
-                      {friends.map((item, i) => (
-                        <div className="friends-single" key={i}>
-                          <img
-                            className="friends-profile-picture"
-                            src={item.profilePicture}
-                            alt="profilePicture"
-                          />
-                          <span className="friends-name">{item.name}</span>
-                        </div>
-                      ))}
+                      <span className="friends-title">Friends</span>
+                      {user?.friends.map((friendItem: Friend, i) => {
+                        const friend: User = friendItem.friendUser;
+                        return (
+                          <div className="friends-single" key={i} onClick={() => { navigateToFriend(friend) }}>
+                            <img
+                              className="friends-profile-picture"
+                              src={friend.profileImageId ?? testProfilePicture}
+                              alt="profilePicture"
+                            />
+                            <span className="friends-name">{friend.username}</span>
+                          </div>
+                        )
+                      })}
                     </div>
                   </div>
                 </div>
