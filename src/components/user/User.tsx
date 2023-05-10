@@ -11,15 +11,16 @@ import { User } from "@prisma/client";
 
 function User() {
   const { uid } = useParams();
-  const [user, setUser] = useState < User > ();
+  const [user, setUser] = useState<User>();
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState < string | undefined > ();
+  const [error, setError] = useState<string | undefined>();
   const accessToken = localStorage.getItem("accessToken") ?? "";
 
   useEffect(() => {
-    if (!uid) return;
+    if (!uid) { return };
     FetchApi.get(`/users/${uid}`, accessToken)
       .then((res) => {
+        console.log(res)
         setUser(res);
         setIsLoading(false);
       })
@@ -99,7 +100,7 @@ function User() {
               </div>
               <div className="col-md-8 col-xl-10">
                 <div className="user-name-status">
-                  <span className="user-title">Username: '{user?.username}'</span>
+                  <span className="user-title">{user?.username ?? "No user found"}</span>
                   <span className="user-status">Status: On an adventure</span>
                 </div>
               </div>
@@ -114,10 +115,10 @@ function User() {
                       <div className="row">
                         {statistics.map((statistics: any) => {
                           return (
-                              <StatisticItem
-                                  key={statistics.id}
-                                  statistics={statistics}
-                              />
+                            <StatisticItem
+                              key={statistics.id}
+                              statistics={statistics}
+                            />
                           );
                         })}
                       </div>
@@ -129,14 +130,14 @@ function User() {
                     <div className="user-friends-container">
                       <span className="friends-title">Freunde</span>
                       {friends.map((item, i) => (
-                          <div className="friends-single" key={i}>
-                            <img
-                                className="friends-profile-picture"
-                                src={item.profilePicture}
-                                alt="profilePicture"
-                            />
-                            <span className="friends-name">{item.name}</span>
-                          </div>
+                        <div className="friends-single" key={i}>
+                          <img
+                            className="friends-profile-picture"
+                            src={item.profilePicture}
+                            alt="profilePicture"
+                          />
+                          <span className="friends-name">{item.name}</span>
+                        </div>
                       ))}
                     </div>
                   </div>
