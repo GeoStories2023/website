@@ -80,7 +80,6 @@ function Continent() {
 
   function handleSearchSubmit(e: any) {
     e.preventDefault()
-    // TODO: Style search input
     // TODO: If search is empty
     // TODO: If search country is not in continent
     // TODO: Suggestions for search (autocomplete)
@@ -128,21 +127,21 @@ function Continent() {
             <span className="country-title">Belgium</span>
           </div>
         </Carousel>
+        <section className="continent-country-search-container">
+          <h3 className="continent-country-search-title">Search country</h3>
+          <div className="continent-country-search">
+            <form onSubmit={handleSearchSubmit}>
+              <div className="continent-country-search-input">
+                <input ref={countrySearchRef} type="text" placeholder="Search for country" />
+              </div>
+              <div className="continent-country-search-button">
+                <button>Search</button>
+              </div>
+            </form>
+          </div>
+        </section>
       </section>
 
-      <section className="continent-country-search-container">
-        <span className="continent-country-search-title">Search country:</span>
-        <div className="continent-country-search">
-          <form onSubmit={handleSearchSubmit}>
-            <div className="continent-country-search-input">
-              <input ref={countrySearchRef} type="text" placeholder="Search for country" />
-            </div>
-            <div className="continent-country-search-button">
-              <button>Search</button>
-            </div>
-          </form>
-        </div>
-      </section>
 
       <section className="continent-popular-tours-container">
         <span className="popular-tours-title">Die besten Touren</span>

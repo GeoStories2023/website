@@ -56,6 +56,34 @@
     }
   }
 
+  .continent-country-search-container{
+    margin-bottom: 2rem;
+    .continent-country-search-title{
+      color: white;
+    }
+    form{
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      input{
+        padding: 0.8rem 0.5rem;
+        border-radius: 5px;
+        border: none;
+      }
+      button{
+        padding: 0.8rem 1.5rem;
+        border-radius: 5px;
+        font-weight: bold;
+        background-color: #89d99d;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+
   .continent-popular-tours-container {
     display: flex;
     flex-direction: column;
