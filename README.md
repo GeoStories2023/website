@@ -15,7 +15,7 @@
 │   ├─ rest
 │   ├─ website
 ```
-2. Go to REST project and start docker containers
+2. Go to REST project and start docker containers (make sure docker desktop is running)
 - `cd rest`
 - Windows `./start-dev.bat`
 - Linux `sh start-dev.sh`
