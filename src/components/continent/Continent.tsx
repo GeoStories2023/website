@@ -80,8 +80,11 @@ function Continent() {
 
   function handleSearchSubmit(e: any) {
     e.preventDefault()
-    // TODO: If search is empty
+    if (!countrySearchRef.current?.value) {
+      return;
+    }
     // TODO: If search country is not in continent
+
     // TODO: Suggestions for search (autocomplete)
     navigate(`/tours/${continent}/${countrySearchRef.current?.value ?? ""}`)
   }
