@@ -37,7 +37,7 @@ function FriendItem({ friend }: { friend: any }) {
           <ProfilePicture className="status-image" size={60} color="darkblue" />
           <Circle className="status-circle" size={15} color={colorStatus} />
         </div>
-        <div className="friend-item-name">{friend.name}</div>
+        <div className="friend-item-name">{friend.username}</div>
       </div>
     </div>
   );

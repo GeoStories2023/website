@@ -1,59 +1,55 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import "@/style/Friends.scss";
 import FriendItem from "./FriendItem";
 import { BsPersonFillAdd as AddFriend } from "react-icons/bs";
 import { IoPersonCircle as ProfilePicture } from "react-icons/io5";
+import { FetchApi } from "@/FetchApi";
+import { User } from "@prisma/client";
+import Loading from "../utils/Loading/Loading";
 
-function Friends() {
+function Friends({ user }: { user: User }) {
+  const accessToken = localStorage.getItem("accessToken") ?? "";
+  const friendSearchRef = useRef < HTMLInputElement > (null)
+  const [error, setError] = useState < string > ("")
   // Fetching friends from current user
-  const friends = [
-    {
-      name: "Julius123",
-      status: "online",
-      id: 1,
-    },
-    {
-      name: "Lena123",
-      status: "offline",
-      id: 2,
-    },
-    {
-      name: "Julius123",
-      status: "online",
-      id: 3,
-    },
-    {
-      name: "Noah123",
-      status: "busy",
-      id: 4,
-    },
-    {
-      name: "Julius123",
-      status: "online",
-      id: 5,
-    },
-    {
-      name: "Julius123",
-      status: "online",
-      id: 6,
-    },
-  ];
+
+  function handleAddFriend(e: any) {
+    e.preventDefault()
+    if (!friendSearchRef.current?.value) return
+    const friendUid = friendSearchRef.current.value
+    // Check if friendUid exists
+    FetchApi.get(`/users/${friendUid}`, accessToken)
+      .then((res) => {
+        if (res) {
+          setError("")
+          // Add friend
+          FetchApi.post(`/users/${user.uid}/friends`, accessToken, {
+            friendUid: friendUid
+          })
+        } else {
+          setError("UserId not found")
+        }
+      })
+  }
+
   return (
     <div className="friends-container">
       <div className="friends-header">
         <span className="friends-title">Friends</span>
-        <div className="add-friends">
+        <form onSubmit={handleAddFriend} className="add-friends">
+          {error ? <span className="error-message">{error}</span> : null}
           <input
+            ref={friendSearchRef}
             type="text"
             id="friendsName"
             name="friendsName"
-            placeholder="Suche nach den Namen deiner Freunde"
+            placeholder="Add user with UserID"
           />
           <button className="btn-add-friends">
             <AddFriend size={30} />
             Hinzufügen
           </button>
-        </div>
+        </form>
       </div>
       <div className="status">
         <div className="status-container">
@@ -70,9 +66,10 @@ function Friends() {
         </div>
       </div>
       <section className="friends-list-container">
-        {friends.map((friend: any) => {
-          return <FriendItem key={friend.id} friend={friend} />;
-        })}
+        {user ? user.friends?.map((friend: any) => {
+          const friendData = friend.friendUser;
+          return <FriendItem key={friend.id} friend={friendData} />;
+        }) : <Loading />}
       </section>
     </div>
   );
