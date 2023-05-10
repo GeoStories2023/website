@@ -1,7 +1,7 @@
 .login-container {
   position: relative;
-  overflow: hidden;
   height: 100vh;
+  overflow: hidden;
   background-color: #c2e5cb;
   color: #fff;
 
@@ -136,15 +136,24 @@
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
+  .login-container {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 786px) {
+  .login-container {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .login-container {
+  overflow: hidden;
     .login-form-container {
       margin-top: 7rem;
       .login-form-right {
