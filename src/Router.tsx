@@ -30,7 +30,7 @@ function Router() {
     if (fUser && !user) {
       // fetch user from rest
       const accessToken = await fUser.getIdToken();
-      console.log(accessToken);
+      console.log("ROUTER ON AUTH STATE CHANGE", accessToken);
       localStorage.setItem("accessToken", accessToken);
       FetchApi.get("/users", accessToken)
         .then((user) => {

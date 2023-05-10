@@ -28,12 +28,13 @@ function LoginForm({
     login(email, password);
   }
   function fetchUser(accessToken: string) {
+    console.log("Fetching user with accessToken: ", accessToken);
     FetchApi.get("/users", accessToken)
       .then((response) => {
         console.log("RESPONSE:", response);
         setUser(response);
+        console.log("accessToken SIGN IN WITH GOOGLE:", accessToken);
         localStorage.setItem("accessToken", accessToken);
-
         navigate("/");
       })
       .catch((error) => {
@@ -49,9 +50,10 @@ function LoginForm({
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         if (credential) {
-          const accessToken = credential.idToken;
-          console.log("ACCESS TOKEN GOOGLE:", accessToken);
-          fetchUser(accessToken ?? "");
+          const accessToken = credential.idToken ?? "";
+          console.log("accessToken SIGN IN WITH GOOGLE:", accessToken);
+          localStorage.setItem("accessToken", accessToken);
+          navigate("/");
         }
       })
       .catch((error) => {
