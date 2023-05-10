@@ -107,6 +107,9 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
           </div>
         </div>
         <div className="icons">
+          <div className="header-username">
+            {user.username}
+          </div>
           <ProfilePicture
             onClick={() => {
               navigate(`/users/${user.uid}`);
