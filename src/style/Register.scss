@@ -62,7 +62,7 @@
 
         h2 {
           margin-block: 0;
-          color: #89d99d;
+          color: #89d99d !important;
           font-family: Lobster, Inter, system-ui, Avenir, Helvetica, Arial,
             sans-serif;
           font-size: 3rem;
@@ -102,9 +102,9 @@
             align-items: center;
             gap: 0.5rem;
             .register-password-info-item-icon {
-              color: #89d99d;
+              color: #89d99d !important;
               &.insufficient {
-                color: #ef0000;
+                color: #ef0000 !important;
               }
             }
           }
@@ -134,6 +134,11 @@
             color: white;
             border: none;
             cursor: pointer;
+          }
+          .register-error-message{
+            color: red;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
           }
         }
       }

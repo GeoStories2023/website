@@ -15,6 +15,7 @@ function RegisterForm() {
   const confirmPasswordRef = useRef < HTMLInputElement > (null);
   const emailRef = useRef < HTMLInputElement > (null);
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState < string > ("");
 
   const [passwordInfo, setPasswordInfo] = useState < PasswordInfo[] > ([
     { status: false, message: "8 characters long" },
@@ -79,15 +80,12 @@ function RegisterForm() {
 
   function register(email: string, password: string) {
     const auth = getAuth(app);
-    console.log("ASDASDASDASD")
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user);
+        navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        setErrorMessage(error.code);
       });
   }
 
@@ -143,6 +141,7 @@ function RegisterForm() {
                     type="password"
                     placeholder="Confirm Password"
                     onChange={validatePassword}
+                    required
                   />
                   <div className="row">
                     <div className="col-md-6">
@@ -160,7 +159,7 @@ function RegisterForm() {
                                     : "register-password-info-item-icon insufficient"
                                 }
                               >
-                                {info.status ? "✔" : "✖"}
+                                {info.status ? "✓" : "✘"}
                               </div>
                               <p>{info.message}</p>
                             </div>
@@ -190,6 +189,7 @@ function RegisterForm() {
                   </div>
                   <div className="register-form-button pt-4 pb-4">
                     <button>REGISTER</button>
+                    {errorMessage ? <div className="register-error-message">{errorMessage}</div> : "ERROR MESSSAGES"}
                     <p>
                       Already have an account? Login <a href="/login">here</a>
                     </p>
