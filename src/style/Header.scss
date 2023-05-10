@@ -12,6 +12,7 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: left;
+    cursor: pointer;
 
     img {
       height: 84px;
@@ -52,17 +53,6 @@ header {
       color: #ffffff;
     }
 
-    .icons{
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-end;
-      width: 100%;
-      margin-right: 1rem;
-      .icon{
-        margin-left: 1rem;
-      }
-    }
     .header-actions-register {
       display: none;
     }
@@ -297,7 +287,7 @@ header {
       .logo-title-container {
         .logo-subtitle {
           font-size: 1rem;
-          width: 20rem;
+          width: 13rem;
         }
       }
     }
@@ -346,6 +336,11 @@ header {
   // Only logged in header
   .header-logged-in-container {
     .header-actions {
+      .header-username{
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
       img {
         height: 32px;
         width: 32px;
@@ -363,14 +358,6 @@ header {
         position: absolute;
         top: 1rem;
         right: 6rem;
-
-        // TODO: Fix username can overlay with level container
-        .header-username{
-          font-size: 1.1rem;
-          font-weight: bold;
-          color: white;
-        }
-
         svg {
           width: 2.6rem;
           height: 2.6rem;
@@ -396,7 +383,7 @@ header {
     }
 
     .level-container {
-      margin-right: 20rem;
+      margin-right: 9rem;
     }
   }
 }

@@ -239,7 +239,7 @@ function HomeDashboard({ user }: { user: User }) {
         <div className="continents-header">
           <h2>Wähle den Kontinent für dein nächstes Reiseziel</h2>
         </div>
-        <div className="continents-button-container">
+        <div className="continents-button-container" id="continent-list">
           <div className="row">
             {countries.map((item, i) => (
               <div className="col-sm-6 col-lg-4" key={i}>

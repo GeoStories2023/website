@@ -86,7 +86,12 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
         </div>
       </div>
       <div className="header-actions">
-        <img src={premiumBadge} alt="premium-badge" className="premium-badge" />
+        <div className="header-username">
+          {user.username}
+        </div>
+        {user.isPremium && (
+          <img src={premiumBadge} alt="premium-badge" className="premium-badge" />
+        )}
         <div className="level-container">
           <span className="level-title">
             Level: {level} - {levelName}
@@ -107,9 +112,6 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
           </div>
         </div>
         <div className="icons">
-          <div className="header-username">
-            {user.username}
-          </div>
           <ProfilePicture
             onClick={() => {
               navigate(`/users/${user.uid}`);
@@ -134,11 +136,8 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
               <Link to={"/register"}>
                 <li>Register</li>
               </Link>
-              <Link to={"/continent"}>
-                <li>Kontinente</li>
-              </Link>
-              <Link to={"/continent/country"}>
-                <li>Länder</li>
+              <Link to={"/login"} onClick={handleSignOut}>
+                <li>Logout</li>
               </Link>
             </ul>
           </div>
