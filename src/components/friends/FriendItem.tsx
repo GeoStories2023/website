@@ -9,24 +9,29 @@ function FriendItem({ friend, setUser }: { friend: any; setUser: any }) {
   let colorStatus = "";
 
   function handleStatusColor() {
-    switch (friend.status) {
-      case "online": {
-        colorStatus = "green";
-        break;
-      }
-      case "offline": {
-        colorStatus = "darkred";
-        break;
-      }
-      case "busy": {
-        colorStatus = "gold";
-        break;
-      }
-      default: {
-        colorStatus = "white";
-        break;
-      }
+    if (friend.isPremium) {
+      colorStatus = "gold";
+    } else {
+      colorStatus = "transparent"
     }
+    // switch (friend.status) {
+    //   case "online": {
+    //     colorStatus = "green";
+    //     break;
+    //   }
+    //   case "offline": {
+    //     colorStatus = "darkred";
+    //     break;
+    //   }
+    //   case "busy": {
+    //     colorStatus = "gold";
+    //     break;
+    //   }
+    //   default: {
+    //     colorStatus = "white";
+    //     break;
+    //   }
+    // }
   }
 
   handleStatusColor();
@@ -63,6 +68,7 @@ function FriendItem({ friend, setUser }: { friend: any; setUser: any }) {
           <Circle className="status-circle" size={15} color={colorStatus} />
         </div>
         <div className="friend-item-name">{friend.username}</div>
+        <div className="friend-item-status">{friend.status}</div>
       </div>
     </div>
   );
