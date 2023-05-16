@@ -71,7 +71,7 @@ function Router() {
         },
         {
           path: "friends",
-          element: <Friends user={user} />,
+          element: <Friends user={user} setUser={setUser} />,
         },
         {
           path: "badges",

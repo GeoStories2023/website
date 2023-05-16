@@ -1,14 +1,20 @@
-import { FetchApi } from '@/FetchApi'
-import "@/style/AskUsernameModal.scss"
-import React, { useEffect } from 'react'
+import { FetchApi } from "@/FetchApi";
+import "@/style/AskUsernameModal.scss";
+import React, { useEffect } from "react";
 
-function AskUsernameModal({ closeModal, setUser }: { closeModal: any, setUser: any }) {
-  const accessToken = localStorage.getItem("accessToken") ?? ""
-  const usernameInputRef = React.useRef<HTMLInputElement>(null)
-  const [errorMessage, setErrorMessage] = React.useState<string>("")
+function AskUsernameModal({
+  closeModal,
+  setUser,
+}: {
+  closeModal: any;
+  setUser: any;
+}) {
+  const accessToken = localStorage.getItem("accessToken") ?? "";
+  const usernameInputRef = React.useRef < HTMLInputElement > (null);
+  const [errorMessage, setErrorMessage] = React.useState < string > ("");
   useEffect(() => {
-    usernameInputRef.current?.focus()
-  }, [])
+    usernameInputRef.current?.focus();
+  }, []);
   return (
     <div className="username-modal-container">
       <div className="username-modal-content">
@@ -22,9 +28,9 @@ function AskUsernameModal({ closeModal, setUser }: { closeModal: any, setUser: a
             ref={usernameInputRef}
             onChange={(e) => {
               if (e.target.value === "") {
-                setErrorMessage("Username cannot be empty")
+                setErrorMessage("Username cannot be empty");
               } else {
-                setErrorMessage("")
+                setErrorMessage("");
               }
             }}
           />
@@ -34,23 +40,28 @@ function AskUsernameModal({ closeModal, setUser }: { closeModal: any, setUser: a
           <button
             onClick={() => {
               if (usernameInputRef.current?.value === "") {
-                setErrorMessage("Username cannot be empty")
-                return
+                setErrorMessage("Username cannot be empty");
+                return;
               }
               FetchApi.put("/users/setUsername", accessToken, {
-                username: usernameInputRef.current?.value
-              }).then((res) => {
-                setUser(res)
-                closeModal()
+                username: usernameInputRef.current?.value,
               })
+                .then((res) => {
+                  setUser(res);
+                  closeModal();
+                })
+                .catch((err) => {
+                  console.log(err);
+                  setErrorMessage(err.responseText ?? err.statusText);
+                });
             }}
           >
             Save
           </button>
         </div>
       </div>
-    </div >
-  )
+    </div>
+  );
 }
 
-export default AskUsernameModal
+export default AskUsernameModal;

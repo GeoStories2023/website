@@ -19,50 +19,55 @@ function User() {
   const accessToken = localStorage.getItem("accessToken") ?? "";
 
   useEffect(() => {
-    if (!uid) { return };
+    if (!uid) {
+      return;
+    }
     FetchApi.get(`/users/${uid}`, accessToken)
       .then((res) => {
-        console.log(res)
+        console.log(res);
         setUser(res);
         setIsLoading(false);
       })
       .catch((err) => {
         setError(err);
       });
-    FetchApi.get(`/users/${uid}/statistics`, accessToken)
+    FetchApi.get(`/users/statistics/${uid}`, accessToken)
       .then((res) => {
-        console.log("stats", res)
-        console.log(Object.keys(res.visitedCities).length)
+        console.log("stats", res);
+        console.log(Object.keys(res.visitedCities).length);
         setStatistics(res);
       })
       .catch((err) => {
         setError(err);
       });
-
   }, []);
 
-
   function navigateToFriend(friend: User) {
-    navigate(`/users/${friend.uid}`)
-    navigate(0)
+    navigate(`/users/${friend.uid}`);
+    navigate(0);
   }
 
   const stats = [
     {
       name: "Countries",
-      amount: statistics.visitedCountries ? Object.keys(statistics?.visitedCountries).length : 0,
+      amount: statistics.visitedCountries
+        ? Object.keys(statistics?.visitedCountries).length
+        : 0,
       icon: <Countries size={90} />,
       id: 1,
     },
     {
       name: "Cities",
-      amount: statistics.visitedCities ? Object.keys(statistics?.visitedCities).length : 0,
+      amount: statistics.visitedCities
+        ? Object.keys(statistics?.visitedCities).length
+        : 0,
       icon: <Cities size={90} />,
       id: 2,
     },
     {
       name: "Tours",
-      amount: user?.startedTours.filter((tour: Tour) => tour.isCompleted).length ?? 0,
+      amount:
+        user?.startedTours.filter((tour: Tour) => tour.isCompleted).length ?? 0,
       icon: <Tours size={90} />,
       id: 3,
     },
@@ -81,7 +86,9 @@ function User() {
               </div>
               <div className="col-md-8 col-xl-10">
                 <div className="user-name-status">
-                  <span className="user-title">{user?.username ?? "No user found"}</span>
+                  <span className="user-title">
+                    {user?.username ?? "No user found"}
+                  </span>
                   <span className="user-status">Status: On an adventure</span>
                 </div>
               </div>
@@ -113,15 +120,23 @@ function User() {
                       {user?.friends?.map((friendItem: Friend, i) => {
                         const friend: User = friendItem.friendUser;
                         return (
-                          <div className="friends-single" key={i} onClick={() => { navigateToFriend(friend) }}>
+                          <div
+                            className="friends-single"
+                            key={i}
+                            onClick={() => {
+                              navigateToFriend(friend);
+                            }}
+                          >
                             <img
                               className="friends-profile-picture"
                               src={friend.profileImageId ?? testProfilePicture}
                               alt="profilePicture"
                             />
-                            <span className="friends-name">{friend.username}</span>
+                            <span className="friends-name">
+                              {friend.username}
+                            </span>
                           </div>
-                        )
+                        );
                       })}
                     </div>
                   </div>
