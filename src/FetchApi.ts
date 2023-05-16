@@ -12,11 +12,11 @@ export class FetchApi {
         if (xhr.status >= 200 && xhr.status < 300) {
           resolve(JSON.parse(xhr.response));
         } else {
-          reject(xhr.statusText);
+          reject(xhr);
         }
       };
       xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-      xhr.onerror = () => reject(xhr.statusText);
+      xhr.onerror = () => reject(xhr);
       xhr.send(body ? JSON.stringify(body) : undefined);
     });
   }

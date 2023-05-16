@@ -23,7 +23,7 @@ function Country() {
       })
       .catch((err) => {
         console.log(error);
-        setError(err);
+        setError(err.statusText);
       });
     FetchApi.get(`/tours/path/name/${continent}/${country}`, accessToken)
       .then((res) => {
@@ -35,7 +35,7 @@ function Country() {
         }
       })
       .catch((err) => {
-        setError(err);
+        setError(err.statusText);
       });
   }, [country]);
 
