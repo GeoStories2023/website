@@ -7,30 +7,33 @@ import { FetchApi } from "@/FetchApi";
 import { User } from "@prisma/client";
 import Loading from "../utils/Loading/Loading";
 
-function Friends({ user }: { user: User }) {
+function Friends({ user, setUser }: { user: User; setUser: any }) {
   const accessToken = localStorage.getItem("accessToken") ?? "";
-  const friendSearchRef = useRef < HTMLInputElement > (null)
-  const [error, setError] = useState < string > ("")
+  const friendSearchRef = useRef<HTMLInputElement>(null);
+  const [error, setError] = useState<string>("");
   // Fetching friends from current user
 
   function handleAddFriend(e: any) {
-    e.preventDefault()
-    if (!friendSearchRef.current?.value) return
-    const friendUid = friendSearchRef.current.value
-    // Check if friendUid exists
-    FetchApi.get(`/users/${friendUid}`, accessToken)
-      .then((res) => {
-        if (res) {
-          setError("")
-          // Add friend
-          // TODO: Error 500 from REST. Please fix
-          FetchApi.post(`/users/${user.uid}/friends`, accessToken, {
-            friendUid: friendUid
-          })
-        } else {
-          setError("UserId not found")
-        }
+    e.preventDefault();
+    if (!friendSearchRef.current?.value) return;
+    const friendName = friendSearchRef.current.value;
+    if (friendName === user.username) {
+      setError("You can't add yourself as a friend");
+      return;
+    }
+    FetchApi.post(`/users/friends`, accessToken, {
+      friendName: friendName,
+    })
+      .then((friend) => {
+        setError("");
+        setUser((prev: any) => {
+          return { ...prev, friends: [...prev.friends, friend] };
+        });
+        friendSearchRef.current!.value = "";
       })
+      .catch((err) => {
+        setError(err.responseText ?? err.statusText);
+      });
   }
 
   return (
@@ -44,7 +47,7 @@ function Friends({ user }: { user: User }) {
             type="text"
             id="friendsName"
             name="friendsName"
-            placeholder="Add user with UserID"
+            placeholder="Add friend with name"
           />
           <button className="btn-add-friends">
             <AddFriend size={30} />
@@ -67,10 +70,14 @@ function Friends({ user }: { user: User }) {
         </div>
       </div>
       <section className="friends-list-container">
-        {user ? user.friends?.map((friend: any) => {
-          const friendData = friend.friendUser;
-          return <FriendItem key={friend.id} friend={friendData} />;
-        }) : <Loading />}
+        {user ? (
+          user.friends?.map((friend: any) => {
+            const friendData = friend.friendUser;
+            return <FriendItem key={friend.id} friend={friendData} />;
+          })
+        ) : (
+          <Loading />
+        )}
       </section>
     </div>
   );
