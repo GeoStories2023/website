@@ -18,8 +18,8 @@ function LoginForm({
   setUser: any; //React.Dispatch<React.SetStateAction<User>>;
 }) {
   const navigate = useNavigate();
-  const emailRef = useRef < HTMLInputElement > (null);
-  const passwordRef = useRef < HTMLInputElement > (null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -42,7 +42,6 @@ function LoginForm({
       });
   }
 
-  // TODO: Fix sign in with google. Gets Unauthorized error
   function signInWithGoogle() {
     const provider = new GoogleAuthProvider();
     const auth = getAuth(app);
