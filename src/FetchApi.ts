@@ -74,4 +74,18 @@ export class FetchApi {
 
     return FetchApi.send(xhr, body);
   }
+
+  /**
+    * @param url - the url to send the request to
+    * @param authorization - the access token
+    * @returns {Promise<any>} the response
+    */
+  static async delete(url: string, authorization: string): Promise<any> {
+    let xhr = new XMLHttpRequest();
+    xhr.open("DELETE", `${BASE_URL}${url}`, true);
+    xhr.setRequestHeader("Authorization", `Bearer ${authorization}`);
+    xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+
+    return FetchApi.send(xhr);
+  }
 }
