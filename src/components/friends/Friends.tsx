@@ -73,7 +73,7 @@ function Friends({ user, setUser }: { user: User; setUser: any }) {
         {user ? (
           user.friends?.map((friend: any) => {
             const friendData = friend.friendUser;
-            return <FriendItem key={friend.id} friend={friendData} />;
+            return <FriendItem key={friend.id} friend={friendData} setUser={setUser} />;
           })
         ) : (
           <Loading />

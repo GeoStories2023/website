@@ -4,7 +4,7 @@ import { IoPersonCircle as ProfilePicture } from "react-icons/io5";
 import { BsFillCircleFill as Circle } from "react-icons/bs";
 import { FetchApi } from "@/FetchApi";
 
-function FriendItem({ friend }: { friend: any }) {
+function FriendItem({ friend, setUser }: { friend: any; setUser: any }) {
   const accessToken = localStorage.getItem("accessToken") ?? "";
   let colorStatus = "";
 
@@ -33,7 +33,18 @@ function FriendItem({ friend }: { friend: any }) {
 
   function handleRemoveFriend() {
     console.log("remove friend");
-    FetchApi.delete(`/users/friends/${friend.uid}`, accessToken)
+    FetchApi.delete(`/users/friends/${friend.uid}`, accessToken).then(
+      (res) => {
+        // res is friend that got removed
+        setUser((prev: any) => {
+          console.log(res)
+          const newFriends = prev.friends.filter(
+            (friend: any) => friend.friendUserId !== res.friendUserId
+          );
+          console.log(newFriends);
+          return { ...prev, friends: newFriends };
+        });
+      });
   }
 
 
