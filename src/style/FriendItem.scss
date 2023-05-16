@@ -1,7 +1,28 @@
 .friend-item {
+  position: relative;
   background-color: #c2e5cb;
   width: 25vw;
   border-radius: 15px;
+  .friend-item-header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    .friend-item-remove{
+      position: absolute;
+      top: 0.2rem;
+      right: 0.5rem;
+      svg{
+        fill: #1E5959;
+        cursor: pointer;
+        width: 1.5rem;
+        height: 1.5rem;
+        transition: all 150ms  ease-in-out;
+        &:hover{
+          fill: #ef0000;
+        }
+      }
+    }
+  }
   .friend-item-container {
     display: flex;
     flex-direction: column;
