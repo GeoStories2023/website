@@ -86,9 +86,6 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
         </div>
       </div>
       <div className="header-actions">
-        <div className="header-username">
-          {user.username}
-        </div>
         {user.isPremium && (
           <img src={premiumBadge} alt="premium-badge" className="premium-badge" />
         )}
@@ -117,6 +114,9 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
               navigate(`/users/${user.uid}`);
             }}
           />
+          <div className="header-username">
+            {user.username}
+          </div>
           <Logout onClick={handleSignOut} />
         </div>
         <div className="navigation">
