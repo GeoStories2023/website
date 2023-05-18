@@ -24,6 +24,8 @@
             flex-direction: row;
 
             .settings-navigation {
+                position: sticky;
+                top: 0;
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
@@ -38,10 +40,15 @@
                 border-bottom-right-radius: 15px;
 
                 .settings-nav-item {
-                    span {
+                    .settings-nav-paragraph {
                         font-size: 1.25rem;
                         font-weight: 500;
                         color: #1e5959;
+
+                        &:hover {
+                            color: white;
+                            cursor: pointer;
+                        }
                     }
                 }
             }
@@ -111,6 +118,42 @@
                                     text-align: left;
                                     padding-left: 5px;
                                 }
+                            }
+                        }
+                    }
+
+                    .settings-buttons {
+                        .settings-buttons-container {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: flex-end;
+                            gap: 2vw;
+
+                            .save, .close {
+                                font-size: 1.25rem;
+                                font-weight: 500;
+                                color: white;
+                                padding: 0.15rem 2rem 0.4rem 2rem;
+                                border-radius: 50px;
+                                border: 2px solid #1e5959;
+                                background-color: #1e5959;
+                                transition: all ease-in-out 0.3s;
+                                cursor: pointer;
+                                box-shadow: 0px 5px 5px 2px #1e5959bb;
+                                
+                                &:hover {
+                                    background-color: #fff;
+                                    color: #1e5959 !important;
+                                }
+                            }
+
+                            .save {
+                                background-color: #1e5959;
+                            }
+
+                            .close {
+                                color: #1e5959;
+                                background-color: #89D99D;
                             }
                         }
                     }
