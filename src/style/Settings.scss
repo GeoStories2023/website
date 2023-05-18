@@ -1,0 +1,121 @@
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    margin-block: 10vh;
+    min-height: 100%;
+
+    .settings-header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-left: 10vw;
+        margin-bottom: 2vh;
+
+        .settings-title {
+            font-size: 4rem;
+            font-weight: 650;
+            color: #1e5959;;
+        }
+    }
+
+    .settings-content {
+        .settings-content-container {
+            display: flex;
+            flex-direction: row;
+
+            .settings-navigation {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 1vh;
+                padding-inline: 2vw;
+                padding-block: 2vh;
+                background-color: #89D99D;
+                width: 8vw;
+                height: 30vh;
+                border-top-right-radius: 15px;
+                border-bottom-right-radius: 15px;
+
+                .settings-nav-item {
+                    span {
+                        font-size: 1.25rem;
+                        font-weight: 500;
+                        color: #1e5959;
+                    }
+                }
+            }
+
+            .settings-sections {
+                margin-left: 2vw;
+
+                .settings-sections-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5vh;
+
+                    .settings-general,
+                    .settings-profile {
+                        background-color: #89D99D;
+                        border-radius: 15px;
+                        box-shadow: 0px 5px 5px 2px #1e5959bb;
+                        width: 60vw;
+
+                        .settings-general-container,
+                        .settings-profile-container {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            justify-content: center;
+                            gap: 2vh;
+                            padding-block: 2vh;
+                            padding-inline: 2vw;
+                            color: #1e5959;
+
+                            .settings-general-header,
+                            .settings-profile-header {
+                                font-size: 2.5rem;
+                                font-weight: 600;
+                                margin-bottom: 3vh;
+                            }
+
+                            .settings-general-language,
+                            .settings-general-currency,
+                            .settings-profile-forename,
+                            .settings-profile-lastname,
+                            .settings-profile-username,
+                            .settings-profile-email,
+                            .settings-profile-password,
+                            .settings-profile-password-confirm {
+                                display: flex;
+                                flex-direction: row;
+                                flex-wrap: wrap;
+                                justify-content: space-between;
+                                align-items: center;
+                                font-size: 1.5rem;
+                                font-weight: 600;
+                                width: 100%;
+
+                                #language, #currency,
+                                #forename, #lastname,
+                                #username, #email,
+                                #password, #password-confirm {
+                                    width: 30vw;
+                                    border-radius: 15px;
+                                    text-align: center;
+                                    align-self: end;
+                                    border: 2px solid #1e5959;
+                                }
+
+                                #password, #password-confirm {
+                                    text-align: left;
+                                    padding-left: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
