@@ -20,6 +20,12 @@ function TravelDiary() {
           return <Image size={250} key={i} />
         })}
       </div>
+      <div className="travel-diary-buttons">
+        <div className="travel-diary-buttons-container">
+          <button className="save">Speichern</button>
+          <button className="close">Schließen</button>
+        </div>
+      </div> 
     </div>
   );
 }
