@@ -1,0 +1,103 @@
+.travel-diary-container {
+    display: flex;
+    flex-direction: column;
+    margin-block: 10vh;
+    margin-inline: 10vw;
+    min-height: 100%;
+
+    .travel-diary-header {
+        display: flex;
+        flex-direction: column; 
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 1vh;
+        color: #1e5959;
+
+        .travel-diary-title {
+            font-size: 4rem;
+            font-weight: 650;
+        }
+
+        .travel-diary-tour {
+            font-size: 2rem;
+            font-weight: 400;
+        }
+    }
+
+    .travel-diary-text-container {
+        margin-top: 5vh;
+        align-self: flex-start;
+        gap: 20vh;
+        margin-bottom: 6vh;
+
+        .travel-diary-text {
+            width: 80vw;
+            height: 45vh;
+            text-align: left;
+            resize: none;
+            border-radius: 15px;
+            border: 5px solid #1e5959;
+            padding: 10px;
+            margin-bottom: 10vh;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .seperator {
+            position: absolute;
+            left: 0;
+            height: 2rem;
+            width: 100vw;
+            background-image: url("/src/assets/wave_green_full.svg");
+            background-repeat: repeat-x;
+            background-position: center;
+        }
+    }
+
+    .travel-diary-image-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5vw;
+        justify-content: center;
+    }
+
+    .travel-diary-buttons {
+        margin-top: 10vh;
+
+        .travel-diary-buttons-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 2vw;
+    
+            .save,
+            .close {
+                font-size: 1.25rem;
+                font-weight: 500;
+                color: white;
+                padding: 0.15rem 2rem 0.4rem 2rem;
+                border-radius: 50px;
+                border: 2px solid #1e5959;
+                background-color: #1e5959;
+                transition: all ease-in-out 0.3s;
+                cursor: pointer;
+                box-shadow: 0px 5px 5px 2px #1e5959bb;
+    
+                &:hover {
+                    background-color: #fff;
+                    color: #1e5959 !important;
+                }
+            }
+    
+            .save {
+                background-color: #1e5959;
+            }
+    
+            .close {
+                color: #1e5959;
+                background-color: #89D99D;
+            }
+        }
+    }
+}

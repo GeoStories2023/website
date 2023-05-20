@@ -19,6 +19,7 @@ import Imprint from "@/components/imprint/Imprint";
 import PremiumAdvertisement from "@/components/premium-advertisement/PremiumAdvertisement";
 import Statistics from "@/components/statistics/Statistics";
 import TourOverview from "@/components/tour/TourOverview";
+import Settings from "@/components/settings/Settings";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { User as UserType } from "@prisma/client";
 import { FetchApi } from "./FetchApi";
@@ -117,6 +118,10 @@ function Router() {
         {
           path: "tour-overview",
           element: <TourOverview />,
+        },
+        {
+          path: "settings",
+          element: <Settings />,
         },
       ],
     },
