@@ -36,6 +36,16 @@ function Friends({ user, setUser }: { user: User; setUser: any }) {
       });
   }
 
+  function handleStatusChange(status: string) {
+    // TODO: Change to setStatus route
+    FetchApi.put(`/users`, accessToken, {
+      user: { ...user, status: status },
+    })
+    setUser((prev: any) => {
+      return { ...prev, status: status };
+    });
+  }
+
   return (
     <div className="friends-container">
       <div className="friends-header">
@@ -60,11 +70,11 @@ function Friends({ user, setUser }: { user: User; setUser: any }) {
           <ProfilePicture size={100} />
           <div className="status-options">
             <span className="status-text">Dein Status:</span>
-            <select id="status" name="status">
-              <option value="choose">Choose your status ...</option>
-              <option value="onAdventure">On an adventure</option>
-              <option value="atHome">At home</option>
-              <option value="notAvailable">Not available</option>
+            <select id="status" name="status" onChange={(e) => { handleStatusChange(e.target.value) }} defaultValue={user?.status}>
+              <option value="" selected={user?.status === ""} >Choose your status ...</option>
+              <option value="On an adventure" selected={user?.status === "On an adventure"}>On an adventure</option>
+              <option value="At home" selected={user?.status === "At home"}>At home</option>
+              <option value="Not available" selected={user?.status === "Not available"}>Not available</option>
             </select>
           </div>
         </div>
