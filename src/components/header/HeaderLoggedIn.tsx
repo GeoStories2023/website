@@ -38,7 +38,7 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
         if (res) {
           setLevelName(res.name); // Set level name
         } else {
-          setLevelName("Not Found")
+          setLevelName("Not Found");
         }
       })
       .catch((err) => {
@@ -87,7 +87,11 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
       </div>
       <div className="header-actions">
         {user.isPremium && (
-          <img src={premiumBadge} alt="premium-badge" className="premium-badge" />
+          <img
+            src={premiumBadge}
+            alt="premium-badge"
+            className="premium-badge"
+          />
         )}
         <div className="level-container">
           <span className="level-title">
@@ -114,9 +118,7 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
               navigate(`/users/${user.uid}`);
             }}
           />
-          <div className="header-username">
-            {user.username}
-          </div>
+          <div className="header-username">{user.username}</div>
           <Logout onClick={handleSignOut} />
         </div>
         <div className="navigation">
@@ -130,14 +132,20 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
           </a>
           <div className="menu_open">
             <ul>
-              <Link to={"/login"}>
-                <li>Login</li>
+              <Link to={"/statistics"}>
+                <li>Statistiken</li>
               </Link>
-              <Link to={"/register"}>
-                <li>Register</li>
+              <Link to={"/features"}>
+                <li>Features</li>
               </Link>
-              <Link to={"/login"} onClick={handleSignOut}>
-                <li>Logout</li>
+              <Link to={"/premium"}>
+                <li>Premium</li>
+              </Link>
+              <Link to={"/about"}>
+                <li>Über uns</li>
+              </Link>
+              <Link to={"/imprint"}>
+                <li>Impressum</li>
               </Link>
             </ul>
           </div>
