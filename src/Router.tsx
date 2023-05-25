@@ -20,12 +20,13 @@ import PremiumAdvertisement from "@/components/premium-advertisement/PremiumAdve
 import Statistics from "@/components/statistics/Statistics";
 import TourOverview from "@/components/tour/TourOverview";
 import Settings from "@/components/settings/Settings";
+import LoginAdmin from "@/components/login/LoginAdmin";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { User as UserType } from "@prisma/client";
 import { FetchApi } from "./FetchApi";
 
 function Router() {
-  const [user, setUser] = useState < UserType > ();
+  const [user, setUser] = useState<UserType>();
   const auth = getAuth();
   onAuthStateChanged(auth, async (fUser) => {
     if (fUser && !user) {
@@ -128,6 +129,10 @@ function Router() {
     {
       path: "/login",
       element: <Login setUser={setUser} />,
+    },
+    {
+      path: "login/admin",
+      element: <LoginAdmin setUser={setUser} />,
     },
     {
       path: "/register",

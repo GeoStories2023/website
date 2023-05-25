@@ -8,7 +8,7 @@ import "react-multi-carousel/lib/styles.css";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 import Hamburg from "@/assets/img-dashboard-tours/hamburg.jpg";
-import London from "@/assets/img-dashboard-tours/london.png";
+import WorldMap from "@/assets/worldMap.jpg";
 
 function Continent() {
   const { continent } = useParams();
@@ -89,13 +89,13 @@ function Continent() {
     navigate(`/tours/${continent}/${countrySearchRef.current?.value ?? ""}`)
   }
 
-  return (
+  return ( 
     <div className="continent-container" style={{ color: "black" }}>
       <div className="continent-header">
         <div className="continent-headline">
           <h1>{continentInfo.name}</h1>
         </div>
-        <img src={London} alt="london" className="continent-header-img" />
+        <img src={WorldMap} alt="london" className="continent-header-img" />
       </div>
       <section className="continent-country-carousel-container">
         <Carousel
