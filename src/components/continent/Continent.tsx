@@ -169,7 +169,7 @@ function Continent() {
               <span
                 className={`fi fi-${item.flag} country-img`}
                 onClick={() => {
-                  navigate(`/tours/europe/${item.name}`);
+                  navigate(`/tours/${continent}/${item.name}`);
                 }}
               ></span>
               <span className="country-title">{item.name}</span>
