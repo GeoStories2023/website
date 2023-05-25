@@ -14,7 +14,7 @@ function Continent() {
   const { continent } = useParams();
   const navigate = useNavigate();
 
-  const countrySearchRef = useRef < HTMLInputElement > (null)
+  const countrySearchRef = useRef<HTMLInputElement>(null);
   // Fetch Continent Info (name, countries, popular tours)
 
   const continentInfo = {
@@ -30,7 +30,7 @@ function Continent() {
         city: "Syke",
         country: "Germany",
         premium: true,
-        id: 1
+        id: 1,
       },
       {
         image: Hamburg,
@@ -41,7 +41,7 @@ function Continent() {
         city: "Bremen",
         country: "Germany",
         premium: false,
-        id: 2
+        id: 2,
       },
       {
         image: Hamburg,
@@ -52,7 +52,7 @@ function Continent() {
         city: "Bremen",
         country: "Germany",
         premium: false,
-        id: 3
+        id: 3,
       },
     ],
   };
@@ -77,19 +77,78 @@ function Continent() {
     },
   };
 
-
   function handleSearchSubmit(e: any) {
-    e.preventDefault()
+    e.preventDefault();
     if (!countrySearchRef.current?.value) {
       return;
     }
     // TODO: If search country is not in continent
 
     // TODO: Suggestions for search (autocomplete)
-    navigate(`/tours/${continent}/${countrySearchRef.current?.value ?? ""}`)
+    navigate(`/tours/${continent}/${countrySearchRef.current?.value ?? ""}`);
   }
 
-  return ( 
+  function handleCountryFlags() {
+    let arr: any = [];
+    switch (continent) {
+      case "europe":
+        arr = [
+          {
+            name: "Germany",
+            flag: "de",
+          },
+          {
+            name: "Norway",
+            flag: "no",
+          },
+          {
+            name: "Belgium",
+            flag: "be",
+          },
+          {
+            name: "Netherlands",
+            flag: "nl",
+          },
+          {
+            name: "Spain",
+            flag: "es",
+          },
+          {
+            name: "Sweden",
+            flag: "se",
+          },
+          {
+            name: "Austria",
+            flag: "at",
+          },
+        ];
+        break;
+      case "northamerica":
+        console.log("Nordamerika");
+        break;
+      case "southamerica":
+        console.log("Südamerika");
+        break;
+      case "oceania":
+        console.log("Ozeanien/Australien");
+        break;
+      case "africa":
+        console.log("Afrika");
+        break;
+      case "asia":
+        console.log("Asien");
+        break;
+      default:
+        console.log("No valid continent.");
+        // Direct to a page with all contients like in the dashboard
+        break;
+    }
+    return arr;
+  }
+
+  const countryFlags = handleCountryFlags();
+
+  return (
     <div className="continent-container" style={{ color: "black" }}>
       <div className="continent-header">
         <div className="continent-headline">
@@ -105,37 +164,28 @@ function Continent() {
           removeArrowOnDeviceType={["tablet", "mobile"]}
           className="continent-country-carousel"
         >
-          <div className="single-item">
-            <span className="fi fi-de country-img"></span>
-            <span className="country-title">Germany</span>
-          </div>
-          <div className="single-item">
-            <span className="fi fi-fr country-img"></span>
-            <span className="country-title">France</span>
-          </div>
-          <div className="single-item">
-            <span className="fi fi-es country-img"></span>
-            <span className="country-title">Spain</span>
-          </div>
-          <div className="single-item">
-            <span className="fi fi-se country-img"></span>
-            <span className="country-title">Sweden</span>
-          </div>
-          <div className="single-item">
-            <span className="fi fi-no country-img"></span>
-            <span className="country-title">Norway</span>
-          </div>
-          <div className="single-item">
-            <span className="fi fi-be country-img"></span>
-            <span className="country-title">Belgium</span>
-          </div>
+          {countryFlags.map((item: any) => (
+            <div className="single-item">
+              <span
+                className={`fi fi-${item.flag} country-img`}
+                onClick={() => {
+                  navigate(`/tours/europe/${item.name}`);
+                }}
+              ></span>
+              <span className="country-title">{item.name}</span>
+            </div>
+          ))}
         </Carousel>
         <section className="continent-country-search-container">
           <h3 className="continent-country-search-title">Search country</h3>
           <div className="continent-country-search">
             <form onSubmit={handleSearchSubmit}>
               <div className="continent-country-search-input">
-                <input ref={countrySearchRef} type="text" placeholder="Search for country" />
+                <input
+                  ref={countrySearchRef}
+                  type="text"
+                  placeholder="Search for country"
+                />
               </div>
               <div className="continent-country-search-button">
                 <button>Search</button>
@@ -144,7 +194,6 @@ function Continent() {
           </div>
         </section>
       </section>
-
 
       <section className="continent-popular-tours-container">
         <span className="popular-tours-title">Die besten Touren</span>
