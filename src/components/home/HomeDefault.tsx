@@ -84,7 +84,9 @@ function HomeDefault() {
               <div className="single-feature-container">
                 <img src={diary} alt="diary-img" className="img-feature" />
                 <div className="text-feature">
-                  <span className="header-feature">Schreibe dein Tagebuch</span>
+                  <span className="header-feature">
+                    Schreibe dein persönliches Tagebuch
+                  </span>
                   <span className="description-feature">
                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                     diam nonumy eirmod tempor invidunt ut labore et dolore magna
