@@ -268,6 +268,7 @@ function Continent() {
         // Direct to a page with all continents like in the dashboard
         useEffect(() => {
           navigate("/");
+          window.scrollTo(0, 0);
         });
         break;
     }
@@ -330,6 +331,7 @@ function Continent() {
                 className={`fi fi-${item.flag} country-img`}
                 onClick={() => {
                   navigate(`/tours/${continent}/${item.name}`);
+                  window.scrollTo(0, 0);
                 }}
               ></span>
               <span className="country-title">{item.name}</span>
