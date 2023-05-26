@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import PopularTour from "@/components/country/PopularTour";
 import PremiumAdBanner from "@/components/premium-advertisement/PremiumAdvertisementBanner";
@@ -8,7 +8,12 @@ import "react-multi-carousel/lib/styles.css";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 import Hamburg from "@/assets/img-dashboard-tours/hamburg.jpg";
-import WorldMap from "@/assets/worldMap.jpg";
+import Europe from "@/assets/img-dashboard-tours/london.png";
+import NorthAmerica from "@/assets/img-continents/northamerica.jpg";
+import SouthAmerica from "@/assets/img-continents/southamerica.jpg";
+import Oceania from "@/assets/img-continents/oceania.jpg";
+import Africa from "@/assets/img-continents/africa.jpg";
+import Asia from "@/assets/img-continents/asia.jpg";
 
 function Continent() {
   const { continent } = useParams();
@@ -98,55 +103,206 @@ function Continent() {
             flag: "de",
           },
           {
-            name: "Norway",
-            flag: "no",
+            name: "Austria",
+            flag: "at",
+          },
+          {
+            name: "Switzerland",
+            flag: "ch",
           },
           {
             name: "Belgium",
             flag: "be",
           },
           {
-            name: "Netherlands",
-            flag: "nl",
+            name: "France",
+            flag: "fr",
           },
           {
             name: "Spain",
             flag: "es",
           },
           {
+            name: "Portugal",
+            flag: "pt",
+          },
+          {
+            name: "Italy",
+            flag: "it",
+          },
+          {
+            name: "Denmark",
+            flag: "dk",
+          },
+          {
             name: "Sweden",
             flag: "se",
           },
           {
-            name: "Austria",
-            flag: "at",
+            name: "Norway",
+            flag: "no",
+          },
+          {
+            name: "Poland",
+            flag: "pl",
+          },
+          {
+            name: "Croatia",
+            flag: "hr",
+          },
+          {
+            name: "Bulgaria",
+            flag: "bg",
           },
         ];
         break;
       case "northamerica":
-        console.log("Nordamerika");
+        arr = [
+          {
+            name: "Canada",
+            flag: "ca",
+          },
+          {
+            name: "USA",
+            flag: "us",
+          },
+          {
+            name: "Mexico",
+            flag: "mx",
+          },
+          {
+            name: "Costa Rica",
+            flag: "cr",
+          },
+          {
+            name: "Jamaica",
+            flag: "jm",
+          },
+        ];
         break;
       case "southamerica":
-        console.log("Südamerika");
+        arr = [
+          {
+            name: "Venezuela",
+            flag: "ve",
+          },
+          {
+            name: "Peru",
+            flag: "pe",
+          },
+          {
+            name: "Ecuador",
+            flag: "ec",
+          },
+          {
+            name: "Brazil",
+            flag: "br",
+          },
+          {
+            name: "Argentina",
+            flag: "ar",
+          },
+        ];
         break;
       case "oceania":
-        console.log("Ozeanien/Australien");
+        arr = [
+          {
+            name: "Australia",
+            flag: "au",
+          },
+          {
+            name: "New Zealand",
+            flag: "nz",
+          },
+        ];
         break;
       case "africa":
-        console.log("Afrika");
+        arr = [
+          {
+            name: "Egypt",
+            flag: "eg",
+          },
+          {
+            name: "Morocco",
+            flag: "ma",
+          },
+          {
+            name: "Kenya",
+            flag: "ke",
+          },
+          {
+            name: "Uganda",
+            flag: "ug",
+          },
+          {
+            name: "South Africa",
+            flag: "za",
+          },
+        ];
         break;
       case "asia":
-        console.log("Asien");
+        arr = [
+          {
+            name: "Japan",
+            flag: "jp",
+          },
+          {
+            name: "China",
+            flag: "cn",
+          },
+          {
+            name: "Bhutan",
+            flag: "bt",
+          },
+          {
+            name: "Hong Kong",
+            flag: "hk",
+          },
+          {
+            name: "India",
+            flag: "in",
+          },
+        ];
         break;
       default:
-        console.log("No valid continent.");
-        // Direct to a page with all contients like in the dashboard
+        // Direct to a page with all continents like in the dashboard
+        useEffect(() => {
+          navigate("/");
+        });
         break;
     }
     return arr;
   }
 
+  function handleContinentImage() {
+    let continentImage;
+
+    switch (continent) {
+      case "europe":
+        continentImage = Europe;
+        break;
+      case "northamerica":
+        continentImage = NorthAmerica;
+        break;
+      case "southamerica":
+        continentImage = SouthAmerica;
+        break;
+      case "oceania":
+        continentImage = Oceania;
+        break;
+      case "africa":
+        continentImage = Africa;
+        break;
+      case "asia":
+        continentImage = Asia;
+        break;
+    }
+
+    return continentImage;
+  }
+
   const countryFlags = handleCountryFlags();
+  const continentImage = handleContinentImage();
 
   return (
     <div className="continent-container" style={{ color: "black" }}>
@@ -154,7 +310,11 @@ function Continent() {
         <div className="continent-headline">
           <h1>{continentInfo.name}</h1>
         </div>
-        <img src={WorldMap} alt="london" className="continent-header-img" />
+        <img
+          src={continentImage}
+          alt="continentImage"
+          className="continent-header-img"
+        />
       </div>
       <section className="continent-country-carousel-container">
         <Carousel
