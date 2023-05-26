@@ -142,6 +142,11 @@ function HomeDashboard({ user }: { user: User }) {
       ),
     },
   ];
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, []);
+
   return (
     <div className="home-dashboard-container">
       <div className="menu-left">
