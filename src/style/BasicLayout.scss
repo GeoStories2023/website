@@ -1,21 +1,26 @@
 /* lobster-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Lobster';
+  font-family: "Lobster";
   font-style: normal;
   font-weight: 400;
-  src: url('../assets/fonts/lobster-v28-latin-regular.eot'); /* IE9 Compat Modes */
-  src: url('../assets/fonts/lobster-v28-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('../assets/fonts/lobster-v28-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-  url('../assets/fonts/lobster-v28-latin-regular.woff') format('woff'), /* Modern Browsers */
-  url('../assets/fonts/lobster-v28-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-  url('../assets/fonts/lobster-v28-latin-regular.svg#Lobster') format('svg'); /* Legacy iOS */
+  src: url("../assets/fonts/lobster-v28-latin-regular.eot"); /* IE9 Compat Modes */
+  src: url("../assets/fonts/lobster-v28-latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../assets/fonts/lobster-v28-latin-regular.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("../assets/fonts/lobster-v28-latin-regular.woff") format("woff"),
+    /* Modern Browsers */ url("../assets/fonts/lobster-v28-latin-regular.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("../assets/fonts/lobster-v28-latin-regular.svg#Lobster") format("svg"); /* Legacy iOS */
 }
 
-.basiclayout-container{
+.basiclayout-container {
   display: flex;
   flex-direction: column;
-  .basiclayout-content{
+  .basiclayout-content {
     min-height: 100vh;
     flex: 1;
   }

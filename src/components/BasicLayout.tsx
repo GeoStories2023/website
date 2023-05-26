@@ -20,11 +20,17 @@ function BasicLayout({
       setUsernameModal(true);
     }
   }, [user]);
+
   return (
     <div className="basiclayout-container">
       {user ? <HeaderLoggedIn user={user} setUser={setUser} /> : <Header />}
       {usernameModal && (
-        <AskUsernameModal setUser={setUser} closeModal={() => { setUsernameModal(false) }} />
+        <AskUsernameModal
+          setUser={setUser}
+          closeModal={() => {
+            setUsernameModal(false);
+          }}
+        />
       )}
 
       <div className="basiclayout-content">
