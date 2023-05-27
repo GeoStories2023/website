@@ -21,6 +21,7 @@ import Statistics from "@/components/statistics/Statistics";
 import TourOverview from "@/components/tour/TourOverview";
 import Settings from "@/components/settings/Settings";
 import LoginAdmin from "@/components/login/LoginAdmin";
+import ContinentsOverview from "./components/continent/ContinentsOverview";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { User as UserType } from "@prisma/client";
 import { FetchApi } from "./FetchApi";
@@ -124,6 +125,10 @@ function Router() {
           path: "settings",
           element: <Settings />,
         },
+        {
+          path: "continents",
+          element: <ContinentsOverview />,
+        }
       ],
     },
     {

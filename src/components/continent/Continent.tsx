@@ -265,9 +265,8 @@ function Continent() {
         ];
         break;
       default:
-        // Direct to a page with all continents like in the dashboard
         useEffect(() => {
-          navigate("/");
+          navigate("/continents");
           window.scrollTo(0, 0);
         });
         break;
@@ -301,6 +300,10 @@ function Continent() {
 
     return continentImage;
   }
+
+  useEffect(() => {
+      window.scrollTo(0, 0);
+  });
 
   const countryFlags = handleCountryFlags();
   const continentImage = handleContinentImage();

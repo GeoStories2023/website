@@ -68,7 +68,7 @@ function HomeDashboard({ user }: { user: User }) {
     },
   ];
 
-  const countries = [
+  const continents = [
     {
       title: "Nordamerika",
       navigate: (
@@ -246,7 +246,7 @@ function HomeDashboard({ user }: { user: User }) {
         </div>
         <div className="continents-button-container" id="continent-list">
           <div className="row">
-            {countries.map((item, i) => (
+            {continents.map((item, i) => (
               <div className="col-sm-6 col-lg-4" key={i}>
                 <div className="continents-image">
                   {item.navigate}

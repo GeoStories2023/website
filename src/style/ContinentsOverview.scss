@@ -1,0 +1,58 @@
+.continents-overview-container {
+    .continents-header {
+        .continents-title {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #1e5959;
+        }
+    }
+
+    .continents-content {
+        .continents-content-container {
+            .continents {
+                display: flex;
+                flex-direction: column;
+                padding-bottom: 10vh;
+                margin: 3rem 0;
+            
+                .continents-header {
+                    padding-bottom: 5vh;
+            
+                    span {
+                        font-size: 3rem;
+                        font-weight: 700;
+                        color: #1e5959;
+                    }
+                }
+            
+                .continents-button-container {
+                    .continents-image {
+                        margin-bottom: 4rem;
+                        width: 100%;
+            
+                        img {
+                            width: auto;
+                            height: 25rem;
+                        }
+            
+                        button {
+                            border: none;
+                            background: none;
+                            width: 100%;
+            
+                            :hover {
+                                cursor: pointer;
+                            }
+                        }
+            
+                        .continents-title {
+                            font-size: 2rem;
+                            font-weight: bold;
+                            color: #1e5959;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
