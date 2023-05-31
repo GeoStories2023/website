@@ -1,95 +1,123 @@
 import React from "react";
 import "@/style/Settings.scss";
+import { User } from "@prisma/client";
+import { FetchApi } from "@/FetchApi";
 
-function Settings() {
+function Settings({ user, setUser }: { user: User, setUser: any }) {
+  const accessToken = localStorage.getItem("accessToken") ?? ""
 
-    function showIt(elementId:any) {
-        var el = document.getElementById(elementId);
-        if(el != null) {
-            el.scrollIntoView(true);
-        }
-    };
+  // refs for all input fields
+  const firstNameRef = React.useRef<HTMLInputElement>(null);
+  const lastNameRef = React.useRef<HTMLInputElement>(null);
+  const usernameRef = React.useRef<HTMLInputElement>(null);
+  const emailRef = React.useRef<HTMLInputElement>(null);
+  const passwordRef = React.useRef<HTMLInputElement>(null);
+  const confirmPasswordRef = React.useRef<HTMLInputElement>(null);
 
-    return(
-        <div className="settings-container">
-            <div className="settings-header">
-                <span className="settings-title">Einstellungen</span>
+
+
+  function showIt(elementId: any) {
+    var el = document.getElementById(elementId);
+    if (el != null) {
+      el.scrollIntoView(true);
+    }
+  };
+
+  function saveUser() {
+    FetchApi.post("/users", accessToken, {
+      user: {
+        firstName: firstNameRef.current?.value,
+        lastName: lastNameRef.current?.value,
+        username: usernameRef.current?.value,
+        email: emailRef.current?.value,
+        password: passwordRef.current?.value,
+        confirmPassword: confirmPasswordRef.current?.value
+      }
+    }).then((data) => {
+      setUser(data);
+    });
+  }
+
+  return (
+    <div className="settings-container">
+      <div className="settings-header">
+        <span className="settings-title">Settings</span>
+      </div>
+      <div className="settings-content">
+        <div className="settings-content-container">
+          <div className="settings-navigation">
+            <div className="settings-nav-item">
+              <span className="settings-nav-paragraph" onClick={() => showIt("general")}>General</span>
             </div>
-            <div className="settings-content">
-                <div className="settings-content-container">
-                    <div className="settings-navigation">
-                        <div className="settings-nav-item">
-                            <span className="settings-nav-paragraph" onClick={() => showIt("general")}>Allgemein</span>
-                        </div>
-                        <div className="settings-nav-item">
-                            <span className="settings-nav-paragraph" onClick={() => showIt("profile")}>Profil</span>
-                        </div>
-                    </div>
-                    <div className="settings-sections">
-                        <div className="settings-sections-container">
-                            <div className="settings-general" id="general">
-                                <div className="settings-general-container">
-                                    <span className="settings-general-header">Allgemein</span>
-                                    <div className="settings-general-language">
-                                        <span>Sprache:</span>
-                                        <select id="language" name="language">
-                                            <option value="german">Deutsch</option>
-                                            <option value="english">English</option>
-                                            <option value="french">Français</option>
-                                            <option value="spanish">Español</option>
-                                        </select>
-                                    </div>
-                                    <div className="settings-general-currency">
-                                        <span>Währung:</span>
-                                        <select id="currency" name="currency">
-                                            <option value="euro">Euro</option>
-                                            <option value="pound">Pfund</option>
-                                            <option value="us-dollar">US-Dollar</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="settings-profile" id="profile">
-                                <div className="settings-profile-container">
-                                    <span className="settings-profile-header">Profil</span>
-                                    <div className="settings-profile-forename">
-                                        <span>Vorname:</span>
-                                        <input type="text" name="forename" id="forename" placeholder="Tom" />
-                                    </div>
-                                    <div className="settings-profile-lastname">
-                                        <span>Nachname:</span>
-                                        <input type="text" name="lastname" id="lastname" placeholder="Wilke" />
-                                    </div>
-                                    <div className="settings-profile-username">
-                                        <span>Username:</span>
-                                        <input type="text" name="username" id="username" placeholder="test123" />
-                                    </div>
-                                    <div className="settings-profile-email">
-                                        <span>E-Mail:</span>
-                                        <input type="text" name="email" id="email" placeholder="test123@gmail.com" />
-                                    </div>
-                                    <div className="settings-profile-password">
-                                        <span>Passwort:</span>
-                                        <input type="password" name="password" id="password"/>
-                                    </div>
-                                    <div className="settings-profile-password-confirm">
-                                        <span>Passwort wiederholen:</span>
-                                        <input type="password" name="password-confirm" id="password-confirm"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="settings-buttons">
-                                <div className="settings-buttons-container">
-                                    <button className="save">Speichern</button>
-                                    <button className="close">Schließen</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div className="settings-nav-item">
+              <span className="settings-nav-paragraph" onClick={() => showIt("profile")}>Profile</span>
+            </div>
+          </div>
+          <div className="settings-sections">
+            <div className="settings-sections-container">
+              <div className="settings-general" id="general">
+                <div className="settings-general-container">
+                  <span className="settings-general-header">General</span>
+                  <div className="settings-general-language">
+                    <span>Langauge:</span>
+                    <select id="language" name="language">
+                      <option value="german">English</option>
+                      <option value="english">Deutsch</option>
+                      <option value="french">Français</option>
+                      <option value="spanish">Español</option>
+                    </select>
+                  </div>
+                  <div className="settings-general-currency">
+                    <span>Currency:</span>
+                    <select id="currency" name="currency">
+                      <option value="euro">Euro</option>
+                      <option value="pound">Pound</option>
+                      <option value="us-dollar">US-Dollar</option>
+                    </select>
+                  </div>
                 </div>
+              </div>
+              <div className="settings-profile" id="profile">
+                <div className="settings-profile-container">
+                  <span className="settings-profile-header">Profile</span>
+                  <div className="settings-profile-firstname">
+                    <span>Name:</span>
+                    <input ref={firstNameRef} type="text" name="firstname" id="firstname" placeholder="Name" />
+                  </div>
+                  <div className="settings-profile-lastname">
+                    <span>Lastname:</span>
+                    <input ref={lastNameRef} type="text" name="lastname" id="lastname" placeholder="Lastname" />
+                  </div>
+                  <div className="settings-profile-username">
+                    <span>Username:</span>
+                    <input ref={usernameRef} type="text" name="username" id="username" placeholder="Username" defaultValue={user?.username ?? ""} />
+                  </div>
+                  <div className="settings-profile-email">
+                    <span>E-Mail:</span>
+                    <input ref={emailRef} type="text" name="email" id="email" placeholder="Email" />
+                  </div>
+                  <div className="settings-profile-password">
+                    <span>Password:</span>
+                    <input ref={passwordRef} type="password" name="password" id="password" />
+                  </div>
+                  <div className="settings-profile-password-confirm">
+                    <span>Retype password</span>
+                    <input ref={confirmPasswordRef} type="password" name="password-confirm" id="password-confirm" />
+                  </div>
+                </div>
+              </div>
+              <div className="settings-buttons">
+                <div className="settings-buttons-container">
+                  <button className="save" onClick={saveUser}>Save</button>
+                  <button className="close">Close</button>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default Settings;

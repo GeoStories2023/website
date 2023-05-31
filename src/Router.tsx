@@ -27,7 +27,7 @@ import { User as UserType } from "@prisma/client";
 import { FetchApi } from "./FetchApi";
 
 function Router() {
-  const [user, setUser] = useState<UserType>();
+  const [user, setUser] = useState < UserType > ();
   const auth = getAuth();
   onAuthStateChanged(auth, async (fUser) => {
     if (fUser && !user) {
@@ -123,7 +123,7 @@ function Router() {
         },
         {
           path: "settings",
-          element: <Settings />,
+          element: <Settings user={user} setUser={setUser} />,
         },
         {
           path: "continents",

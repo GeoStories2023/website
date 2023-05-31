@@ -88,7 +88,7 @@
 
                             .settings-general-language,
                             .settings-general-currency,
-                            .settings-profile-forename,
+                            .settings-profile-firstname,
                             .settings-profile-lastname,
                             .settings-profile-username,
                             .settings-profile-email,
@@ -104,7 +104,7 @@
                                 width: 100%;
 
                                 #language, #currency,
-                                #forename, #lastname,
+                                #firstname, #lastname,
                                 #username, #email,
                                 #password, #password-confirm {
                                     width: 30vw;
@@ -140,7 +140,7 @@
                                 transition: all ease-in-out 0.3s;
                                 cursor: pointer;
                                 box-shadow: 0px 5px 5px 2px #1e5959bb;
-                                
+
                                 &:hover {
                                     background-color: #fff;
                                     color: #1e5959 !important;
