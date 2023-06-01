@@ -12,13 +12,13 @@ import { Tour } from "@prisma/client";
 
 function Statistics() {
   const accessToken = localStorage.getItem("accessToken") ?? "";
-  const [user, setUser] = useState < any > ();
-  const [userStatistics, setUserStatistics] = useState < any > ([]);
-  const [error, setError] = useState < any > (null);
+  const [user, setUser] = useState<any>();
+  const [userStatistics, setUserStatistics] = useState<any>([]);
+  const [error, setError] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    FetchApi.get(`users`, accessToken)
+    FetchApi.get(`/users`, accessToken)
       .then((response) => {
         setUser(response);
         setIsLoading(false);
@@ -27,7 +27,7 @@ function Statistics() {
         setError(error);
         setIsLoading(false);
       });
-    FetchApi.get(`users/statistics`, accessToken)
+    FetchApi.get(`/users/statistics`, accessToken)
       .then((response) => {
         setUserStatistics(response);
         setIsLoading(false);
@@ -41,7 +41,7 @@ function Statistics() {
   const statistics = [
     {
       name: "Countries",
-      amount: userStatistics.visitedCountries
+      amount: userStatistics?.visitedCountries
         ? Object.keys(userStatistics?.visitedCountries).length
         : 0,
       icon: <Countries size={90} />,
@@ -49,7 +49,7 @@ function Statistics() {
     },
     {
       name: "Cities",
-      amount: userStatistics.visitedCities
+      amount: userStatistics?.visitedCities
         ? Object.keys(userStatistics?.visitedCities).length
         : 0,
       icon: <Cities size={90} />,
@@ -94,21 +94,20 @@ function Statistics() {
                             <th>Name</th>
                             <th>Story-Points</th>
                           </tr>
-                          <tr>
-                            <td>1</td>
-                            <td>Lena</td>
-                            <td>40.000</td>
-                          </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>Noah</td>
-                            <td>30.000</td>
-                          </tr>
-                          <tr>
-                            <td>3</td>
-                            <td>Nils</td>
-                            <td>25.000</td>
-                          </tr>
+                          {user &&
+                            user.friends
+                              ?.sort((a: any, b: any) => {
+                                return b.friendUser.xp - a.friendUser.xp;
+                              })
+                              .map((friend: any, index: number) => {
+                                return (
+                                  <tr key={friend.id}>
+                                    <td>{index + 1}</td>
+                                    <td>{friend.friendUser.username}</td>
+                                    <td>{friend.friendUser.xp}</td>
+                                  </tr>
+                                );
+                              })}
                         </tbody>
                       </table>
                     </div>

@@ -3,36 +3,29 @@ import "@/style/Settings.scss";
 import { User } from "@prisma/client";
 import { FetchApi } from "@/FetchApi";
 
-function Settings({ user, setUser }: { user: User, setUser: any }) {
-  const accessToken = localStorage.getItem("accessToken") ?? ""
+function Settings({ user, setUser }: { user: User; setUser: any }) {
+  const accessToken = localStorage.getItem("accessToken") ?? "";
 
   // refs for all input fields
-  const firstNameRef = React.useRef<HTMLInputElement>(null);
-  const lastNameRef = React.useRef<HTMLInputElement>(null);
-  const usernameRef = React.useRef<HTMLInputElement>(null);
-  const emailRef = React.useRef<HTMLInputElement>(null);
-  const passwordRef = React.useRef<HTMLInputElement>(null);
-  const confirmPasswordRef = React.useRef<HTMLInputElement>(null);
-
-
+  const firstNameRef = React.useRef < HTMLInputElement > (null);
+  const lastNameRef = React.useRef < HTMLInputElement > (null);
+  const usernameRef = React.useRef < HTMLInputElement > (null);
+  const emailRef = React.useRef < HTMLInputElement > (null);
+  const passwordRef = React.useRef < HTMLInputElement > (null);
+  const confirmPasswordRef = React.useRef < HTMLInputElement > (null);
 
   function showIt(elementId: any) {
     var el = document.getElementById(elementId);
     if (el != null) {
       el.scrollIntoView(true);
     }
-  };
+  }
 
   function saveUser() {
-    FetchApi.post("/users", accessToken, {
+    FetchApi.put("/users", accessToken, {
       user: {
-        firstName: firstNameRef.current?.value,
-        lastName: lastNameRef.current?.value,
         username: usernameRef.current?.value,
-        email: emailRef.current?.value,
-        password: passwordRef.current?.value,
-        confirmPassword: confirmPasswordRef.current?.value
-      }
+      },
     }).then((data) => {
       setUser(data);
     });
@@ -47,10 +40,20 @@ function Settings({ user, setUser }: { user: User, setUser: any }) {
         <div className="settings-content-container">
           <div className="settings-navigation">
             <div className="settings-nav-item">
-              <span className="settings-nav-paragraph" onClick={() => showIt("general")}>General</span>
+              <span
+                className="settings-nav-paragraph"
+                onClick={() => showIt("general")}
+              >
+                General
+              </span>
             </div>
             <div className="settings-nav-item">
-              <span className="settings-nav-paragraph" onClick={() => showIt("profile")}>Profile</span>
+              <span
+                className="settings-nav-paragraph"
+                onClick={() => showIt("profile")}
+              >
+                Profile
+              </span>
             </div>
           </div>
           <div className="settings-sections">
@@ -82,33 +85,70 @@ function Settings({ user, setUser }: { user: User, setUser: any }) {
                   <span className="settings-profile-header">Profile</span>
                   <div className="settings-profile-firstname">
                     <span>Name:</span>
-                    <input ref={firstNameRef} type="text" name="firstname" id="firstname" placeholder="Name" />
+                    <input
+                      ref={firstNameRef}
+                      type="text"
+                      name="firstname"
+                      id="firstname"
+                      placeholder="Name"
+                    />
                   </div>
                   <div className="settings-profile-lastname">
                     <span>Lastname:</span>
-                    <input ref={lastNameRef} type="text" name="lastname" id="lastname" placeholder="Lastname" />
+                    <input
+                      ref={lastNameRef}
+                      type="text"
+                      name="lastname"
+                      id="lastname"
+                      placeholder="Lastname"
+                    />
                   </div>
                   <div className="settings-profile-username">
                     <span>Username:</span>
-                    <input ref={usernameRef} type="text" name="username" id="username" placeholder="Username" defaultValue={user?.username ?? ""} />
+                    <input
+                      ref={usernameRef}
+                      type="text"
+                      name="username"
+                      id="username"
+                      placeholder="Username"
+                      defaultValue={user?.username ?? ""}
+                    />
                   </div>
                   <div className="settings-profile-email">
                     <span>E-Mail:</span>
-                    <input ref={emailRef} type="text" name="email" id="email" placeholder="Email" />
+                    <input
+                      ref={emailRef}
+                      type="text"
+                      name="email"
+                      id="email"
+                      placeholder="Email"
+                    />
                   </div>
                   <div className="settings-profile-password">
                     <span>Password:</span>
-                    <input ref={passwordRef} type="password" name="password" id="password" />
+                    <input
+                      ref={passwordRef}
+                      type="password"
+                      name="password"
+                      id="password"
+                    />
                   </div>
                   <div className="settings-profile-password-confirm">
                     <span>Retype password</span>
-                    <input ref={confirmPasswordRef} type="password" name="password-confirm" id="password-confirm" />
+                    <input
+                      ref={confirmPasswordRef}
+                      type="password"
+                      name="password-confirm"
+                      id="password-confirm"
+                    />
                   </div>
                 </div>
               </div>
               <div className="settings-buttons">
                 <div className="settings-buttons-container">
-                  <button className="save" onClick={saveUser}>Save</button>
+                  <button className="save" onClick={saveUser}>
+                    Save
+                  </button>
                   <button className="close">Close</button>
                 </div>
               </div>
