@@ -1,28 +1,32 @@
-import React, { useEffect, useState } from 'react'
-import "@/style/Tourhistory.scss"
-import TourLayout from '../TourLayout'
-import tourhistoryImg from "@/assets/tourhistory.jpg"
-import { FetchApi } from '@/FetchApi'
+import React, { useEffect, useState } from "react";
+import "@/style/Tourhistory.scss";
+import TourLayout from "../TourLayout";
+import tourhistoryImg from "@/assets/tourhistory.jpg";
+import { FetchApi } from "@/FetchApi";
 
 function Tourhistory() {
-
-  const [tours, setTours] = useState([])
-  const accessToken = localStorage.getItem('accessToken') ?? ""
+  const [user, setUser] = useState < any > (null);
+  const accessToken = localStorage.getItem("accessToken") ?? "";
 
   useEffect(() => {
-    console.log("TourHistory")
-    FetchApi.get('/tours/started', accessToken).then((res) => {
-      console.log("TourHistory", res)
-      if (res) {
-        setTours(res)
-      }
-    })
-  }, [])
+    FetchApi.get(`/users`, accessToken)
+      .then((response) => {
+        setUser(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <div className="tourhistory-container">
-      <TourLayout title="Tour History" image={tourhistoryImg} tours={tours} />
+      <TourLayout
+        title="Tour History"
+        image={tourhistoryImg}
+        tours={user?.startedTours ?? []}
+      />
     </div>
-  )
+  );
 }
 
-export default Tourhistory
+export default Tourhistory;

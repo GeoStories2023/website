@@ -20,9 +20,13 @@ function TourLayout({
         <h1 style={{ color: "white" }}>{title}</h1>
       </div>
       <div className="tour-list">
-        {tours.length > 0 ? tours.map((tour: any) => {
-          return <TourItem key={tour.id} tour={tour} />;
-        }) : <h1>No tours found</h1>}
+        {tours.length > 0 ? (
+          tours.map((tour: any) => {
+            return <TourItem key={tour.id} tour={tour.tour} />;
+          })
+        ) : (
+          <h1>No tours found</h1>
+        )}
       </div>
     </div>
   );
