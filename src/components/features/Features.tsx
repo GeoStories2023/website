@@ -113,8 +113,8 @@ function Features() {
       </div>
       <div className="current-features">
         <div className="current-features-container">
-          {features.map((item) => (
-            <div className="feature-card">
+          {features.map((item, index) => (
+            <div key={item.headline + index} className="feature-card">
               <div className="feature-card-inner">
                 <div className="feature-card-front-container">
                   {item.icon}
@@ -134,8 +134,8 @@ function Features() {
           <div className="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
             <div className="roadmap-features-container">
               <h2 className="roadmap-header">Roadmap</h2>
-              {roadmap.map((item) => (
-                <div className="roadmap-feature">
+              {roadmap.map((item, index) => (
+                <div key={item.headline + index} className="roadmap-feature">
                   <div className="roadmap-feature-container">
                     {item.icon}
                     <div className="roadmap-description">
