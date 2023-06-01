@@ -7,7 +7,7 @@ import { FaCity as Cities } from "react-icons/fa";
 import { MdPhotoCamera as Tours } from "react-icons/md";
 import testProfilePicture from "@/assets/profilePicture/avatar.png";
 import { FetchApi } from "@/FetchApi";
-import { Friend, Tour, User } from "@prisma/client";
+import { Tour, User } from "@prisma/client";
 
 function User() {
   const { uid } = useParams();
@@ -39,6 +39,7 @@ function User() {
       })
       .catch((err) => {
         setError(err);
+        setIsLoading(false);
       });
   }, []);
 
@@ -117,7 +118,7 @@ function User() {
                   <div className="user-friends">
                     <div className="user-friends-container">
                       <span className="friends-title">Friends</span>
-                      {user?.friends?.map((friendItem: Friend, i) => {
+                      {user?.friends?.map((friendItem: any, i: number) => {
                         const friend: User = friendItem.friendUser;
                         return (
                           <div
