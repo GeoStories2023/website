@@ -12,7 +12,7 @@ function FriendItem({ friend, setUser }: { friend: any; setUser: any }) {
     if (friend.isPremium) {
       colorStatus = "gold";
     } else {
-      colorStatus = "transparent"
+      colorStatus = "transparent";
     }
     // switch (friend.status) {
     //   case "online": {
@@ -38,20 +38,18 @@ function FriendItem({ friend, setUser }: { friend: any; setUser: any }) {
 
   function handleRemoveFriend() {
     console.log("remove friend");
-    FetchApi.delete(`/users/friends/${friend.uid}`, accessToken).then(
-      (res) => {
-        // res is friend that got removed
-        setUser((prev: any) => {
-          console.log(res)
-          const newFriends = prev.friends.filter(
-            (friend: any) => friend.friendUserId !== res.friendUserId
-          );
-          console.log(newFriends);
-          return { ...prev, friends: newFriends };
-        });
+    FetchApi.delete(`/users/friends/${friend.uid}`, accessToken).then((res) => {
+      // res is friend that got removed
+      setUser((prev: any) => {
+        console.log(res);
+        const newFriends = prev.friends?.filter(
+          (friend: any) => friend.friendUserId !== res.friendUserId
+        );
+        console.log(newFriends);
+        return { ...prev, friends: newFriends };
       });
+    });
   }
-
 
   return (
     <div className="friend-item">

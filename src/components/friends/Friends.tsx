@@ -9,8 +9,8 @@ import Loading from "../utils/Loading/Loading";
 
 function Friends({ user, setUser }: { user: User; setUser: any }) {
   const accessToken = localStorage.getItem("accessToken") ?? "";
-  const friendSearchRef = useRef<HTMLInputElement>(null);
-  const [error, setError] = useState<string>("");
+  const friendSearchRef = useRef < HTMLInputElement > (null);
+  const [error, setError] = useState < string > ("");
   // Fetching friends from current user
 
   function handleAddFriend(e: any) {
