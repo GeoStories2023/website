@@ -12,20 +12,25 @@ function TravelDiary() {
         <span className="travel-diary-tour">{tourName}</span>
       </div>
       <div className="travel-diary-text-container">
-        <textarea className="travel-diary-text" name="tourText" id="tourText" placeholder="Trage hier deinen Eintrag ein."/>
+        <textarea
+          className="travel-diary-text"
+          name="tourText"
+          id="tourText"
+          placeholder="Trage hier deinen Eintrag ein."
+        />
         <div className="seperator"></div>
       </div>
       <div className="travel-diary-image-container">
         {Array.from(Array(8), (i) => {
-          return <Image size={250} key={i} />
+          return <Image size={250} key={i} />;
         })}
       </div>
       <div className="travel-diary-buttons">
         <div className="travel-diary-buttons-container">
-          <button className="save">Speichern</button>
-          <button className="close">Schließen</button>
+          <button className="save">Save</button>
+          <button className="close">Close</button>
         </div>
-      </div> 
+      </div>
     </div>
   );
 }
