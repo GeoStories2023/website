@@ -1,10 +1,12 @@
 import React from "react";
 import "@/style/TourItem.scss";
 import premiumBadge from "@/assets/premium_globus.svg";
+import { useNavigate } from "react-router-dom";
 
 function TourItem({ tour }: { tour: any }) {
+  const navigate = useNavigate();
   return (
-    <div className="touritem-container">
+    <div className="touritem-container" onClick={() => navigate(`${tour.id}`)}>
       <div className="row">
         <div className="col-md-4 col-lg-3">
           <div className="touritem-image"></div>

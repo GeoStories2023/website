@@ -66,6 +66,10 @@ function Router() {
               path: ":continent/:country",
               element: <Country />,
             },
+            {
+              path: ":continent/:country/:tour",
+              element: <TourOverview />,
+            },
           ],
         },
         {
@@ -118,17 +122,13 @@ function Router() {
           element: <PremiumAdvertisement />,
         },
         {
-          path: "tour-overview",
-          element: <TourOverview />,
-        },
-        {
           path: "settings",
           element: <Settings user={user} setUser={setUser} />,
         },
         {
           path: "continents",
           element: <ContinentsOverview />,
-        }
+        },
       ],
     },
     {

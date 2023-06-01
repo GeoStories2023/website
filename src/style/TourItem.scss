@@ -1,10 +1,11 @@
-.tour-list{
+.tour-list {
 }
 .touritem-container {
+  cursor: pointer;
   position: relative;
   margin: 2rem auto;
   color: white;
-  background-color: #3B8C6E;
+  background-color: #3b8c6e;
   width: 75%;
   border-radius: 10px;
   font-size: 1.25rem;
@@ -36,7 +37,7 @@
     text-align: left;
     margin-top: 1rem;
   }
-  .touritem-info-premium{
+  .touritem-info-premium {
     position: absolute;
     z-index: 100;
     bottom: 10px;
