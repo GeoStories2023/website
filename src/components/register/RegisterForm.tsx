@@ -10,13 +10,13 @@ interface PasswordInfo {
 }
 
 function RegisterForm() {
-  const passwordRef = useRef<HTMLInputElement>(null);
-  const confirmPasswordRef = useRef<HTMLInputElement>(null);
-  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef < HTMLInputElement > (null);
+  const confirmPasswordRef = useRef < HTMLInputElement > (null);
+  const emailRef = useRef < HTMLInputElement > (null);
   const navigate = useNavigate();
-  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [errorMessage, setErrorMessage] = useState < string > ("");
 
-  const [passwordInfo, setPasswordInfo] = useState<PasswordInfo[]>([
+  const [passwordInfo, setPasswordInfo] = useState < PasswordInfo[] > ([
     { status: false, message: "8 characters long" },
     { status: false, message: "At least one lowercase letter" },
     { status: false, message: "At least one uppercase letter" },
@@ -24,7 +24,7 @@ function RegisterForm() {
     { status: false, message: "At least one special character" },
     { status: false, message: "Passwords match" },
   ]);
-  let passwordOk = useRef<boolean>(false);
+  let passwordOk = useRef < boolean > (false);
 
   function validateEmail(email: string): boolean {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -94,7 +94,12 @@ function RegisterForm() {
         <div className="row">
           <div className="col-12">
             <div className="register-form-container">
-              <div className="register-form-logo-container" onClick={() => { navigate("/") }}>
+              <div
+                className="register-form-logo-container"
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
                 <p>Welcome to</p>
                 <div className="register-form-logo">
                   <img src={logo} alt="Logo" />
@@ -188,7 +193,13 @@ function RegisterForm() {
                   </div>
                   <div className="register-form-button pt-4 pb-4">
                     <button>REGISTER</button>
-                    {errorMessage ? <div className="register-error-message">{errorMessage}</div> : "ERROR MESSSAGES"}
+                    {errorMessage ? (
+                      <div className="register-error-message">
+                        {errorMessage}
+                      </div>
+                    ) : (
+                      ""
+                    )}
                     <p>
                       Already have an account? Login <a href="/login">here</a>
                     </p>
