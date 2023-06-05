@@ -4,7 +4,6 @@ import {
   MdOutlineExplore as Explore,
   MdTrendingUp as Points,
   MdPercent as Percentage,
-  MdQuestionAnswer as Dialog,
 } from "react-icons/md";
 import { BiBrain as Brain, BiLeaf as Sustainabilty } from "react-icons/bi";
 import { GiAchievement as Achievement } from "react-icons/gi";
@@ -15,6 +14,7 @@ import {
   BsUniversalAccess as Accessibility,
 } from "react-icons/bs";
 import { TbAugmentedReality2 as Ai } from "react-icons/tb";
+import { FaUserFriends as Friends } from "react-icons/fa";
 
 function Features() {
   const features = [
@@ -43,8 +43,8 @@ function Features() {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde iusto aspernatur quod porro totam, hic dolorem illo beatae aut expedita at pariatur eos voluptatem doloremque quaerat facilis! Nobis, est qui.",
     },
     {
-      icon: <Dialog className="current-feature-icon" />,
-      headline: "Austausch mit Freunden",
+      icon: <Friends className="current-feature-icon" />,
+      headline: "Messe dich mit Freunden",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde iusto aspernatur quod porro totam, hic dolorem illo beatae aut expedita at pariatur eos voluptatem doloremque quaerat facilis! Nobis, est qui.",
     },
