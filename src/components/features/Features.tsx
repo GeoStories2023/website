@@ -62,42 +62,42 @@ function Features() {
       headline: "Nachhaltigkeit",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam soluta, quae quod praesentium tempore aliquam facere quasi atque dolorum quaerat possimus harum quas explicabo laborum nisi, earum itaque deleniti non.",
-      quartal: "Q1 23",
+      quartal: "Q1 24",
     },
     {
       icon: <Weather className="roadmap-icon" />,
       headline: "Wettervorhersagen",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam soluta, quae quod praesentium tempore aliquam facere quasi atque dolorum quaerat possimus harum quas explicabo laborum nisi, earum itaque deleniti non.",
-      quartal: "Q1 23",
+      quartal: "Q1 24",
     },
     {
       icon: <Law className="roadmap-icon" />,
       headline: "Verhaltensregeln",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam soluta, quae quod praesentium tempore aliquam facere quasi atque dolorum quaerat possimus harum quas explicabo laborum nisi, earum itaque deleniti non.",
-      quartal: "Q2 23",
+      quartal: "Q2 24",
     },
     {
       icon: <EscapeRoom className="roadmap-icon" />,
       headline: "Escaperoom-Stories",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam soluta, quae quod praesentium tempore aliquam facere quasi atque dolorum quaerat possimus harum quas explicabo laborum nisi, earum itaque deleniti non.",
-      quartal: "Q3 23",
+      quartal: "Q3 24",
     },
     {
       icon: <Accessibility className="roadmap-icon" />,
       headline: "Barrierefreiheit",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam soluta, quae quod praesentium tempore aliquam facere quasi atque dolorum quaerat possimus harum quas explicabo laborum nisi, earum itaque deleniti non.",
-      quartal: "Q3 23",
+      quartal: "Q3 24",
     },
     {
       icon: <Ai className="roadmap-icon" />,
       headline: "Augmented Reality",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam soluta, quae quod praesentium tempore aliquam facere quasi atque dolorum quaerat possimus harum quas explicabo laborum nisi, earum itaque deleniti non.",
-      quartal: "Q4 23",
+      quartal: "Q4 24",
     },
   ];
 
