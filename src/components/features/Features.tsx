@@ -13,9 +13,8 @@ import { GoLaw as Law } from "react-icons/go";
 import {
   BsDoorOpenFill as EscapeRoom,
   BsUniversalAccess as Accessibility,
-  BsShieldFillCheck as Privacy,
 } from "react-icons/bs";
-import { IoEarth as Icon } from "react-icons/io5";
+import { TbAugmentedReality2 as Ai } from "react-icons/tb";
 
 function Features() {
   const features = [
@@ -94,8 +93,8 @@ function Features() {
       quartal: "Q3 23",
     },
     {
-      icon: <Privacy className="roadmap-icon" />,
-      headline: "Datenschutz",
+      icon: <Ai className="roadmap-icon" />,
+      headline: "Augmented Reality",
       content:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam soluta, quae quod praesentium tempore aliquam facere quasi atque dolorum quaerat possimus harum quas explicabo laborum nisi, earum itaque deleniti non.",
       quartal: "Q4 23",
