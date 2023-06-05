@@ -65,6 +65,9 @@ function Header() {
               </a>
               <div className="menu_open">
                 <ul>
+                  <Link to={"/continents"}>
+                    <li>Touren</li>
+                  </Link>
                   <Link to={"/features"}>
                     <li>Features</li>
                   </Link>
