@@ -39,37 +39,13 @@ function Country() {
       });
   }, [country]);
 
-  // const countryInfo = {
-  //   name: `CountryName (url: ${country})`,
-  //   tours: [
-  //     {
-  //       id: 1,
-  //       name: "Bremer Altstadt-Tour",
-  //       description:
-  //         "Ganz viel Text kann dann hier hinkkommen. Lorem impsum dolor sit amet, consetetur sadipscing elitr.",
-  //       duration: 45,
-  //       city: "Bremen",
-  //       premium: true,
-  //     },
-  //     {
-  //       id: 2,
-  //       name: "Bremer Altstadt-Tour",
-  //       description:
-  //         "Ganz viel Text kann dann hier hinkkommen. Lorem impsum dolor sit amet, consetetur sadipscing elitr.",
-  //       duration: 45,
-  //       city: "Bremen",
-  //       premium: false,
-  //     },
-  //   ],
-  // };
-
   return (
     <div className="country-container">
       {countryInfo && tours && (
         <TourLayout
           title={countryInfo.name}
           image={defaultImage}
-          tours={tours}
+          tours={tours ?? []}
         />
       )}
       {error && <h1>{error}</h1>}

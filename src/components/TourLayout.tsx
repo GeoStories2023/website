@@ -13,6 +13,7 @@ function TourLayout({
   header?: any;
   image?: any;
 }) {
+  console.log("ToursLayout", tours)
   return (
     <div className="tour-layout-container">
       <div className="tour-layout-header">
@@ -22,7 +23,12 @@ function TourLayout({
       <div className="tour-list">
         {tours.length > 0 ? (
           tours.map((tour: any) => {
-            return <TourItem key={tour.id} tour={tour.tour} />;
+            if (tour.tour) {
+              return <TourItem key={tour.tour.id} tour={tour.tour} />;
+            }
+            else {
+              return <TourItem key={tour.id} tour={tour} />;
+            }
           })
         ) : (
           <h1>No tours found</h1>

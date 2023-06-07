@@ -4,6 +4,7 @@ import { BsFillImageFill as Image } from "react-icons/bs";
 
 function TravelDiary() {
   const tourName = "Bremer Altstadt Tour";
+  let count = 0
 
   return (
     <div className="travel-diary-container">
@@ -22,7 +23,8 @@ function TravelDiary() {
       </div>
       <div className="travel-diary-image-container">
         {Array.from(Array(8), (i) => {
-          return <Image size={250} key={i} />;
+          count++;
+          return <Image size={250} key={count} />;
         })}
       </div>
       <div className="travel-diary-buttons">

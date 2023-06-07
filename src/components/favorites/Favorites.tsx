@@ -1,32 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "@/style/Favorites.scss";
 import favoritesImg from "@/assets/favorites.jpg";
 import TourLayout from "../TourLayout";
+import { FetchApi } from "@/FetchApi";
 
 function Favorites() {
   // Fetching favorites from current user
-  const favorites = [
-    {
-      id: 1,
-      name: "Bremer Altstadt-Tour",
-      description: "Ganz viel Text kann dann hier hinkkommen. Lorem impsum dolor sit amet, consetetur sadipscing elitr.",
-      duration: 45,
-      city: "Bremen",
-      premium: true,
-    },
-    {
-      id: 2,
-      name: "Bremer Altstadt-Tour",
-      description: "Ganz viel Text kann dann hier hinkkommen. Lorem impsum dolor sit amet, consetetur sadipscing elitr.",
-      duration: 45,
-      city: "Bremen",
-      premium: false,
-    },
-  ];
+  const [favoriteTours, setFavoriteTours] = useState<any>(null);
+  const accessToken = localStorage.getItem("accessToken") ?? "";
+
+  useEffect(() => {
+    FetchApi.get(`/users`, accessToken)
+      .then((response) => {
+        setFavoriteTours(response.favoriteTours);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div className="favorites-container">
-      <TourLayout title="Favorites" image={favoritesImg} tours={favorites} />
+      <TourLayout title="Favorites" image={favoritesImg} tours={favoriteTours ?? []} />
     </div>
   );
 }

@@ -8,7 +8,6 @@ function TourItem({ tour }: { tour: any }) {
   const continent = tour.city?.country?.continent?.name ?? "No continent";
   const country = tour.city?.country?.name ?? "No country";
   const city = tour.city?.name ?? "No city";
-  console.log(tour);
   return (
     <div
       className="touritem-container"
