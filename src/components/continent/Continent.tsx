@@ -19,7 +19,7 @@ function Continent() {
   const { continent } = useParams();
   const navigate = useNavigate();
 
-  const countrySearchRef = useRef<HTMLInputElement>(null);
+  const countrySearchRef = useRef < HTMLInputElement > (null);
   // Fetch Continent Info (name, countries, popular tours)
 
   const continentInfo = {
@@ -302,7 +302,7 @@ function Continent() {
   }
 
   useEffect(() => {
-      window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
   });
 
   const countryFlags = handleCountryFlags();
@@ -328,8 +328,8 @@ function Continent() {
           removeArrowOnDeviceType={["tablet", "mobile"]}
           className="continent-country-carousel"
         >
-          {countryFlags.map((item: any) => (
-            <div className="single-item">
+          {countryFlags.map((item: any, index: number) => (
+            <div className="single-item" key={item.name + index}>
               <span
                 className={`fi fi-${item.flag} country-img`}
                 onClick={() => {
