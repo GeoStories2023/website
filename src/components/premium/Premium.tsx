@@ -78,8 +78,8 @@ function Premium() {
       </div>
       <div className="advantages">
         <div className="advantages-container">
-          {content.map((item) => (
-            <div className="advantage">
+          {content.map((item, index) => (
+            <div key={index} className="advantage">
               <div className="row">
                 <div className="col-2 col-xl-1">{item.icon}</div>
                 <div className="col-10 col-xl-11">
