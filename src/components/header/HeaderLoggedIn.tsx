@@ -132,6 +132,9 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
           </a>
           <div className="menu_open">
             <ul>
+              <Link to={"/settings"}>
+                <li>Einstellungen</li>
+              </Link>
               <Link to={"/statistics"}>
                 <li>Statistiken</li>
               </Link>
