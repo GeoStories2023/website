@@ -24,7 +24,6 @@ function User() {
     }
     FetchApi.get(`/users/${uid}`, accessToken)
       .then((res) => {
-        console.log(res);
         setUser(res);
         setIsLoading(false);
       })
@@ -33,8 +32,6 @@ function User() {
       });
     FetchApi.get(`/users/statistics/${uid}`, accessToken)
       .then((res) => {
-        console.log("stats", res);
-        console.log(Object.keys(res.visitedCities).length);
         setStatistics(res);
       })
       .catch((err) => {

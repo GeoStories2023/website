@@ -13,7 +13,6 @@ function TourLayout({
   header?: any;
   image?: any;
 }) {
-  console.log("ToursLayout", tours)
   return (
     <div className="tour-layout-container">
       <div className="tour-layout-header">

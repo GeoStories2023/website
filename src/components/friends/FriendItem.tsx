@@ -37,15 +37,12 @@ function FriendItem({ friend, setUser }: { friend: any; setUser: any }) {
   handleStatusColor();
 
   function handleRemoveFriend() {
-    console.log("remove friend");
     FetchApi.delete(`/users/friends/${friend.uid}`, accessToken).then((res) => {
       // res is friend that got removed
       setUser((prev: any) => {
-        console.log(res);
         const newFriends = prev.friends?.filter(
           (friend: any) => friend.friendUserId !== res.friendUserId
         );
-        console.log(newFriends);
         return { ...prev, friends: newFriends };
       });
     });
