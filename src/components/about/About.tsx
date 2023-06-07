@@ -76,8 +76,8 @@ function About() {
       <section className="about-team">
         <span className="team-title">Team</span>
         <div className="team-cards-container">
-          {team.map((item) => (
-            <div className="team-card-container">
+          {team.map((item, index) => (
+            <div key={index} className="team-card-container">
               {item.icon}
               <span className="team-member-name">{item.name}</span>
               <span className="team-member-description">{item.content}</span>
