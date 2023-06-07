@@ -18,7 +18,6 @@ function TourOverview() {
     FetchApi.get(`/tours/${tour}`, accessToken)
       .then((tour) => {
         setTourInfo(tour);
-        console.log(tour);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -90,8 +89,6 @@ function TourOverview() {
 
     return [day, month, year].join(".");
   }
-  console.log(tour);
-  console.log(error);
 
   return (
     <>
