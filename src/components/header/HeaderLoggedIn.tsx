@@ -33,7 +33,7 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
   }, []);
 
   async function getLevelName() {
-    FetchApi.get(`/levels/byXp/${user.xp}`, accessToken)
+    FetchApi.get(`/levels/byXp/${user.xp + 1}`, accessToken)
       .then((res) => {
         if (res) {
           setLevelName(res.name); // Set level name
