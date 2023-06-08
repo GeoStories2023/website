@@ -38,7 +38,7 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
         if (res) {
           setLevelName(res.name); // Set level name
         } else {
-          setLevelName("Not Found");
+          setLevelName("Beginner");
         }
       })
       .catch((err) => {
@@ -93,6 +93,14 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
             className="premium-badge"
           />
         )}
+        <div className="header-username-container">
+          <ProfilePicture
+            onClick={() => {
+              navigate(`/users/${user.uid}`);
+            }}
+          />
+          <div className="header-username">{user.username}</div>
+        </div>
         <div className="level-container">
           <span className="level-title">
             Level: {level} - {levelName}
@@ -113,12 +121,6 @@ function HeaderLoggedIn({ user, setUser }: { user: User; setUser: any }) {
           </div>
         </div>
         <div className="icons">
-          <ProfilePicture
-            onClick={() => {
-              navigate(`/users/${user.uid}`);
-            }}
-          />
-          <div className="header-username">{user.username}</div>
           <Logout onClick={handleSignOut} />
         </div>
         <div className="navigation">

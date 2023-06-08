@@ -349,6 +349,21 @@ header {
         }
       }
 
+      .header-username-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .header-username {
+          color: white;
+          font-size: 1.2rem;
+          font-weight: bold;
+        }
+      }
+      svg {
+        width: 2.6rem;
+        height: 2.6rem;
+        margin-left: 1rem;
+      }
       .icons {
         position: absolute;
         top: 1rem;
@@ -359,11 +374,6 @@ header {
           width: 2.6rem;
           height: 2.6rem;
           margin-left: 1rem;
-        }
-        .header-username {
-          color: white;
-          font-size: 1.2rem;
-          font-weight: bold;
         }
       }
     }
@@ -385,7 +395,7 @@ header {
     }
 
     .level-container {
-      margin-right: 9rem;
+      margin-right: 6rem;
     }
   }
 }
