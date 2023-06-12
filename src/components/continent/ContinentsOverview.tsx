@@ -21,7 +21,7 @@ function ContinentsOverview() {
       navigate: (
         <button
           onClick={() => {
-            navigate("/tours/north%20america");
+            navigate("/tours/north-america");
           }}
         >
           <img src={northAmerica} alt="Nordamerika" />
@@ -57,7 +57,7 @@ function ContinentsOverview() {
       navigate: (
         <button
           onClick={() => {
-            navigate("/tours/south%20america");
+            navigate("/tours/south-america");
           }}
         >
           <img src={southAmerica} alt="Südamerika" />

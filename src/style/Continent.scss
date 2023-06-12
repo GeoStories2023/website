@@ -18,11 +18,13 @@
       bottom: 15ch;
       left: 50%;
       transform: translateX(-50%);
+      width: 100%;
       h1 {
         color: #fff;
         font-weight: bold;
         text-shadow: 3px 3px 3px #3b8c6e;
         text-transform: uppercase;
+        width: 100%;
       }
     }
   }
@@ -57,23 +59,23 @@
     }
   }
 
-  .continent-country-search-container{
+  .continent-country-search-container {
     margin-bottom: 2rem;
-    .continent-country-search-title{
+    .continent-country-search-title {
       color: white;
     }
-    form{
+    form {
       display: flex;
       flex-direction: row;
       gap: 1rem;
       justify-content: center;
       align-items: center;
-      input{
+      input {
         padding: 0.8rem 0.5rem;
         border-radius: 5px;
         border: none;
       }
-      button{
+      button {
         padding: 0.8rem 1.5rem;
         border-radius: 5px;
         font-weight: bold;

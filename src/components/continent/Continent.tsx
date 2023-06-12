@@ -156,7 +156,7 @@ function Continent() {
           },
         ];
         break;
-      case "northamerica":
+      case "north-america":
         arr = [
           {
             name: "Canada",
@@ -180,7 +180,7 @@ function Continent() {
           },
         ];
         break;
-      case "southamerica":
+      case "south-america":
         arr = [
           {
             name: "Venezuela",
@@ -281,10 +281,10 @@ function Continent() {
       case "europe":
         continentImage = Europe;
         break;
-      case "northamerica":
+      case "north-america":
         continentImage = NorthAmerica;
         break;
-      case "southamerica":
+      case "south-america":
         continentImage = SouthAmerica;
         break;
       case "oceania":

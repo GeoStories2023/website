@@ -74,7 +74,7 @@ function HomeDashboard({ user }: { user: User }) {
       navigate: (
         <button
           onClick={() => {
-            navigate("/tours/northamerica");
+            navigate("/tours/north-america");
           }}
         >
           <img src={northAmerica} alt="Nordamerika" />
@@ -110,7 +110,7 @@ function HomeDashboard({ user }: { user: User }) {
       navigate: (
         <button
           onClick={() => {
-            navigate("/tours/southamerica");
+            navigate("/tours/south-america");
           }}
         >
           <img src={southAmerica} alt="Südamerika" />
