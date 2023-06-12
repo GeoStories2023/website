@@ -51,13 +51,21 @@ function HomeDashboard({ user }: { user: User }) {
       img: rome,
       headline: "Erkunde die Museen von Rom",
       content: "Du hast Lust die Museums-Tour in Rom?",
-      link: <a href="">Weiterlesen</a>,
+      link: (
+        <a href="http://localhost:5173/tours/Europe/Italy/c03737ab-64db-4ea5-9b62-e91cfd471097">
+          Weiterlesen
+        </a>
+      ),
     },
     {
       img: hamburg,
       headline: "Das deutsche Venedig",
       content: "Erkunde die Brückenstadt im Norden Deutschlands.",
-      link: <a href="">Zur Roadmap</a>,
+      link: (
+        <a href="http://localhost:5173/tours/Europe/Germany/ccb5ef39-33a6-439c-813e-eeed37867769">
+          Weiterlesen
+        </a>
+      ),
     },
     {
       img: london,
