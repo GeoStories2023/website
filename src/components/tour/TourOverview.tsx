@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "@/style/TourOverview.scss";
-import hamburg from "@/assets/img-dashboard-tours/hamburg.jpg";
+import tourPicture from "@/assets/tourPicture.jpg";
 import TourStepItem from "./TourStepItem";
 import { useParams } from "react-router-dom";
 import { FetchApi } from "@/FetchApi";
@@ -8,9 +8,9 @@ import Loading from "../utils/Loading/Loading";
 
 function TourOverview() {
   const { tour } = useParams();
-  const [tourInfo, setTourInfo] = useState < any > (null);
+  const [tourInfo, setTourInfo] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState < any > (null);
+  const [error, setError] = useState<any>(null);
   const accessToken = localStorage.getItem("accessToken") ?? "";
 
   useEffect(() => {
@@ -103,7 +103,7 @@ function TourOverview() {
               <div className="tour-details">
                 <div className="tour-details-container">
                   <img
-                    src={hamburg}
+                    src={tourPicture}
                     alt="tourPicture"
                     className="tour-picture"
                   />
