@@ -1,10 +1,7 @@
 .statistics-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    width: 100%;
     color: #1E5959;
-    margin: 4rem 1.6rem;
+    padding: 1rem;
 
     .statistics-title {
         font-size: 3.5rem;

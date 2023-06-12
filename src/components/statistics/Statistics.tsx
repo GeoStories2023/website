@@ -65,57 +65,55 @@ function Statistics() {
   ];
 
   return (
-    <div className="statistics-container">
-      <div className="">
-        <span className="statistics-title">Statistics</span>
-        <div className="statistics-items">
-          <div className="statistics-items-container">
-            <section className="statistic-cards">
-              <div className="row">
-                <div className="col-12 col-lg-8">
-                  <div className="row ">
-                    {statistics.map((statistics: any) => {
-                      return (
-                        <StatisticItem
-                          key={statistics.id}
-                          statistics={statistics}
-                        />
-                      );
-                    })}
-                  </div>
+    <div className="statistics-container">/
+      <span className="statistics-title">Statistics</span>
+      <div className="statistics-items">
+        <div className="statistics-items-container">
+          <section className="statistic-cards">
+            <div className="row">
+              <div className="col-12 col-lg-8">
+                <div className="row ">
+                  {statistics.map((statistics: any) => {
+                    return (
+                      <StatisticItem
+                        key={statistics.id}
+                        statistics={statistics}
+                      />
+                    );
+                  })}
                 </div>
-                <div className="col-12 col-lg-4">
-                  <div className="statistics-friends">
-                    <div className="statistics-friends-container">
-                      <table>
-                        <tbody>
-                          <tr>
-                            <th>Place</th>
-                            <th>Name</th>
-                            <th>Story-Points</th>
-                          </tr>
-                          {user &&
-                            user.friends
-                              ?.sort((a: any, b: any) => {
-                                return b.friendUser.xp - a.friendUser.xp;
-                              })
-                              .map((friend: any, index: number) => {
-                                return (
-                                  <tr key={friend.id}>
-                                    <td>{index + 1}</td>
-                                    <td>{friend.friendUser.username}</td>
-                                    <td>{friend.friendUser.xp}</td>
-                                  </tr>
-                                );
-                              })}
-                        </tbody>
-                      </table>
-                    </div>
+              </div>
+              <div className="col-12 col-lg-4">
+                <div className="statistics-friends">
+                  <div className="statistics-friends-container">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <th>Place</th>
+                          <th>Name</th>
+                          <th>Story-Points</th>
+                        </tr>
+                        {user &&
+                          user.friends
+                            ?.sort((a: any, b: any) => {
+                              return b.friendUser.xp - a.friendUser.xp;
+                            })
+                            .map((friend: any, index: number) => {
+                              return (
+                                <tr key={friend.id}>
+                                  <td>{index + 1}</td>
+                                  <td>{friend.friendUser.username}</td>
+                                  <td>{friend.friendUser.xp}</td>
+                                </tr>
+                              );
+                            })}
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
-            </section>
-          </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>
