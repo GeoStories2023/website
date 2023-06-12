@@ -28,48 +28,48 @@ function TourOverview() {
 
   const tourSteps = [
     {
-      name: "Hafen",
+      name: "Kirche St. Georg",
       category: "sight",
       id: 1,
     },
     {
-      name: "Café",
-      category: "food",
+      name: "See Brücke",
+      category: "sight",
       id: 2,
     },
     {
-      name: "Shop",
-      category: "shop",
+      name: "Café Müller",
+      category: "food",
       id: 3,
     },
     {
-      name: "Hafen 2",
+      name: "Bürger Denkmal",
       category: "sight",
       id: 4,
     },
     {
-      name: "Café 2",
-      category: "food",
+      name: "Sommerwiese",
+      category: "sight",
       id: 5,
     },
     {
-      name: "Shop 2",
+      name: "Touri Shop Mayer",
       category: "shop",
       id: 6,
     },
     {
-      name: "Hafen 3",
+      name: "Turm der Freiheit",
       category: "sight",
       id: 4,
     },
     {
-      name: "Café 3",
-      category: "food",
+      name: "Straße des Südens",
+      category: "sight",
       id: 5,
     },
     {
-      name: "Shop 3",
-      category: "shop",
+      name: "Stadtrestaurant",
+      category: "food",
       id: 6,
     },
   ];
