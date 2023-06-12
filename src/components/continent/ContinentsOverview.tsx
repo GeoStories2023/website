@@ -8,20 +8,20 @@ import africa from "@/assets/img-dashboard/continent-africa.svg";
 import asia from "@/assets/img-dashboard/continent-asia.svg";
 import oceania from "@/assets/img-dashboard/continent-oceania.svg";
 
-function ContinentsOverview () {
-    const navigate = useNavigate();
+function ContinentsOverview() {
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-    }, []);
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, []);
 
-    const continents = [
+  const continents = [
     {
       title: "Nordamerika",
       navigate: (
         <button
           onClick={() => {
-            navigate("/tours/northamerica");
+            navigate("/tours/north%20america");
           }}
         >
           <img src={northAmerica} alt="Nordamerika" />
@@ -57,7 +57,7 @@ function ContinentsOverview () {
       navigate: (
         <button
           onClick={() => {
-            navigate("/tours/southamerica");
+            navigate("/tours/south%20america");
           }}
         >
           <img src={southAmerica} alt="Südamerika" />
@@ -90,34 +90,34 @@ function ContinentsOverview () {
     },
   ];
 
-    return(
-        <div className="continents-overview-container">
+  return (
+    <div className="continents-overview-container">
+      <div className="continents-header">
+        <span className="continents-title">Continents</span>
+      </div>
+      <div className="continents-content">
+        <div className="continents-content-container">
+          <div className="continents">
             <div className="continents-header">
-                <span className="continents-title">Continents</span>
+              <span>Choose your continent for the next adventure</span>
             </div>
-            <div className="continents-content">
-                <div className="continents-content-container">
-                    <div className="continents">
-                        <div className="continents-header">
-                            <span>Choose your continent for the next adventure</span>
-                        </div>
-                        <div className="continents-button-container" id="continent-list">
-                            <div className="row">
-                                {continents.map((item, i) => (
-                                    <div className="col-sm-6 col-lg-4" key={i}>
-                                        <div className="continents-image">
-                                            {item.navigate}
-                                            <span className="continents-title">{item.title}</span>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+            <div className="continents-button-container" id="continent-list">
+              <div className="row">
+                {continents.map((item, i) => (
+                  <div className="col-sm-6 col-lg-4" key={i}>
+                    <div className="continents-image">
+                      {item.navigate}
+                      <span className="continents-title">{item.title}</span>
                     </div>
-                </div>
+                  </div>
+                ))}
+              </div>
             </div>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default ContinentsOverview;
