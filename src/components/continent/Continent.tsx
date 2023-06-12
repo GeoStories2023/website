@@ -19,7 +19,7 @@ function Continent() {
   const { continent } = useParams();
   const navigate = useNavigate();
 
-  const countrySearchRef = useRef < HTMLInputElement > (null);
+  const countrySearchRef = useRef<HTMLInputElement>(null);
   // Fetch Continent Info (name, countries, popular tours)
 
   const continentInfo = {
