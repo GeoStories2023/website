@@ -35,7 +35,7 @@ function HomeDashboard({ user }: { user: User }) {
       img: vision,
       headline: "Unsere Zukunftspläne",
       content: "Natürlich wollen wir uns weiterentwicklen.",
-      link: <a href="">Zur Roadmap</a>,
+      link: <a href="/features">Zur Roadmap</a>,
     },
     {
       img: work,
