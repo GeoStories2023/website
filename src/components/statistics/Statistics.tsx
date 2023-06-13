@@ -65,7 +65,7 @@ function Statistics() {
   ];
 
   return (
-    <div className="statistics-container">/
+    <div className="statistics-container">
       <span className="statistics-title">Statistics</span>
       <div className="statistics-items">
         <div className="statistics-items-container">
