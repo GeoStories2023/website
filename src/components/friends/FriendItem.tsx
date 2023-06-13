@@ -9,29 +9,24 @@ function FriendItem({ friend, setUser }: { friend: any; setUser: any }) {
   let colorStatus = "";
 
   function handleStatusColor() {
-    if (friend.isPremium) {
-      colorStatus = "gold";
-    } else {
-      colorStatus = "transparent";
+    switch (friend.status) {
+      case "On an adventure": {
+        colorStatus = "gold";
+        break;
+      }
+      case "At home": {
+        colorStatus = "green";
+        break;
+      }
+      case "Not available": {
+        colorStatus = "darkred";
+        break;
+      }
+      default: {
+        colorStatus = "white";
+        break;
+      }
     }
-    // switch (friend.status) {
-    //   case "online": {
-    //     colorStatus = "green";
-    //     break;
-    //   }
-    //   case "offline": {
-    //     colorStatus = "darkred";
-    //     break;
-    //   }
-    //   case "busy": {
-    //     colorStatus = "gold";
-    //     break;
-    //   }
-    //   default: {
-    //     colorStatus = "white";
-    //     break;
-    //   }
-    // }
   }
 
   handleStatusColor();
